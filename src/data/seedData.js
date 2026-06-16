@@ -312,6 +312,27 @@ export const LESSONS = [
     content:'A food chain shows what eats what in nature. It always starts with a plant (producer). Then comes a plant-eater (herbivore), then a meat-eater (carnivore). Example: Grass → Grasshopper → Frog → Eagle. Energy passes along the chain.',
     keyPoints:['Food chains start with producers (plants)','Herbivores eat plants; carnivores eat animals','Energy flows from one organism to the next'] },
 
+  // Grade 4 Afrikaans (CAPS-aligned)
+  { grade:4, subject:'afrikaans', title:'Selfstandige Naamwoorde (Nouns)', emoji:'📝',
+    content:'\'n Selfstandige naamwoord is die naam van \'n persoon, plek, dier of ding.\n\n👤 Persone: onderwyser, kind, meisie\n📍 Plekke: skool, dorp, Suid-Afrika\n🐘 Diere: olifant, kat, voël\n🪑 Dinge: tafel, boek, bal\n\nEienaamwoorde begin altyd met \'n hoofletter: Pieter, Kaapstad, Suid-Afrika.\nGewone naamwoorde begin met \'n kleinletter: seun, stad, land.',
+    keyPoints:['\'n Selfstandige naamwoord noem \'n persoon, plek, dier of ding','Eienaamwoorde (name) begin met \'n hoofletter','Gewone selfstandige naamwoorde begin met \'n kleinletter','Meervoud: voeg -e, -s, of -ers by (bv. boek → boeke, seun → seuns)'] },
+
+  { grade:4, subject:'afrikaans', title:'Werkwoorde (Verbs)', emoji:'🏃',
+    content:'\'n Werkwoord is \'n aksiewoord — dit wys wat iemand of iets DOEN of IS.\n\n✅ Teenwoordige tyd (nou): Ek LOOP skool toe. Sy LEES \'n boek.\n⏪ Verlede tyd (toe): Ek HET gister gespeel. Hy HET die kos geëet.\n⏩ Toekomende tyd (later): Ons SAL môre oefen.\n\nDie hulpwerkwoord "het" help ons die verlede tyd vorm:\nEk het geloop. Jy het geëet. Hulle het gespeel.',
+    keyPoints:['Werkwoorde wys aksie of toestand','Teenwoordige tyd: ek loop, hy eet','Verlede tyd gebruik "het" + ge-: ek het geloop','Toekomende tyd gebruik "sal": ek sal loop'] },
+
+  { grade:4, subject:'afrikaans', title:'Byvoeglike Naamwoorde (Adjectives)', emoji:'🌈',
+    content:'\'n Byvoeglike naamwoord BESKRYF \'n selfstandige naamwoord. Dit vertel ons hoe iets lyk, voel, klink of ruik.\n\nVoorbeelde:\n• Die GROOT boom. (groot beskryf die boom)\n• \'n ROOI appel. (rooi beskryf die appel)\n• Die KLEIN hond. (klein beskryf die hond)\n\nWanneer \'n byvoeglike naamwoord voor \'n naamwoord staan, kry dit soms \'n -e uitgang:\n• groot → die groot seun / \'n groot-e seun\n• mooi → die mooi kind\n• lekker → lekker kos',
+    keyPoints:['Byvoeglike naamwoorde beskryf selfstandige naamwoorde','Hulle vertel hoe iets lyk, voel of ruik','Voorbeelde: groot, klein, rooi, mooi, lekker, vinnig','Byvoeglike naamwoorde antwoord die vraag: "Watter soort?"'] },
+
+  { grade:4, subject:'afrikaans', title:'Sinsbou en Leestekens', emoji:'✏️',
+    content:'\'n SIN is \'n groep woorde wat \'n volledige gedagte uitdruk.\n\nElke sin het:\n1. \'n ONDERWERP (wie of wat doen iets?): Die seun...\n2. \'n GESEGDE (wat doen hy/sy?): ...hardloop.\n\nLeestekens:\n• . Punt — gebruik aan die einde van \'n sin\n• ? Vraagteken — gebruik aan die einde van \'n vraag\n• ! Uitroepteken — gebruik as iets opwindend of dringend is\n• , Komma — gebruik om items te skei\n\nRëels:\n✅ Elke sin begin met \'n HOOFLETTER.\n✅ Elke sin eindig met \'n leesteken.',
+    keyPoints:['Elke sin het \'n onderwerp en \'n gesegde','Sinne begin met \'n hoofletter','\'n Punt (.) eindig \'n stelling','\'n Vraagteken (?) eindig \'n vraag','\'n Uitroepteken (!) wys sterk gevoel'] },
+
+  { grade:4, subject:'afrikaans', title:'Meervoud en Verkleinwoorde', emoji:'🔡',
+    content:'MEERVOUD — meer as een:\n• -e: boek → boeke, seun → seuns, tafel → tafels\n• -ers: kind → kinders, broer → broers\n• Onreëlmatig: mens → mense, vrou → vroue\n\nVERKLEINWOORDE — kleiner of liefliker weergawe:\nVoeg -tjie, -jie, of -ie by:\n• kat → katjie 🐱\n• boom → boompie 🌱\n• hond → hondjie 🐶\n• huis → huisie 🏠\n• bal → balletjie ⚽\n\nVerkleinwoorde kan ook liefde of kleinheid aandui:\n"Kom hier, my kindjie!"',
+    keyPoints:['Meervoud wys meer as een (bv. boek → boeke)','Voeg -e, -s, -ers by vir meervoud','Verkleinwoorde voeg -tjie of -jie by (bv. kat → katjie)','Verkleinwoorde wys dat iets klein of oulik is'] },
+
   // Grade 7 Maths
   { grade:7, subject:'maths', title:'Introduction to Algebra', emoji:'🔣',
     content:'Algebra uses letters (like x and y) to represent unknown numbers. Example: If x + 5 = 12, what is x? We solve by doing the opposite operation: x = 12 - 5 = 7. Always do the same thing to BOTH sides of the equation.',
