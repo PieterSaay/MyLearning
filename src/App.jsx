@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import { seedDatabase } from './db/seed'
 import HomeScreen from './screens/HomeScreen'
 import SubjectScreen from './screens/SubjectScreen'
@@ -15,7 +15,7 @@ export default function App() {
   }, [])
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<HomeScreen />} />
         <Route path="/grade/:grade" element={<SubjectScreen />} />
@@ -25,6 +25,6 @@ export default function App() {
         <Route path="/grade/:grade/subject/:subject/activity/flashcard" element={<FlashcardScreen />} />
         <Route path="/grade/:grade/subject/:subject/activity/game" element={<GameScreen />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
