@@ -383,6 +383,23 @@ export const FLASHCARDS = [
   { grade:4, subject:'science', front:'How many planets in our solar system?', back:'8 planets', emoji:'🪐' },
   { grade:4, subject:'science', front:'What force keeps us on the ground?', back:'Gravity', emoji:'🌍' },
 
+  // Grade 4 Afrikaans (CAPS-aligned)
+  { grade:4, subject:'afrikaans', front:'Wat is \'n selfstandige naamwoord?', back:'Die naam van \'n persoon, plek, dier of ding 📝', emoji:'📝' },
+  { grade:4, subject:'afrikaans', front:'Gee \'n voorbeeld van \'n eienaam', back:'Pieter, Kaapstad, Suid-Afrika (begin met hoofletter) 🔠', emoji:'🔠' },
+  { grade:4, subject:'afrikaans', front:'Wat is \'n werkwoord?', back:'\'n Aksiewoord — dit wys wat iemand DOEN (bv. loop, eet, speel) 🏃', emoji:'🏃' },
+  { grade:4, subject:'afrikaans', front:'Hoe vorm jy die verlede tyd?', back:'het + ge- + werkwoord (bv. Ek het geloop. Sy het geëet.) ⏪', emoji:'⏪' },
+  { grade:4, subject:'afrikaans', front:'Wat is \'n byvoeglike naamwoord?', back:'\'n Woord wat \'n selfstandige naamwoord BESKRYF (bv. groot, rooi, mooi) 🌈', emoji:'🌈' },
+  { grade:4, subject:'afrikaans', front:'Meervoud van "boek"', back:'boeke 📚', emoji:'📚' },
+  { grade:4, subject:'afrikaans', front:'Meervoud van "kind"', back:'kinders 👧', emoji:'👧' },
+  { grade:4, subject:'afrikaans', front:'Meervoud van "vrou"', back:'vroue 👩', emoji:'👩' },
+  { grade:4, subject:'afrikaans', front:'Verkleinwoord van "kat"', back:'katjie 🐱', emoji:'🐱' },
+  { grade:4, subject:'afrikaans', front:'Verkleinwoord van "huis"', back:'huisie 🏠', emoji:'🏠' },
+  { grade:4, subject:'afrikaans', front:'Watter leesteken gebruik jy aan die einde van \'n vraag?', back:'\'n Vraagteken (?) ❓', emoji:'❓' },
+  { grade:4, subject:'afrikaans', front:'Waarmee begin elke sin?', back:'\'n Hoofletter 🔠', emoji:'🔠' },
+  { grade:4, subject:'afrikaans', front:'Verlede tyd van "speel"', back:'het gespeel ⏪', emoji:'⏪' },
+  { grade:4, subject:'afrikaans', front:'Toekomende tyd — watter hulpwoord gebruik jy?', back:'"sal" — bv. Ek sal môre oefen. ⏩', emoji:'⏩' },
+  { grade:4, subject:'afrikaans', front:'Wat beskryf \'n bywoord?', back:'Dit beskryf \'n werkwoord — HOE iets gedoen word (bv. vinnig, stadig, stil) 💨', emoji:'💨' },
+
   // Grade 7
   { grade:7, subject:'maths', front:'What is the Pythagorean theorem?', back:'a² + b² = c²', emoji:'📐' },
   { grade:7, subject:'maths', front:'Solve: 3x = 24', back:'x = 8', emoji:'🔣' },
