@@ -2,7 +2,7 @@ name: Deploy WonderLearn to GitHub Pages
 
 on:
   push:
-    branches: [claude/wonderlearn-pwa-scaffold-8hyq88, main]
+    branches: [claude/wonderlearn-pwa-scaffold-8hyq88, claude/oak-ord-app-setup-swlk0e, main]
   workflow_dispatch:
 
 permissions:
