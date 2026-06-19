@@ -1,16 +1,43 @@
-# React + Vite
+# Oak & Ord — Atelier Furniture App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A polished single-page furniture store built with React, Tailwind CSS v4, Framer Motion, and Lucide icons.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Product catalogue** — 8 handcrafted furniture pieces across Living Room, Bedroom, Dining, and Office categories
+- **Category filtering & search** — instant client-side filtering with animated transitions
+- **Shopping cart** — slide-out drawer with quantity controls, line totals, and free-delivery threshold
+- **Wishlist** — per-product heart toggle (visible on hover)
+- **Responsive** — mobile-first layout, works from 320 px up
 
-## React Compiler
+## Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Tool | Version |
+|---|---|
+| React | 19 |
+| Tailwind CSS | 4 |
+| Framer Motion | 12 |
+| Lucide React | latest |
+| Vite | 8 |
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+npm run dev
+```
+
+To use the furniture app as your entry point, swap `App.jsx` for `atelier-furniture-app.jsx` in `src/main.jsx`:
+
+```jsx
+import AtelierFurnitureApp from '../atelier-furniture-app.jsx'
+// ...
+root.render(<AtelierFurnitureApp />)
+```
+
+## Project Structure
+
+```
+atelier-furniture-app.jsx   # Self-contained furniture store component
+src/                        # WonderLearn learning app (original)
+```
