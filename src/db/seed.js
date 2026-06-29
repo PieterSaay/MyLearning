@@ -2,7 +2,7 @@ import { db } from './db'
 import { QUIZ_QUESTIONS, LESSONS, FLASHCARDS } from '../data/seedData'
 
 // Bump this number whenever seed data changes to force a reseed
-const SEED_VERSION = 3
+const SEED_VERSION = 4
 
 export async function seedDatabase() {
   const existing = await db.settings.get('seeded')
