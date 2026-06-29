@@ -18,9 +18,9 @@ export default function LessonScreen() {
   if (!lessons?.length) {
     return (
       <div className="flex flex-col min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50">
-        <NavBar title="Lessons" />
+        <NavBar title="Lesse" />
         <div className="flex-1 flex items-center justify-center text-gray-400 text-lg">
-          No lessons available yet for this subject.
+          Geen lesse beskikbaar vir hierdie vak nie.
         </div>
       </div>
     )
@@ -30,12 +30,12 @@ export default function LessonScreen() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
-      <NavBar title={`${subjectInfo?.emoji} Lessons`} />
+      <NavBar title={`${subjectInfo?.emoji} Lesse`} />
 
       <main className="flex-1 px-4 py-6 max-w-lg mx-auto w-full">
         {/* Lesson counter */}
         <div className="flex justify-between items-center mb-4">
-          <span className="text-sm text-gray-500 font-semibold">Lesson {idx + 1} of {lessons.length}</span>
+          <span className="text-sm text-gray-500 font-semibold">Les {idx + 1} van {lessons.length}</span>
           <div className="flex gap-1">
             {lessons.map((_, i) => (
               <button
@@ -54,7 +54,7 @@ export default function LessonScreen() {
           <p className="text-gray-700 text-base leading-relaxed mb-6">{lesson.content}</p>
 
           <div className="bg-indigo-50 rounded-2xl p-4">
-            <h3 className="font-bold text-indigo-600 mb-2 text-sm uppercase tracking-wide">Key Points</h3>
+            <h3 className="font-bold text-indigo-600 mb-2 text-sm uppercase tracking-wide">Sleutelpunte</h3>
             <ul className="space-y-2">
               {lesson.keyPoints.map((kp, i) => (
                 <li key={i} className="flex gap-2 text-sm text-gray-700">
@@ -73,20 +73,20 @@ export default function LessonScreen() {
             disabled={idx === 0}
             className="flex-1 py-3 rounded-2xl font-bold text-indigo-600 bg-white border-2 border-indigo-200 disabled:opacity-30 active:scale-95 transition-all"
           >
-            ← Previous
+            ← Vorige
           </button>
           <button
             onClick={() => setIdx(i => Math.min(lessons.length - 1, i + 1))}
             disabled={idx === lessons.length - 1}
             className="flex-1 py-3 rounded-2xl font-bold text-white bg-indigo-500 disabled:opacity-30 active:scale-95 transition-all shadow-md"
           >
-            Next →
+            Volgende →
           </button>
         </div>
 
         {idx === lessons.length - 1 && (
           <div className="text-center mt-4 text-green-600 font-bold text-lg animate-bounce-in">
-            🎉 You finished all lessons!
+            🎉 Jy het al die lesse voltooi!
           </div>
         )}
       </main>

@@ -9,13 +9,13 @@ export default function SubjectScreen() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
-      <NavBar title={`Grade ${grade}`} />
+      <NavBar title={`Graad ${grade}`} />
 
       <main className="flex-1 px-4 py-6 max-w-md mx-auto w-full">
         <div className={`text-center mb-6 rounded-3xl py-5 px-4 ${gc.light} border-2 ${gc.border}`}>
           <div className="text-5xl mb-1">📖</div>
-          <h2 className={`text-2xl font-extrabold ${gc.text}`}>Grade {grade} Subjects</h2>
-          <p className="text-gray-500 text-sm mt-1">Choose a subject to start learning!</p>
+          <h2 className={`text-2xl font-extrabold ${gc.text}`}>Graad {grade} Vakke</h2>
+          <p className="text-gray-500 text-sm mt-1">Kies \'n vak om te begin leer!</p>
         </div>
 
         <div className="flex flex-col gap-4">
@@ -30,7 +30,7 @@ export default function SubjectScreen() {
               </div>
               <div className="text-left">
                 <div className={`text-lg font-extrabold ${subj.text}`}>{subj.label}</div>
-                <div className="text-sm text-gray-400">Lessons · Quizzes · Flashcards</div>
+                <div className="text-sm text-gray-400">Lesse · Vraelyste · Flitskaarte</div>
               </div>
               <div className="ml-auto text-gray-300 text-2xl">›</div>
             </button>

@@ -3,10 +3,10 @@ import { SUBJECTS, GRADE_COLORS } from '../data/seedData'
 import NavBar from '../components/NavBar'
 
 const ACTIVITIES = [
-  { id:'lesson',    label:'Lessons',    emoji:'📖', desc:'Learn something new',         color:'bg-blue-100',   text:'text-blue-700',   border:'border-blue-300' },
-  { id:'quiz',      label:'Quizzes',    emoji:'❓', desc:'Test your knowledge',         color:'bg-green-100',  text:'text-green-700',  border:'border-green-300' },
-  { id:'flashcard', label:'Flashcards', emoji:'🃏', desc:'Flip & remember key facts',   color:'bg-yellow-100', text:'text-yellow-700', border:'border-yellow-300' },
-  { id:'game',      label:'Word Game',  emoji:'🎮', desc:'Play & learn with letters',   color:'bg-purple-100', text:'text-purple-700', border:'border-purple-300' },
+  { id:'lesson',    label:'Lesse',       emoji:'📖', desc:'Leer iets nuuts',              color:'bg-blue-100',   text:'text-blue-700',   border:'border-blue-300' },
+  { id:'quiz',      label:'Vraelyste',   emoji:'❓', desc:'Toets jou kennis',             color:'bg-green-100',  text:'text-green-700',  border:'border-green-300' },
+  { id:'flashcard', label:'Flitskaarte', emoji:'🃏', desc:'Draai & onthou sleutelpunte', color:'bg-yellow-100', text:'text-yellow-700', border:'border-yellow-300' },
+  { id:'game',      label:'Woordspel',   emoji:'🎮', desc:'Speel & leer met letters',    color:'bg-purple-100', text:'text-purple-700', border:'border-purple-300' },
 ]
 
 export default function ActivityScreen() {
@@ -23,7 +23,7 @@ export default function ActivityScreen() {
         <div className={`text-center mb-6 rounded-3xl py-5 px-4 ${gc.light} border-2 ${gc.border}`}>
           <div className="text-5xl mb-1">{subjectInfo?.emoji}</div>
           <h2 className={`text-2xl font-extrabold ${gc.text}`}>{subjectInfo?.label}</h2>
-          <p className="text-gray-500 text-sm mt-1">Grade {grade} · Choose an activity</p>
+          <p className="text-gray-500 text-sm mt-1">Graad {grade} · Kies \'n aktiwiteit</p>
         </div>
 
         <div className="grid grid-cols-2 gap-4">

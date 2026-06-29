@@ -75,18 +75,18 @@ export default function GameScreen() {
     const pct = Math.round((score / words.length) * 100)
     return (
       <div className="flex flex-col min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
-        <NavBar title="Word Game" />
+        <NavBar title="Woordspel" />
         <div className="flex-1 flex flex-col items-center justify-center px-6 text-center">
           <div className="text-6xl mb-3">{pct >= 70 ? '🏆' : '💪'}</div>
-          <h2 className="text-2xl font-extrabold text-purple-700 mb-1">Game Over!</h2>
-          <p className="text-gray-600 mb-2 text-lg">You unscrambled <strong>{score}/{words.length}</strong> words</p>
-          <p className="text-gray-400 text-sm mb-6">{pct}% success rate</p>
+          <h2 className="text-2xl font-extrabold text-purple-700 mb-1">Spel Verby!</h2>
+          <p className="text-gray-600 mb-2 text-lg">Jy het <strong>{score}/{words.length}</strong> woorde ontwar</p>
+          <p className="text-gray-400 text-sm mb-6">{pct}% sukseskoers</p>
           <div className="flex gap-4">
             <button onClick={() => { setWordIdx(0); setScore(0); setAttempts(0); setDone(false) }} className="px-6 py-3 rounded-2xl bg-purple-500 text-white font-bold shadow active:scale-95">
-              Play Again
+              Speel Weer
             </button>
             <button onClick={() => navigate(-1)} className="px-6 py-3 rounded-2xl bg-white border-2 border-purple-200 text-purple-600 font-bold active:scale-95">
-              Done
+              Klaar
             </button>
           </div>
         </div>
@@ -96,19 +96,19 @@ export default function GameScreen() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
-      <NavBar title={`${subjectInfo?.emoji} Word Game`} />
+      <NavBar title={`${subjectInfo?.emoji} Woordspel`} />
       {showReward && <RewardAnimation onDone={handleRewardDone} />}
 
       <main className="flex-1 px-4 py-6 max-w-lg mx-auto w-full flex flex-col gap-5">
         {/* Score */}
         <div className="flex justify-between text-sm font-bold text-gray-500">
-          <span>Word {wordIdx + 1} of {words.length}</span>
-          <span className="text-purple-600">Score: {score} ⭐</span>
+          <span>Woord {wordIdx + 1} van {words.length}</span>
+          <span className="text-purple-600">Telling: {score} ⭐</span>
         </div>
 
         {/* Scrambled word */}
         <div className="bg-white rounded-3xl shadow-lg p-6 text-center border-2 border-purple-200">
-          <p className="text-sm text-gray-400 mb-2 uppercase tracking-wider font-semibold">Unscramble this {subject} word:</p>
+          <p className="text-sm text-gray-400 mb-2 uppercase tracking-wider font-semibold">Ontwar hierdie {subjectInfo?.label || subject} woord:</p>
           <div className="flex flex-wrap justify-center gap-2 my-4">
             {scrambled.split('').map((ch, i) => (
               <span key={i} className="w-10 h-10 flex items-center justify-center rounded-xl bg-purple-100 text-purple-700 font-extrabold text-xl border-2 border-purple-300">
@@ -118,7 +118,7 @@ export default function GameScreen() {
           </div>
           {hint && (
             <p className="text-sm text-indigo-500 mt-2">
-              Hint: <em>starts with "<strong>{words[wordIdx][0].toUpperCase()}</strong>" and has {words[wordIdx].length} letters</em>
+              Wenk: <em>begin met "<strong>{words[wordIdx][0].toUpperCase()}</strong>" en het {words[wordIdx].length} letters</em>
             </p>
           )}
         </div>
@@ -130,16 +130,16 @@ export default function GameScreen() {
             value={input}
             onChange={e => { setInput(e.target.value); setFeedback(null) }}
             onKeyDown={e => e.key === 'Enter' && handleCheck()}
-            placeholder="Type your answer..."
+            placeholder="Tik jou antwoord..."
             className="w-full px-4 py-4 rounded-2xl border-2 border-purple-200 text-lg font-semibold focus:outline-none focus:border-purple-400 bg-white text-gray-800"
             autoCapitalize="none"
             autoCorrect="off"
           />
           {feedback === 'wrong' && (
-            <p className="text-red-500 font-semibold text-center text-sm">Not quite — try again! 💪</p>
+            <p className="text-red-500 font-semibold text-center text-sm">Nie heeltemal nie — probeer weer! 💪</p>
           )}
           {feedback === 'correct' && (
-            <p className="text-green-600 font-bold text-center">🎉 Correct! Well done!</p>
+            <p className="text-green-600 font-bold text-center">🎉 Korrek! Goed gedaan!</p>
           )}
         </div>
 
@@ -148,15 +148,15 @@ export default function GameScreen() {
           disabled={!input.trim()}
           className="w-full py-4 rounded-2xl bg-purple-500 text-white font-extrabold text-lg shadow-md active:scale-95 transition-all disabled:opacity-40"
         >
-          Check Answer
+          Kontroleer Antwoord
         </button>
 
         <div className="flex gap-3">
           <button onClick={() => setHint(true)} className="flex-1 py-3 rounded-2xl bg-white border-2 border-purple-200 text-purple-500 font-bold text-sm active:scale-95 transition-all">
-            💡 Hint
+            💡 Wenk
           </button>
           <button onClick={handleSkip} className="flex-1 py-3 rounded-2xl bg-white border-2 border-gray-200 text-gray-400 font-bold text-sm active:scale-95 transition-all">
-            Skip →
+            Slaan oor →
           </button>
         </div>
       </main>

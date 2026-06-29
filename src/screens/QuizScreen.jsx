@@ -57,8 +57,8 @@ export default function QuizScreen() {
   if (!questions?.length) {
     return (
       <div className="flex flex-col min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50">
-        <NavBar title="Quiz" />
-        <div className="flex-1 flex items-center justify-center text-gray-400 text-lg">Loading questions…</div>
+        <NavBar title="Vraelys" />
+        <div className="flex-1 flex items-center justify-center text-gray-400 text-lg">Vrae word gelaai…</div>
       </div>
     )
   }
@@ -68,23 +68,23 @@ export default function QuizScreen() {
     const stars = pct >= 80 ? 3 : pct >= 50 ? 2 : 1
     return (
       <div className="flex flex-col min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
-        <NavBar title="Quiz Results" />
+        <NavBar title="Vraelys Resultate" />
         <div className="flex-1 flex flex-col items-center justify-center px-6 text-center">
           <div className="text-6xl mb-4">{pct >= 80 ? '🏆' : pct >= 50 ? '😊' : '💪'}</div>
           <div className="text-4xl mb-2">{'⭐'.repeat(stars)}</div>
           <h2 className="text-2xl font-extrabold text-indigo-700 mb-1">
-            {score} / {questions.length} correct
+            {score} / {questions.length} korrek
           </h2>
-          <p className="text-gray-500 mb-2">{pct}% — {pct >= 80 ? 'Excellent!' : pct >= 50 ? 'Good effort!' : 'Keep practising!'}</p>
+          <p className="text-gray-500 mb-2">{pct}% — {pct >= 80 ? 'Uitstekend!' : pct >= 50 ? 'Goeie poging!' : 'Hou aan oefen!'}</p>
           <div className="w-full max-w-xs mb-8">
             <ProgressBar current={score} total={questions.length} color="bg-green-500" />
           </div>
           <div className="flex gap-4">
             <button onClick={handleRestart} className="px-6 py-3 rounded-2xl bg-indigo-500 text-white font-bold shadow-md active:scale-95 transition-all">
-              Try Again
+              Probeer Weer
             </button>
             <button onClick={() => navigate(-1)} className="px-6 py-3 rounded-2xl bg-white border-2 border-indigo-200 text-indigo-600 font-bold active:scale-95 transition-all">
-              Done
+              Klaar
             </button>
           </div>
         </div>
@@ -102,14 +102,14 @@ export default function QuizScreen() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
-      <NavBar title={`${subjectInfo?.emoji} Quiz`} />
+      <NavBar title={`${subjectInfo?.emoji} Vraelys`} />
       {showReward && <RewardAnimation onDone={handleRewardDone} />}
 
       <main className="flex-1 px-4 py-4 max-w-lg mx-auto w-full flex flex-col gap-4">
         <ProgressBar current={current} total={questions.length} color={subjectInfo ? 'bg-indigo-500' : 'bg-indigo-500'} />
 
         <div className="bg-white rounded-3xl shadow-lg p-6 border border-indigo-100">
-          <p className="text-sm text-gray-400 font-semibold mb-3 uppercase tracking-wide">Question {current + 1}</p>
+          <p className="text-sm text-gray-400 font-semibold mb-3 uppercase tracking-wide">Vraag {current + 1}</p>
           <p className="text-xl font-bold text-gray-800 leading-snug">{q.question}</p>
         </div>
 
@@ -134,7 +134,7 @@ export default function QuizScreen() {
 
         {showExplanation && (
           <div className={`rounded-2xl p-4 border-2 text-sm leading-relaxed ${selected === q.answer ? 'bg-green-50 border-green-200 text-green-800' : 'bg-red-50 border-red-200 text-red-800'}`}>
-            <strong>{selected === q.answer ? '✅ Correct! ' : '❌ Not quite. '}</strong>
+            <strong>{selected === q.answer ? '✅ Korrek! ' : '❌ Nie heeltemal nie. '}</strong>
             {q.explanation}
           </div>
         )}
@@ -144,7 +144,7 @@ export default function QuizScreen() {
             onClick={handleNext}
             className="w-full py-4 rounded-2xl bg-indigo-500 text-white font-extrabold text-lg shadow-md active:scale-95 transition-all mt-2"
           >
-            {current + 1 < questions.length ? 'Next Question →' : 'See Results 🏆'}
+            {current + 1 < questions.length ? 'Volgende Vraag →' : 'Sien Resultate 🏆'}
           </button>
         )}
       </main>

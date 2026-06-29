@@ -2,11 +2,11 @@
 // Each subject has quiz questions, lessons and flashcards
 
 export const SUBJECTS = [
-  { id: 'maths',    label: 'Maths',             emoji: '🔢', color: 'bg-blue-500',   light: 'bg-blue-100',   text: 'text-blue-700',   border: 'border-blue-400' },
-  { id: 'english',  label: 'English',            emoji: '📚', color: 'bg-green-500',  light: 'bg-green-100',  text: 'text-green-700',  border: 'border-green-400' },
-  { id: 'science',  label: 'Natural Sciences',   emoji: '🔬', color: 'bg-teal-500',   light: 'bg-teal-100',   text: 'text-teal-700',   border: 'border-teal-400' },
-  { id: 'afrikaans',label: 'Afrikaans',           emoji: '🇿🇦', color: 'bg-orange-500', light: 'bg-orange-100', text: 'text-orange-700', border: 'border-orange-400' },
-  { id: 'lifeskills',label: 'Life Skills',        emoji: '🌟', color: 'bg-purple-500', light: 'bg-purple-100', text: 'text-purple-700', border: 'border-purple-400' },
+  { id: 'maths',     label: 'Wiskunde',           emoji: '🔢', color: 'bg-blue-500',   light: 'bg-blue-100',   text: 'text-blue-700',   border: 'border-blue-400' },
+  { id: 'english',   label: 'Engels',              emoji: '📚', color: 'bg-green-500',  light: 'bg-green-100',  text: 'text-green-700',  border: 'border-green-400' },
+  { id: 'science',   label: 'Natuurwetenskappe',   emoji: '🔬', color: 'bg-teal-500',   light: 'bg-teal-100',   text: 'text-teal-700',   border: 'border-teal-400' },
+  { id: 'afrikaans', label: 'Afrikaans',            emoji: '🇿🇦', color: 'bg-orange-500', light: 'bg-orange-100', text: 'text-orange-700', border: 'border-orange-400' },
+  { id: 'lifeskills',label: 'Lewensvaardighede',   emoji: '🌟', color: 'bg-purple-500', light: 'bg-purple-100', text: 'text-purple-700', border: 'border-purple-400' },
 ]
 
 export const GRADES = [1,2,3,4,5,6,7]

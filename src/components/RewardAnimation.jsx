@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 const EMOJIS = ['⭐', '🌟', '✨', '🎉', '🎊', '🏆', '💫', '🎈']
-const MESSAGES = ['Amazing!', 'Well done!', 'Fantastic!', 'You rock!', 'Brilliant!', 'Super!', 'Awesome!', 'Great job!']
+const MESSAGES = ['Wonderlik!', 'Goed gedaan!', 'Fantasties!', 'Jy is die beste!', 'Briljant!', 'Super!', 'Baie goed!', 'Puik werk!']
 
 export default function RewardAnimation({ onDone }) {
   const [stars, setStars] = useState([])

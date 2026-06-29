@@ -11,7 +11,7 @@ export default function NavBar({ title, showBack = true, showHome = true }) {
         <button
           onClick={() => navigate(-1)}
           className="p-2 rounded-full hover:bg-gray-100 active:scale-90 transition-transform"
-          aria-label="Go back"
+          aria-label="Terug gaan"
         >
           <ChevronLeft size={24} className="text-gray-600" />
         </button>
@@ -23,7 +23,7 @@ export default function NavBar({ title, showBack = true, showHome = true }) {
         <button
           onClick={() => navigate('/')}
           className="p-2 rounded-full hover:bg-gray-100 active:scale-90 transition-transform"
-          aria-label="Go home"
+          aria-label="Tuis gaan"
         >
           <Home size={22} className="text-gray-600" />
         </button>
