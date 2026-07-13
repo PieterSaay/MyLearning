@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { GRADES, GRADE_COLORS } from '../data/seedData'
+import { getApiKey } from '../hooks/useApiKey'
 
 const GRADE_EMOJIS = { 1:'🌱', 2:'🌟', 3:'🚀', 4:'🔥', 5:'💡', 6:'⚡', 7:'🏆' }
 
@@ -9,7 +10,14 @@ export default function HomeScreen() {
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
       {/* Header */}
-      <header className="text-center pt-10 pb-4 px-4">
+      <header className="text-center pt-10 pb-4 px-4 relative">
+        <button
+          onClick={() => navigate('/settings')}
+          className="absolute top-4 right-4 p-2 rounded-xl bg-white/70 border border-indigo-100 text-xl active:scale-95 transition-all"
+          title="Instellings"
+        >
+          ⚙️{getApiKey() ? <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-green-400 block" /> : null}
+        </button>
         <div className="text-6xl mb-3">🌟</div>
         <h1 className="text-4xl font-extrabold text-indigo-700 leading-tight">WonderLearn</h1>
         <p className="text-gray-500 mt-2 text-lg">CAPS-ooreenstemmende leer vir Suid-Afrikaanse kinders</p>

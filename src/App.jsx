@@ -8,6 +8,7 @@ import LessonScreen from './screens/LessonScreen'
 import QuizScreen from './screens/QuizScreen'
 import FlashcardScreen from './screens/FlashcardScreen'
 import GameScreen from './screens/GameScreen'
+import SettingsScreen from './screens/SettingsScreen'
 
 export default function App() {
   useEffect(() => {
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/grade/:grade/subject/:subject/activity/quiz" element={<QuizScreen />} />
         <Route path="/grade/:grade/subject/:subject/activity/flashcard" element={<FlashcardScreen />} />
         <Route path="/grade/:grade/subject/:subject/activity/game" element={<GameScreen />} />
+        <Route path="/settings" element={<SettingsScreen />} />
       </Routes>
     </HashRouter>
   )

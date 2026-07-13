@@ -8,6 +8,7 @@ import { useSubjectMastery, recordAttempt } from '../hooks/useMastery'
 import NavBar from '../components/NavBar'
 import ProgressBar from '../components/ProgressBar'
 import RewardAnimation from '../components/RewardAnimation'
+import HintButton from '../components/HintButton'
 
 export default function QuizScreen() {
   const { grade, subject } = useParams()
@@ -135,6 +136,7 @@ export default function QuizScreen() {
         <div className="bg-white rounded-3xl shadow-lg p-6 border border-indigo-100">
           <p className="text-sm text-gray-400 font-semibold mb-3 uppercase tracking-wide">Vraag {current + 1}</p>
           <p className="text-xl font-bold text-gray-800 leading-snug">{q.question}</p>
+          {selected === null && <HintButton question={q.question} options={q.options} />}
         </div>
 
         <div className="flex flex-col gap-3">
