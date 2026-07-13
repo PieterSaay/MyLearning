@@ -1,10 +1,11 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { useState } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { db } from '../db/db'
 import { SUBJECTS } from '../data/seedData'
 import NavBar from '../components/NavBar'
 import ProgressBar from '../components/ProgressBar'
+import { useSubjectMastery, recordAttempt } from '../hooks/useMastery'
 
 export default function FlashcardScreen() {
   const { grade, subject } = useParams()
@@ -13,13 +14,30 @@ export default function FlashcardScreen() {
   const [idx, setIdx] = useState(0)
   const [flipped, setFlipped] = useState(false)
   const [known, setKnown] = useState([])
+  const [cards, setCards] = useState(null)
 
-  const cards = useLiveQuery(
+  const rawCards = useLiveQuery(
     () => db.flashcards.where({ grade: Number(grade), subject }).toArray(),
     [grade, subject], []
   )
+  const masteryRecords = useSubjectMastery(grade, subject)
+  const initialized = useRef(false)
 
-  if (!cards?.length) {
+  const sortCards = useCallback((cs, records) => {
+    const map = {}
+    for (const m of records) {
+      map[m.itemId] = m.attempts > 0 ? m.correct / m.attempts : -1
+    }
+    return [...cs].sort((a, b) => (map[a.id] ?? -1) - (map[b.id] ?? -1))
+  }, [])
+
+  useEffect(() => {
+    if (!rawCards?.length || initialized.current) return
+    setCards(sortCards(rawCards, masteryRecords))
+    initialized.current = true
+  }, [rawCards, masteryRecords, sortCards])
+
+  if (!cards) {
     return (
       <div className="flex flex-col min-h-screen bg-gradient-to-br from-yellow-50 to-orange-50">
         <NavBar title="Flitskaarte" />
@@ -32,10 +50,17 @@ export default function FlashcardScreen() {
   const done = idx >= cards.length
 
   const markKnown = (didKnow) => {
+    recordAttempt(card.id, 'flashcard', grade, subject, didKnow)
     if (didKnow) setKnown(k => [...k, idx])
-    const next = idx + 1
-    setIdx(next)
+    setIdx(idx + 1)
     setFlipped(false)
+  }
+
+  const handleRestart = () => {
+    setCards(sortCards(rawCards, masteryRecords))
+    setIdx(0)
+    setFlipped(false)
+    setKnown([])
   }
 
   if (done) {
@@ -47,7 +72,7 @@ export default function FlashcardScreen() {
           <h2 className="text-2xl font-extrabold text-orange-600 mb-2">Alle kaarte klaar!</h2>
           <p className="text-gray-500 mb-6">Jy het {known.length} van {cards.length} kaarte geken</p>
           <div className="flex gap-4">
-            <button onClick={() => { setIdx(0); setFlipped(false); setKnown([]) }} className="px-6 py-3 rounded-2xl bg-orange-400 text-white font-bold shadow active:scale-95">
+            <button onClick={handleRestart} className="px-6 py-3 rounded-2xl bg-orange-400 text-white font-bold shadow active:scale-95">
               Weer Speel
             </button>
             <button onClick={() => navigate(-1)} className="px-6 py-3 rounded-2xl bg-white border-2 border-orange-200 text-orange-600 font-bold active:scale-95">
@@ -66,7 +91,6 @@ export default function FlashcardScreen() {
       <main className="flex-1 px-4 py-4 max-w-lg mx-auto w-full flex flex-col gap-4">
         <ProgressBar current={idx} total={cards.length} color="bg-orange-400" />
 
-        {/* Flashcard */}
         <div className="flex-1 flex flex-col items-center justify-center">
           <button
             onClick={() => setFlipped(f => !f)}

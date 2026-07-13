@@ -1,9 +1,10 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { useState, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { db } from '../db/db'
 import { SUBJECTS } from '../data/seedData'
 import { useProgress } from '../hooks/useProgress'
+import { useSubjectMastery, recordAttempt } from '../hooks/useMastery'
 import NavBar from '../components/NavBar'
 import ProgressBar from '../components/ProgressBar'
 import RewardAnimation from '../components/RewardAnimation'
@@ -20,11 +21,28 @@ export default function QuizScreen() {
   const [score, setScore] = useState(0)
   const [done, setDone] = useState(false)
   const [showReward, setShowReward] = useState(false)
+  const [questions, setQuestions] = useState(null)
 
-  const questions = useLiveQuery(
+  const rawQuestions = useLiveQuery(
     () => db.questions.where({ grade: Number(grade), subject }).toArray(),
     [grade, subject], []
   )
+  const masteryRecords = useSubjectMastery(grade, subject)
+  const initialized = useRef(false)
+
+  const sortQuestions = useCallback((qs, records) => {
+    const map = {}
+    for (const m of records) {
+      map[m.itemId] = m.attempts > 0 ? m.correct / m.attempts : -1
+    }
+    return [...qs].sort((a, b) => (map[a.id] ?? -1) - (map[b.id] ?? -1))
+  }, [])
+
+  useEffect(() => {
+    if (!rawQuestions?.length || initialized.current) return
+    setQuestions(sortQuestions(rawQuestions, masteryRecords))
+    initialized.current = true
+  }, [rawQuestions, masteryRecords, sortQuestions])
 
   const handleSelect = (idx) => {
     if (selected !== null) return
@@ -35,6 +53,7 @@ export default function QuizScreen() {
       setScore(s => s + 1)
       setShowReward(true)
     }
+    recordAttempt(questions[current].id, 'quiz', grade, subject, correct)
   }
 
   const handleNext = () => {
@@ -49,12 +68,17 @@ export default function QuizScreen() {
   }
 
   const handleRestart = () => {
-    setCurrent(0); setSelected(null); setShowExplanation(false); setScore(0); setDone(false)
+    setQuestions(sortQuestions(rawQuestions, masteryRecords))
+    setCurrent(0)
+    setSelected(null)
+    setShowExplanation(false)
+    setScore(0)
+    setDone(false)
   }
 
   const handleRewardDone = useCallback(() => setShowReward(false), [])
 
-  if (!questions?.length) {
+  if (!questions) {
     return (
       <div className="flex flex-col min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50">
         <NavBar title="Vraelys" />
@@ -106,7 +130,7 @@ export default function QuizScreen() {
       {showReward && <RewardAnimation onDone={handleRewardDone} />}
 
       <main className="flex-1 px-4 py-4 max-w-lg mx-auto w-full flex flex-col gap-4">
-        <ProgressBar current={current} total={questions.length} color={subjectInfo ? 'bg-indigo-500' : 'bg-indigo-500'} />
+        <ProgressBar current={current} total={questions.length} color="bg-indigo-500" />
 
         <div className="bg-white rounded-3xl shadow-lg p-6 border border-indigo-100">
           <p className="text-sm text-gray-400 font-semibold mb-3 uppercase tracking-wide">Vraag {current + 1}</p>
