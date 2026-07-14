@@ -39,9 +39,11 @@ export default function FlashcardScreen() {
 
   if (!cards) {
     return (
-      <div className="flex flex-col min-h-screen bg-gradient-to-br from-yellow-50 to-orange-50">
+      <div className="flex flex-col min-h-screen bg-gradient-to-br from-amber-50 to-orange-50">
         <NavBar title="Flitskaarte" />
-        <div className="flex-1 flex items-center justify-center text-gray-400 text-lg">Geen flitskaarte vir hierdie vak nie.</div>
+        <div className="flex-1 flex items-center justify-center text-gray-400 text-lg">
+          Geen flitskaarte vir hierdie vak nie.
+        </div>
       </div>
     )
   }
@@ -64,18 +66,23 @@ export default function FlashcardScreen() {
   }
 
   if (done) {
+    const pct = Math.round((known.length / cards.length) * 100)
     return (
-      <div className="flex flex-col min-h-screen bg-gradient-to-br from-yellow-50 to-orange-50">
+      <div className="flex flex-col min-h-screen bg-gradient-to-br from-amber-50 to-orange-50">
         <NavBar title="Flitskaarte" />
-        <div className="flex-1 flex flex-col items-center justify-center px-6 text-center">
-          <div className="text-6xl mb-4">🎉</div>
-          <h2 className="text-2xl font-extrabold text-orange-600 mb-2">Alle kaarte klaar!</h2>
-          <p className="text-gray-500 mb-6">Jy het {known.length} van {cards.length} kaarte geken</p>
-          <div className="flex gap-4">
-            <button onClick={handleRestart} className="px-6 py-3 rounded-2xl bg-orange-400 text-white font-bold shadow active:scale-95">
-              Weer Speel
+        <div className="flex-1 flex flex-col items-center justify-center px-6 text-center gap-4">
+          <div className="text-7xl animate-bounce-in">{pct >= 70 ? '🏆' : '💪'}</div>
+          <h2 className="text-2xl font-extrabold text-orange-600">Alle kaarte klaar!</h2>
+          <div className="bg-white rounded-2xl shadow-md px-8 py-4 border-2 border-orange-200">
+            <p className="text-3xl font-extrabold text-orange-500">{known.length}<span className="text-gray-400 text-xl font-bold">/{cards.length}</span></p>
+            <p className="text-gray-500 text-sm mt-1">kaarte geken</p>
+          </div>
+          <p className="text-gray-400 text-sm">{pct >= 70 ? 'Uitstekende werk! 🌟' : 'Oefen die moeilike kaarte weer!'}</p>
+          <div className="flex gap-4 mt-2">
+            <button onClick={handleRestart} className="px-6 py-3 rounded-2xl bg-orange-400 text-white font-bold shadow active:scale-95 transition-all">
+              Weer Speel 🔄
             </button>
-            <button onClick={() => navigate(-1)} className="px-6 py-3 rounded-2xl bg-white border-2 border-orange-200 text-orange-600 font-bold active:scale-95">
+            <button onClick={() => navigate(-1)} className="px-6 py-3 rounded-2xl bg-white border-2 border-orange-200 text-orange-600 font-bold active:scale-95 transition-all">
               Klaar
             </button>
           </div>
@@ -85,46 +92,60 @@ export default function FlashcardScreen() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-yellow-50 to-orange-50">
+    <div className="flex flex-col min-h-screen bg-gradient-to-br from-amber-50 to-orange-50">
       <NavBar title={`${subjectInfo?.emoji} Flitskaarte`} />
 
       <main className="flex-1 px-4 py-4 max-w-lg mx-auto w-full flex flex-col gap-4">
         <ProgressBar current={idx} total={cards.length} color="bg-orange-400" />
 
-        <div className="flex-1 flex flex-col items-center justify-center">
-          <button
-            onClick={() => setFlipped(f => !f)}
-            className="w-full max-w-sm aspect-[3/2] rounded-3xl shadow-xl border-4 border-yellow-300 flex flex-col items-center justify-center gap-3 p-6 transition-all duration-300 active:scale-95"
-            style={{ background: flipped ? '#fef3c7' : '#fff' }}
-          >
-            <span className="text-4xl">{card.emoji}</span>
-            <span className="text-xl font-extrabold text-center text-gray-800 leading-snug">
-              {flipped ? card.back : card.front}
-            </span>
-            <span className="text-xs text-gray-400 mt-2">
-              {flipped ? '← Draai vir die vraag' : 'Tik om antwoord te wys →'}
-            </span>
-          </button>
+        <p className="text-center text-gray-500 text-sm font-semibold">
+          Kaart {idx + 1} van {cards.length}
+          {known.length > 0 && <span className="ml-2 text-green-500">· {known.length} geken ✓</span>}
+        </p>
 
-          {flipped && (
-            <div className="flex gap-4 mt-6 w-full max-w-sm">
-              <button
-                onClick={() => markKnown(false)}
-                className="flex-1 py-4 rounded-2xl bg-red-100 border-2 border-red-300 text-red-700 font-bold active:scale-95 transition-all"
-              >
-                😕 Nog aan leer
-              </button>
-              <button
-                onClick={() => markKnown(true)}
-                className="flex-1 py-4 rounded-2xl bg-green-400 text-white font-bold shadow-md active:scale-95 transition-all"
-              >
-                ✅ Ek het dit!
-              </button>
+        {/* 3-D flip card */}
+        <div className="flex-1 flex flex-col items-center justify-center">
+          <div className="flip-scene w-full max-w-sm" style={{ height: 240 }}>
+            <div
+              className={`flip-card w-full h-full cursor-pointer`}
+              style={{ transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}
+              onClick={() => setFlipped(f => !f)}
+            >
+              {/* Front */}
+              <div className="flip-face rounded-3xl shadow-xl border-4 border-amber-300 bg-white flex flex-col items-center justify-center gap-3 p-6 text-center">
+                <span className="text-5xl">{card.emoji}</span>
+                <span className="text-lg font-extrabold text-gray-800 leading-snug">{card.front}</span>
+                <span className="text-xs text-amber-400 font-semibold mt-1">👆 Tik om antwoord te wys</span>
+              </div>
+              {/* Back */}
+              <div className="flip-face flip-back rounded-3xl shadow-xl border-4 border-green-300 bg-green-50 flex flex-col items-center justify-center gap-3 p-6 text-center">
+                <span className="text-5xl">{card.emoji}</span>
+                <span className="text-base font-bold text-gray-700 leading-snug">{card.back}</span>
+                <span className="text-xs text-green-400 font-semibold mt-1">👆 Tik om vraag te wys</span>
+              </div>
             </div>
-          )}
+          </div>
+
+          {/* Know / don't know buttons — only visible when flipped */}
+          <div className={`flex gap-4 mt-6 w-full max-w-sm transition-all duration-300 ${flipped ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
+            <button
+              onClick={() => markKnown(false)}
+              className="flex-1 py-4 rounded-2xl bg-red-100 border-2 border-red-300 text-red-700 font-extrabold text-sm active:scale-95 transition-all shadow-sm"
+            >
+              😕 Nog leer
+            </button>
+            <button
+              onClick={() => markKnown(true)}
+              className="flex-1 py-4 rounded-2xl bg-green-400 text-white font-extrabold text-sm shadow-md active:scale-95 transition-all"
+            >
+              ✅ Ek het dit!
+            </button>
+          </div>
 
           {!flipped && (
-            <p className="text-gray-400 text-sm mt-6">Kaart {idx + 1} van {cards.length}</p>
+            <p className="text-gray-300 text-sm mt-6 text-center select-none">
+              ↑ Tik die kaart om te flip
+            </p>
           )}
         </div>
       </main>
