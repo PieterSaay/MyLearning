@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { db } from '../db/db'
 import { SUBJECTS, GRADE_COLOR } from '../data/seedData'
 import NavBar from '../components/NavBar'
+import ProgressBar from '../components/ProgressBar'
 import { useProgress } from '../hooks/useProgress'
 
 const KP_COLORS = [
@@ -60,19 +61,25 @@ export default function LessonScreen() {
       <NavBar title={`${subjectInfo?.emoji} Lesse`} />
 
       <main className="flex-1 px-4 py-5 max-w-lg mx-auto w-full">
-        {/* Progress dots */}
-        <div className="flex items-center justify-between mb-5">
-          <span className="text-sm font-bold text-gray-500">Les {idx + 1} van {lessons.length}</span>
-          <div className="flex gap-1.5">
-            {lessons.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => goTo(i)}
-                className={`rounded-full transition-all duration-200 ${i === idx ? 'w-6 h-3 bg-indigo-500' : i < idx ? 'w-3 h-3 bg-indigo-300' : 'w-3 h-3 bg-gray-200'}`}
-              />
-            ))}
+        {/* Progress */}
+        {lessons.length <= 12 ? (
+          <div className="flex items-center justify-between mb-5">
+            <span className="text-sm font-bold text-gray-500">Les {idx + 1} van {lessons.length}</span>
+            <div className="flex gap-1.5">
+              {lessons.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => goTo(i)}
+                  className={`rounded-full transition-all duration-200 ${i === idx ? 'w-6 h-3 bg-indigo-500' : i < idx ? 'w-3 h-3 bg-indigo-300' : 'w-3 h-3 bg-gray-200'}`}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="mb-5">
+            <ProgressBar current={idx + 1} total={lessons.length} color="bg-indigo-500" />
+          </div>
+        )}
 
         {/* Lesson card */}
         <div className="bg-white rounded-3xl shadow-xl border border-indigo-100 overflow-hidden animate-slide-up">
