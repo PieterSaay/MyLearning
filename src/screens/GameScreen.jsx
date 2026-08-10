@@ -6,11 +6,11 @@ import RewardAnimation from '../components/RewardAnimation'
 
 // Word Scramble game using subject-specific word banks
 const WORD_BANKS = {
-  maths:     ['triangle','fraction','multiply','addition','subtract','division','perimeter','geometry','decimal','equation'],
+  maths:     ['driehoek','breuk','vermenigvuldig','optelling','aftrekking','deling','omtrek','meetkunde','desimaal','vergelyking'],
   english:   ['sentence','alphabet','syllable','adjective','paragraph','punctuation','synonym','antonym','narrative','metaphor'],
-  science:   ['photosynthesis','evaporation','ecosystem','electricity','gravity','molecule','organism','atmosphere','magnetic','nutrition'],
+  science:   ['fotosintese','verdamping','ekosisteem','elektrisiteit','swaartekrag','molekule','organisme','atmosfeer','magneties','voeding'],
   afrikaans: ['selfstandig','werkwoord','byvoeglik','bywoord','meervoud','enkelvoud','sinsbou','uitdrukking','voegwoord','telwoord'],
-  lifeskills:['responsibility','community','constitution','democracy','environment','nutrition','diversity','integrity','empathy','leadership'],
+  lifeskills:['verantwoordelikheid','gemeenskap','grondwet','demokrasie','omgewing','voeding','diversiteit','integriteit','empatie','leierskap'],
 }
 
 function scramble(word) {
@@ -24,7 +24,7 @@ function scramble(word) {
 }
 
 export default function GameScreen() {
-  const { grade, subject } = useParams()
+  const { subject } = useParams()
   const navigate = useNavigate()
   const subjectInfo = SUBJECTS.find(s => s.id === subject)
 

@@ -8,7 +8,7 @@ import ProgressBar from '../components/ProgressBar'
 import { useSubjectMastery, recordAttempt } from '../hooks/useMastery'
 
 export default function FlashcardScreen() {
-  const { grade, subject } = useParams()
+  const { subject } = useParams()
   const navigate = useNavigate()
   const subjectInfo = SUBJECTS.find(s => s.id === subject)
   const [idx, setIdx] = useState(0)
@@ -17,10 +17,10 @@ export default function FlashcardScreen() {
   const [cards, setCards] = useState(null)
 
   const rawCards = useLiveQuery(
-    () => db.flashcards.where({ grade: Number(grade), subject }).toArray(),
-    [grade, subject], []
+    () => db.flashcards.where({ grade: 4, subject }).toArray(),
+    [subject], []
   )
-  const masteryRecords = useSubjectMastery(grade, subject)
+  const masteryRecords = useSubjectMastery(4, subject)
   const initialized = useRef(false)
 
   const sortCards = useCallback((cs, records) => {
@@ -52,7 +52,7 @@ export default function FlashcardScreen() {
   const done = idx >= cards.length
 
   const markKnown = (didKnow) => {
-    recordAttempt(card.id, 'flashcard', grade, subject, didKnow)
+    recordAttempt(card.id, 'flashcard', 4, subject, didKnow)
     if (didKnow) setKnown(k => [...k, idx])
     setIdx(idx + 1)
     setFlipped(false)

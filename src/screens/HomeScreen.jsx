@@ -1,9 +1,8 @@
 import { useNavigate } from 'react-router-dom'
-import { GRADES, GRADE_COLORS } from '../data/seedData'
+import { useMemo } from 'react'
+import { SUBJECTS, GRADE_COLOR } from '../data/seedData'
 import { getApiKey } from '../hooks/useApiKey'
-
-const GRADE_EMOJIS = { 1:'🌱', 2:'🌟', 3:'🚀', 4:'🔥', 5:'💡', 6:'⚡', 7:'🏆' }
-const GRADE_ANIMALS = { 1:'🐣', 2:'🐸', 3:'🦊', 4:'🦁', 5:'🐬', 6:'🦅', 7:'🦄' }
+import { useGradeMastery } from '../hooks/useMastery'
 
 function getGreeting() {
   const h = new Date().getHours()
@@ -12,8 +11,32 @@ function getGreeting() {
   return 'Goeie aand'
 }
 
+function StarMastery({ pct }) {
+  const filled = pct >= 67 ? 3 : pct >= 34 ? 2 : pct > 0 ? 1 : 0
+  return (
+    <div className="flex items-center gap-1">
+      {[1,2,3].map(n => (
+        <span key={n} className={`text-lg ${n <= filled ? 'text-yellow-400' : 'text-gray-200'}`}>★</span>
+      ))}
+      {pct > 0 && <span className="text-xs text-gray-400 font-semibold ml-1">{pct}%</span>}
+      {pct === 0 && <span className="text-xs text-gray-400 font-semibold ml-1">Begin!</span>}
+    </div>
+  )
+}
+
 export default function HomeScreen() {
   const navigate = useNavigate()
+  const masteryRecords = useGradeMastery(4)
+
+  const subjectMastery = useMemo(() => {
+    const map = {}
+    for (const r of masteryRecords || []) {
+      if (!map[r.subject]) map[r.subject] = { correct: 0, attempts: 0 }
+      map[r.subject].correct += r.correct
+      map[r.subject].attempts += r.attempts
+    }
+    return map
+  }, [masteryRecords])
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-indigo-100 via-purple-50 to-pink-100">
@@ -34,29 +57,35 @@ export default function HomeScreen() {
           WonderLearn
         </h1>
         <p className="text-indigo-500 font-semibold mt-1 text-base">{getGreeting()}, WonderLeerder! 👋</p>
-        <p className="text-gray-400 text-sm mt-1">CAPS-leer vir Suid-Afrikaanse kinders</p>
+        <p className="text-gray-400 text-sm mt-1">CAPS-leer vir Graad 4-leerders</p>
       </header>
 
-      {/* Grade picker */}
-      <main className="flex-1 px-4 pb-10">
-        <div className="bg-white/60 backdrop-blur rounded-3xl p-4 shadow-inner mb-5 max-w-sm mx-auto text-center">
-          <p className="text-gray-600 font-bold text-lg">🎒 In watter graad is jy?</p>
+      {/* Subject list */}
+      <main className="flex-1 px-4 pb-10 max-w-md mx-auto w-full">
+        <div className={`text-center mb-6 rounded-3xl py-5 px-4 ${GRADE_COLOR.light} border-2 ${GRADE_COLOR.border} shadow-sm`}>
+          <div className="text-5xl mb-1">📚</div>
+          <h2 className={`text-2xl font-extrabold ${GRADE_COLOR.text}`}>Graad 4 Vakke</h2>
+          <p className="text-gray-400 text-sm mt-1 font-semibold">Kies 'n vak om te leer!</p>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 max-w-sm mx-auto sm:max-w-md sm:grid-cols-3 sm:gap-5">
-          {GRADES.map(grade => {
-            const c = GRADE_COLORS[grade]
+        <div className="flex flex-col gap-3">
+          {SUBJECTS.map(subj => {
+            const m = subjectMastery[subj.id] || { correct: 0, attempts: 0 }
+            const pct = m.attempts > 0 ? Math.round((m.correct / m.attempts) * 100) : 0
             return (
               <button
-                key={grade}
-                onClick={() => navigate(`/grade/${grade}`)}
-                className={`card-press flex flex-col items-center justify-center gap-2 rounded-3xl py-6 px-3 shadow-lg border-4 ${c.border} ${c.light} active:scale-95 transition-all duration-150`}
-                style={{ boxShadow: '0 6px 18px 0 rgba(0,0,0,0.10)' }}
+                key={subj.id}
+                onClick={() => navigate(`/subject/${subj.id}`)}
+                className={`card-press flex items-center gap-4 rounded-2xl p-4 shadow-md border-2 bg-white ${subj.border} active:scale-95 transition-all duration-150`}
               >
-                <span className="text-5xl leading-none">{GRADE_ANIMALS[grade]}</span>
-                <span className={`text-xs font-extrabold uppercase tracking-wide ${c.text}`}>
-                  {GRADE_EMOJIS[grade]} Graad {grade}
-                </span>
+                <div className={`w-14 h-14 rounded-2xl ${subj.color} flex items-center justify-center text-3xl shadow-sm flex-shrink-0`}>
+                  {subj.emoji}
+                </div>
+                <div className="text-left flex-1 min-w-0">
+                  <div className={`text-base font-extrabold ${subj.text}`}>{subj.label}</div>
+                  <StarMastery pct={pct} />
+                </div>
+                <div className="text-gray-300 text-2xl flex-shrink-0">›</div>
               </button>
             )
           })}
@@ -66,7 +95,7 @@ export default function HomeScreen() {
         <div className="mt-8 text-center">
           <span className="inline-flex items-center gap-2 text-xs text-gray-500 bg-white/70 px-4 py-2 rounded-full shadow-sm">
             <span className="text-green-500 font-bold text-sm">●</span>
-            Werk sonder internet · Alle grade 1–7
+            Werk sonder internet
           </span>
         </div>
       </main>

@@ -18,10 +18,10 @@ const OPTION_STYLES = [
 ]
 
 export default function QuizScreen() {
-  const { grade, subject } = useParams()
+  const { subject } = useParams()
   const navigate = useNavigate()
   const subjectInfo = SUBJECTS.find(s => s.id === subject)
-  const { save } = useProgress(Number(grade), subject)
+  const { save } = useProgress(4, subject)
 
   const [current, setCurrent] = useState(0)
   const [selected, setSelected] = useState(null)
@@ -33,10 +33,10 @@ export default function QuizScreen() {
   const [questions, setQuestions] = useState(null)
 
   const rawQuestions = useLiveQuery(
-    () => db.questions.where({ grade: Number(grade), subject }).toArray(),
-    [grade, subject], []
+    () => db.questions.where({ grade: 4, subject }).toArray(),
+    [subject], []
   )
-  const masteryRecords = useSubjectMastery(grade, subject)
+  const masteryRecords = useSubjectMastery(4, subject)
   const initialized = useRef(false)
 
   const sortQuestions = useCallback((qs, records) => {
@@ -65,7 +65,7 @@ export default function QuizScreen() {
       setShakeIdx(idx)
       setTimeout(() => setShakeIdx(null), 600)
     }
-    recordAttempt(questions[current].id, 'quiz', grade, subject, correct)
+    recordAttempt(questions[current].id, 'quiz', 4, subject, correct)
   }
 
   const handleNext = () => {

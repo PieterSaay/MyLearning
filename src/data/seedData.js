@@ -1,5 +1,5 @@
-// CAPS-ooreenstemmende inhoud vir grade 1–7
-// Elke vak het vraelysevrae, lesse en flitskaarte
+// CAPS-ooreenstemmende inhoud vir Graad 4
+// Elke vak het kwisvrae, lesse en flitskaarte
 
 export const SUBJECTS = [
   { id: 'maths',     label: 'Wiskunde',           emoji: '🔢', color: 'bg-blue-500',   light: 'bg-blue-100',   text: 'text-blue-700',   border: 'border-blue-400' },
@@ -9,663 +9,106 @@ export const SUBJECTS = [
   { id: 'lifeskills',label: 'Lewensvaardighede',   emoji: '🌟', color: 'bg-purple-500', light: 'bg-purple-100', text: 'text-purple-700', border: 'border-purple-400' },
 ]
 
-export const GRADES = [1,2,3,4,5,6,7]
+export const GRADE = 4
 
-export const GRADE_COLORS = {
-  1: { bg: 'bg-yellow-400', light: 'bg-yellow-100', text: 'text-yellow-800', border: 'border-yellow-400', hex: '#facc15' },
-  2: { bg: 'bg-orange-400', light: 'bg-orange-100', text: 'text-orange-800', border: 'border-orange-400', hex: '#fb923c' },
-  3: { bg: 'bg-green-500',  light: 'bg-green-100',  text: 'text-green-800',  border: 'border-green-500',  hex: '#22c55e' },
-  4: { bg: 'bg-blue-500',   light: 'bg-blue-100',   text: 'text-blue-800',   border: 'border-blue-500',   hex: '#3b82f6' },
-  5: { bg: 'bg-purple-500', light: 'bg-purple-100', text: 'text-purple-800', border: 'border-purple-500', hex: '#a855f7' },
-  6: { bg: 'bg-red-500',    light: 'bg-red-100',    text: 'text-red-800',    border: 'border-red-500',    hex: '#ef4444' },
-  7: { bg: 'bg-teal-500',   light: 'bg-teal-100',   text: 'text-teal-800',   border: 'border-teal-500',   hex: '#14b8a6' },
-}
+export const GRADE_COLOR = { bg: 'bg-blue-500', light: 'bg-blue-100', text: 'text-blue-800', border: 'border-blue-500', hex: '#3b82f6' }
 
-// ─── VRAELYS VRAE ──────────────────────────────────────────────────────────────
+// ─── KWISVRAE ──────────────────────────────────────────────────────────────────
 export const QUIZ_QUESTIONS = [
-  // ── Graad 1 ────────────────────────────────────────────────────────────────
-  // Wiskunde — CAPS: getalbonde na 10, tel in 2e/5e/10e, vorms, meting, tyd
-  { grade:1, subject:'maths', question:'Watter twee getalle maak saam 10?', options:['3 en 6','4 en 6','3 en 8','2 en 7'], answer:1, explanation:'4 + 6 = 10. Dit noem ons \'n getalbond na 10! Leer al die getalbonde: 1+9, 2+8, 3+7, 4+6, 5+5.' },
-  { grade:1, subject:'maths', question:'Tel verder in 2e: 2, 4, 6, ___', options:['7','8','9','10'], answer:1, explanation:'As ons in 2e tel, voeg ons elke keer 2 by. 6 + 2 = 8!' },
-  { grade:1, subject:'maths', question:'Watter vorm het 3 kante en 3 hoeke?', options:['Sirkel','Vierkant','Driehoek','Reghoek'], answer:2, explanation:'\'n Driehoek het presies 3 kante en 3 hoeke. Die naam kom van "drie"!' },
-  { grade:1, subject:'maths', question:'Wat is 9 + 6?', options:['13','14','15','16'], answer:2, explanation:'Dink: 9 + 1 = 10, dan 10 + 5 = 15. So 9 + 6 = 15!' },
-  { grade:1, subject:'maths', question:'Hoeveel dae is in een week?', options:['5','6','7','8'], answer:2, explanation:'Daar is 7 dae: Maandag, Dinsdag, Woensdag, Donderdag, Vrydag, Saterdag, Sondag.' },
-  { grade:1, subject:'maths', question:'Watter 3D-voorwerp lyk soos \'n bal?', options:['Blokkie (kubus)','Bol (sfeer)','Silinder','Konus (keël)'], answer:1, explanation:'\'n Bal is \'n bol of sfeer — dit is heeltemal rond en het geen plat kante nie.' },
-  { grade:1, subject:'maths', question:'Jy het 13 lekkers en gee 5 weg. Hoeveel het jy oor?', options:['6','7','8','9'], answer:2, explanation:'13 − 5 = 8. Trek weg: 13, 12, 11, 10, 9, 8 — sewe stappe terug!' },
-  { grade:1, subject:'maths', question:'Tel verder in 5e: 5, 10, 15, ___', options:['16','18','20','25'], answer:2, explanation:'As ons in 5e tel, voeg ons elke keer 5 by. 15 + 5 = 20!' },
-  // Engels — CAPS: foniek (CVC-woorde), sigwoorde, klanke, sinsbou, hoofletters
-  { grade:1, subject:'english', question:'Which word rhymes with "cat"?', options:['dog','hat','sit','run'], answer:1, explanation:'"Cat" and "hat" both end in -at so they rhyme! Try to think of more -at words.' },
-  { grade:1, subject:'english', question:'What sound does the letter "b" make?', options:['sss','buh','mmm','ttt'], answer:1, explanation:'"b" makes the "buh" sound — like in ball, bat, and bed.' },
-  { grade:1, subject:'english', question:'Which sentence is written correctly?', options:['i am happy.','I am happy.','I Am Happy.','i Am happy.'], answer:1, explanation:'Every sentence starts with a capital letter. "I" is always a capital too.' },
-  { grade:1, subject:'english', question:'Which letters are vowels?', options:['b, c, d, f','a, e, i, o, u','p, q, r, s','m, n, l, k'], answer:1, explanation:'The 5 vowels are A, E, I, O, U. Every word needs at least one vowel!' },
-  { grade:1, subject:'english', question:'What is the word "c-a-t" when you blend the sounds?', options:['cut','coat','cat','cup'], answer:2, explanation:'Blend /c/ + /a/ + /t/ together and you get "cat"! This is called sounding out.' },
-  { grade:1, subject:'english', question:'Which word is a noun (naming word)?', options:['run','happy','table','quickly'], answer:2, explanation:'A noun names a person, place, or thing. "Table" is a thing — it is a noun!' },
-  { grade:1, subject:'english', question:'How many syllables (beats) does "elephant" have?', options:['1','2','3','4'], answer:2, explanation:'El-e-phant — clap it out: 3 beats, so 3 syllables!' },
-  { grade:1, subject:'english', question:'Which punctuation mark ends a question?', options:['.',  '!','?',','], answer:2, explanation:'Questions end with a question mark (?). Statements end with a full stop (.).' },
-  // Lewende Wêreld (Life Skills: Beginning Knowledge) — CAPS: lewendig/nie-lewendig, sintuie, materiale, plante, diere, weer
-  { grade:1, subject:'science', question:'Watter een is \'n lewende ding?', options:['\'n Klip','\'n Stoel','\'n Boom','\'n Kar'], answer:2, explanation:'\'n Boom is lewendig — dit groei, het water nodig en maak sade om nuwe bome te groei!' },
-  { grade:1, subject:'science', question:'Watter sintuig gebruik ons om te HOOR?', options:['Oë','Ore','Neus','Tong'], answer:1, explanation:'Ons gebruik ons ore om klanke te hoor. Ons het 5 sintuie: sien, hoor, ruik, proe en voel.' },
-  { grade:1, subject:'science', question:'Watter materiaal is HARD?', options:['Katoenwol','Spons','Klip','Rubber'], answer:2, explanation:'\'n Klip is hard — dit buk of druk nie in nie. Spons en wol is sag.' },
-  { grade:1, subject:'science', question:'Watter deel van die plant drink water uit die grond op?', options:['Die blare','Die blom','Die wortels','Die stingel'], answer:2, explanation:'Wortels suig water en voedingstowwe uit die grond op en stuur dit na die res van die plant.' },
-  { grade:1, subject:'science', question:'Wat eet \'n herbivoor?', options:['Ander diere','Plante','Visse','Insekte'], answer:1, explanation:'Herbivore eet net plante. "Herbi" beteken plant. Koeie en skape is herbivore.' },
-  { grade:1, subject:'science', question:'Watter weer-woord beskryf \'n dag sonder enige wolke?', options:['Bewolk','Reënerig','Sonnig','Winderig'], answer:2, explanation:'\'n Sonnige dag het helder blou lug en geen wolke nie. Die son skyn heeldag.' },
-  { grade:1, subject:'science', question:'Hoekom het ons dag en nag?', options:['Die maan beweeg rondom ons','Die aarde draai op sy eie as','Die son slaap snags','Die sterre is helder'], answer:1, explanation:'Die Aarde draai stadig op sy as. Die kant wat na die son wys het dag; die ander kant het nag.' },
-  { grade:1, subject:'science', question:'Wat het alle lewende dinge nodig om te leef?', options:['Lekkers en speelgoed','Kos, water en skuiling','Klere en skoene','Skole en televisie'], answer:1, explanation:'Alle lewende dinge — mense, diere en plante — het kos, water en \'n veilige plek nodig om te leef.' },
-  // Afrikaans — CAPS: liggaamsdele, gesin, dae van die week, gevoelens, eenvoudige sinne
-  { grade:1, subject:'afrikaans', question:'Wat is "ouma" in Engels?', options:['Mother','Aunt','Grandmother','Sister'], answer:2, explanation:'"Ouma" is Afrikaans vir "grandmother". "Oupa" is "grandfather".' },
-  { grade:1, subject:'afrikaans', question:'Watter liggaamsdeel gebruik jy om te ruik?', options:['Oë','Ore','Neus','Mond'], answer:2, explanation:'"Neus" is "nose" in Engels. Ons gebruik ons neus om dinge te ruik.' },
-  { grade:1, subject:'afrikaans', question:'Hoe sê jy "Good morning" in Afrikaans?', options:['Totsiens','Goeie môre','Goeie nag','Lekker slaap'], answer:1, explanation:'"Goeie môre" beteken "Good morning". "Goeie middag" is "Good afternoon".' },
-  { grade:1, subject:'afrikaans', question:'Watter dag kom NA Dinsdag?', options:['Maandag','Woensdag','Donderdag','Vrydag'], answer:1, explanation:'Die dae is: Maandag, Dinsdag, WOENSDAG, Donderdag, Vrydag, Saterdag, Sondag.' },
-  { grade:1, subject:'afrikaans', question:'Wat beteken "bly" in die sin "Ek is bly"?', options:['Sad','Angry','Scared','Happy'], answer:3, explanation:'"Bly" beteken "happy" in Afrikaans. "Ek is bly" = "I am happy".' },
-  { grade:1, subject:'afrikaans', question:'Hoe sê jy "please" in Afrikaans?', options:['Dankie','Totsiens','Asseblief','Hallo'], answer:2, explanation:'"Asseblief" beteken "please". Gebruik dit wanneer jy iets vra!' },
-  { grade:1, subject:'afrikaans', question:'Watter woord beteken "cold"?', options:['Warm','Koud','Nat','Droog'], answer:1, explanation:'"Koud" beteken "cold". Die teenoorgestelde is "warm".' },
-  { grade:1, subject:'afrikaans', question:'Hoe sê jy "five" in Afrikaans?', options:['Vier','Ses','Vyf','Sewe'], answer:2, explanation:'Een, twee, drie, vier, VYF — "vyf" is "five" in Afrikaans.' },
-  // Lewensvaardighede — CAPS: gevoelens, higiëne, veiligheid, gesin, gemeenskap, vriendskap
-  { grade:1, subject:'lifeskills', question:'Watter gevoel is dit as jy lag en binne jou maag lekker voel?', options:['Kwaad','Bly/Gelukkig','Hartseer','Bang'], answer:1, explanation:'As ons lag en binne lekker voel, is ons bly of gelukkig! Gevoelens vertel ons hoe ons binne voel.' },
-  { grade:1, subject:'lifeskills', question:'Hoeveel sekondes moet jy jou hande met seep was om kieme weg te kry?', options:['5 sekondes','10 sekondes','20 sekondes','60 sekondes'], answer:2, explanation:'Was jou hande vir ten minste 20 sekondes met seep — dit is so lank soos om "Happy Birthday" twee keer te sing!' },
-  { grade:1, subject:'lifeskills', question:'Wat beteken \'n GROEN verkeerslig?', options:['Stop','Stadiger ry','Gaan/Ry','Gevaar'], answer:2, explanation:'Groen beteken GAAN. Rooi beteken STOP. Oranje/Geel beteken STADIGER — wees versigtig.' },
-  { grade:1, subject:'lifeskills', question:'Jou liggaam behoort aan jou. Wat moet jy doen as iemand jou ongemaklik aanraak?', options:['Bly stil en sê niks','Sê NEE en vertel \'n vertroude volwassene','Hardloop weg alleen','Vergeet dit'], answer:1, explanation:'Jy mag altyd NEE sê as \'n aanraking verkeerd voel. Vertel dan dadelik \'n vertroude volwassene soos \'n ouer of juffrou.' },
-  { grade:1, subject:'lifeskills', question:'Watter persoon help jou as jy siek is?', options:['Brandweerman','Dokter of verpleegster','Polisieman','Bakker'], answer:1, explanation:'\'n Dokter of verpleegster sorg vir siek mense. Hulle is gemeenskapshulpverleners — mense wat ander mense help.' },
-  { grade:1, subject:'lifeskills', question:'Watter kos is die GESONDSTE keuse?', options:['Skyfies','Sjokolade','\'n Piesang','Lekkers'], answer:2, explanation:'\'n Piesang is \'n vrug wat vol vitamiene en energie is. Vrugte en groente hou ons liggame sterk en gesond.' },
-  { grade:1, subject:'lifeskills', question:'Hoe maak jy \'n nuwe vriend by die skool?', options:['Vat hul speelgoed','Glimlag en sê hallo','Stoot hulle','Ignoreer hulle'], answer:1, explanation:'Om vriendelik te wees, te glimlag en interesse in ander te toon is die beste manier om vriende te maak.' },
-  { grade:1, subject:'lifeskills', question:'Wat moet jy doen as jy \'n vuur sien?', options:['Speel naby die vuur','Verstop onder \'n bed','Gaan uit en roep \'n volwassene','Gooi water alleen'], answer:2, explanation:'By vuur moet jy UITGAAN en onmiddellik \'n volwassene roep. Moenie self probeer blus nie — gaan veiligheid eerste!' },
-
-  // ── Graad 2 ────────────────────────────────────────────────────────────────
-  // Wiskunde — CAPS: plekwaarde tot 99, tel in 3e, herhaalde optelling, breuke, geld, simetrie, tyd, data
-  { grade:2, subject:'maths', question:'47 = ___ tientalle + ___ ene. Hoeveel tientalle?', options:['3','4','7','9'], answer:1, explanation:'47 = 4 tientalle + 7 ene. Die syfer 4 staan in die tientalle-plek — dit beteken 40.' },
-  { grade:2, subject:'maths', question:'Tel verder in 3e: 3, 6, 9, ___', options:['10','11','12','13'], answer:2, explanation:'Elke keer voeg ons 3 by. 9 + 3 = 12. In 3e tel: 3, 6, 9, 12, 15, 18...' },
-  { grade:2, subject:'maths', question:'4 groepe van 5 is gelyk aan?', options:['15','18','20','25'], answer:2, explanation:'4 groepe van 5 = 5 + 5 + 5 + 5 = 20. Dit is herhaalde optelling — die begin van vermenigvuldiging!' },
-  { grade:2, subject:'maths', question:'Wat is die helfte (½) van 18?', options:['6','8','9','10'], answer:2, explanation:'½ van 18 beteken deel dit in 2 gelyke dele: 18 ÷ 2 = 9.' },
-  { grade:2, subject:'maths', question:'Jy koop lekkers vir R7. Jy betaal met R10. Hoeveel kleingeld kry jy terug?', options:['R2','R3','R4','R5'], answer:1, explanation:'R10 − R7 = R3. Kleingeld is die geld wat jy terugkry na jy betaal het.' },
-  { grade:2, subject:'maths', question:'Watter horlosietyd wys "half past three" (halfvier)?', options:['3:00','3:15','3:30','3:45'], answer:2, explanation:'"Half past three" of "halfvier" is 3:30. Die lang wyser wys op 6 en die kort wyser is tussen 3 en 4.' },
-  { grade:2, subject:'maths', question:'\'n Vorm het \'n simetrielyn. Wat beteken dit?', options:['Dit het 4 kante','Albei helftes is eenders','Dit kan rol','Dit het geen hoeke'], answer:1, explanation:'\'n Simetrielyn deel \'n vorm in twee GELYKE helftes wat presies dieselfde lyk.' },
-  { grade:2, subject:'maths', question:'In \'n piktogram stel elke ster 1 kind voor. As 6 sterre appels kies, hoeveel kinders hou van appels?', options:['3','5','6','7'], answer:2, explanation:'In hierdie piktogram = 1 ster = 1 kind. 6 sterre = 6 kinders. Piktogramme stel data voor deur prente.' },
-  // Engels — CAPS: medeklinkergroepe, digrafieke, meervoud-reëls, byvoeglike naamwoorde, tye, kollektiewe naamwoorde
-  { grade:2, subject:'english', question:'Which word starts with an "sl" blend?', options:['step','clap','slide','grip'], answer:2, explanation:'"Slide" starts with the "sl" blend (consonant blend). Blends are two consonants that work together: sl, bl, cr, tr...' },
-  { grade:2, subject:'english', question:'What sound does "ch" make in "chair"?', options:['kuh','sss','ch (as in cheese)','guh'], answer:2, explanation:'"ch" is a digraph — two letters that make ONE sound: /ch/ as in chair, cheese, and lunch.' },
-  { grade:2, subject:'english', question:'What is the plural of "berry"?', options:['berrys','berries','berryes','berry'], answer:1, explanation:'When a word ends in consonant + y, change the y to i and add -es: berry → berries, baby → babies.' },
-  { grade:2, subject:'english', question:'What is the irregular plural of "tooth"?', options:['tooths','toothes','teeth','teeths'], answer:2, explanation:'"Tooth" has an irregular plural: teeth. Other irregular plurals: child→children, foot→feet, mouse→mice.' },
-  { grade:2, subject:'english', question:'Which word is an adjective in: "The big brown dog ran fast."?', options:['ran','dog','big','fast'], answer:2, explanation:'"Big" is an adjective — it describes (tells us about) the noun "dog". Adjectives answer: What kind? How many?' },
-  { grade:2, subject:'english', question:'What is the past tense of "jump"?', options:['jumps','jumping','jumped','will jump'], answer:2, explanation:'Regular verbs in the past tense add -ed: jump → jumped, walk → walked, play → played.' },
-  { grade:2, subject:'english', question:'Which word completes: "She ___ running when I arrived."?', options:['is','are','was','were'], answer:2, explanation:'"Was" is used with she/he/it in the past: She WAS running. This is called past continuous tense.' },
-  { grade:2, subject:'english', question:'What is a "flock" an example of?', options:['A verb','A collective noun','An adjective','A pronoun'], answer:1, explanation:'A collective noun names a GROUP of things: a flock of birds, a herd of cows, a pack of wolves.' },
-  // Lewende Wêreld (Life Skills BK) — CAPS: materiale, seisoene, plantlewenssiklus, dieregroep, lig, klank, habitat, omnivoor
-  { grade:2, subject:'science', question:'Watter materiaal is DEURSIGTIG (transparent)?', options:['Hout','Metaal','Glas','Klip'], answer:2, explanation:'Glas is deursigtig — lig kan deurstroom en jy kan deurkyk. Vensters is van glas gemaak!' },
-  { grade:2, subject:'science', question:'In watter seisoen verloor baie bome hul blare in Suid-Afrika?', options:['Somer','Lente','Herfs','Winter'], answer:2, explanation:'In die HERFS (autumn) verander blare van kleur en val af. Ná die herfs kom winter.' },
-  { grade:2, subject:'science', question:'Wat is die korrekte volgorde van \'n plant se lewenssiklus?', options:['Blom→Saad→Plant→Saailing','Saad→Saailing→Plant→Blom→Saad','Plant→Saad→Blom→Saailing','Saailing→Saad→Blom→Plant'], answer:1, explanation:'\'n Saad ontkieм, word \'n saailing (seedling), groei in \'n plant, blom, maak nuwe sade — en die siklus herhaal!' },
-  { grade:2, subject:'science', question:'Watter groep diere het skubbe en is koudbloedig?', options:['Soogdiere','Voëls','Reptiele','Visse'], answer:2, explanation:'Reptiele (soos akkedisse, slange, krokodille) het skubbe, lê eiers en is koudbloedig — hul liggaamstemperatuur verander met die omgewing.' },
-  { grade:2, subject:'science', question:'Wat is die HOOF ligbron op Aarde gedurende die dag?', options:['Die maan','Elektriese ligte','Die son','Sterre'], answer:2, explanation:'Die SON is ons hoofligbron — dit gee ons lig en warmte. Sonder die son sou geen lewe op Aarde moontlik wees nie.' },
-  { grade:2, subject:'science', question:'Hoe word klanke gemaak?', options:['Deur te kyk','Wanneer dinge vibreer (tril)','Deur te ruik','Wanneer dinge stop'], answer:1, explanation:'Klanke word gemaak wanneer voorwerpe VIBREER (vinnig heen en weer beweeg). Jou stembande vibreer as jy praat!' },
-  { grade:2, subject:'science', question:'Watter dier is \'n omnivoor?', options:['\'n Koei (eet net gras)','\'n Leeu (eet net vleis)','\'n Mens (eet plante en vleis)','\'n Skaap (eet net plante)'], answer:2, explanation:'\'n Omnivoor eet BEIDE plante en diere. Mense, bere en varke is omnivore. Herbivore eet net plante; karnivore net vleis.' },
-  { grade:2, subject:'science', question:'Wat is \'n habitat?', options:['\'n Soort kos','Die natuurlike tuiste waar \'n dier leef','\'n Soort plant','\'n Tipe weer'], answer:1, explanation:'\'n Habitat is die natuurlike omgewing waar \'n dier leef en alles kry wat dit nodig het — kos, water en skuiling.' },
-  // Afrikaans — CAPS: meervoud -e, lidwoorde die/'n, tyd (halfuur/kwart), negatief, vervoer, seisoene, voornaamwoorde
-  { grade:2, subject:'afrikaans', question:'Wat is die meervoud van "hond"?', options:['honds','honde','honden','hondes'], answer:1, explanation:'"Hond" se meervoud is "honde". Baie Afrikaanse naamwoorde kry -e in die meervoud: stoel→stoele, boom→bome.' },
-  { grade:2, subject:'afrikaans', question:'Watter woord is die ONBEPAALDE lidwoord in Afrikaans?', options:['"die"','"\'n"','"het"','"is"'], answer:1, explanation:'"\' n" is die onbepaalde lidwoord (a/an). "Die" is die bepaalde lidwoord (the). Bv: \'n hond = a dog; die hond = the dog.' },
-  { grade:2, subject:'afrikaans', question:'"Halfnege" op \'n horlosie is watter tyd?', options:['9:30','8:30','9:15','8:45'], answer:1, explanation:'In Afrikaans beteken "halfnege" HALF voor nege — dit is 8:30! LET OP: dit is anders as in Engels waar "half nine" 9:30 sou wees.' },
-  { grade:2, subject:'afrikaans', question:'Watter sin is die NEGATIEF van "Die kat slaap."?', options:['Die kat slaap baie.','Die kat slaap nie.','Slaap die kat?','Die kat het geslaap.'], answer:1, explanation:'In Afrikaans gebruik ons TWEE "nie" om \'n sin negatief te maak: "Die kat slaap NIE." (Die tweede "nie" word nie altyd gehoor nie maar is deel van die reël.)' },
-  { grade:2, subject:'afrikaans', question:'Wat is "vliegtuig" in Engels?', options:['Car','Train','Aeroplane/Airplane','Ship'], answer:2, explanation:'"Vliegtuig" beteken "aeroplane" of "airplane". "Vlieg" = to fly; "tuig" = vessel/craft.' },
-  { grade:2, subject:'afrikaans', question:'Watter seisoen kom NA die somer in Suid-Afrika?', options:['Winter','Herfs','Lente','Reën'], answer:1, explanation:'Die seisoene in volgorde: Somer → HERFS → Winter → Lente → Somer weer. In herfs word dit kouer en blare val.' },
-  { grade:2, subject:'afrikaans', question:'Watter voornaamwoord vervang "Maria en ek"?', options:['Hy','Sy','Ons','Hulle'], answer:2, explanation:'"Maria en ek" word vervang deur "ons" (we/us). Voornaamwoorde: ek, jy, hy, sy, dit, ons, julle, hulle.' },
-  { grade:2, subject:'afrikaans', question:'Wat beteken "Hoe laat is dit?"', options:['Where are you?','What is your name?','What time is it?','How are you?'], answer:2, explanation:'"Hoe laat is dit?" = "What time is it?" Antwoord: "Dit is halfses" = "It is half past five" (5:30).' },
-  // Lewensvaardighede — CAPS: waterveiligheid, noodgetalle, reënboognasie, erfenisdag, herwinning, kindergregte, ubuntu
-  { grade:2, subject:'lifeskills', question:'Wat is die GEVAARLIKSTE om te doen by \'n swembad of rivier?', options:['By \'n volwassene bly','Alleen swem sonder toesig','Swem tussen die vlaggies','Voor in die bad gaan','Swem saam met vriende'], answer:1, explanation:'NOOIT alleen swem nie! Altyd \'n volwassene naby jou hê wanneer jy by water speel of swem. Water kan baie gevaarlik wees.' },
-  { grade:2, subject:'lifeskills', question:'Watter nommer bel jy op \'n selfoon in \'n noodgeval in Suid-Afrika?', options:['911','999','112','000'], answer:2, explanation:'112 is die universele noodgetal op \'n selfoon in Suid-Afrika. Jy kan ook 10111 (polisie) of 10177 (ambulans) bel.' },
-  { grade:2, subject:'lifeskills', question:'Hoeveel amptelike tale het Suid-Afrika?', options:['3','7','11','14'], answer:2, explanation:'Suid-Afrika het 11 amptelike tale, insluitend Zulu, Xhosa, Afrikaans, Engels, Sotho en meer. Dit maak ons \'n werklike Reënboognasie!' },
-  { grade:2, subject:'lifeskills', question:'Watter dag is Erfenisdag in Suid-Afrika?', options:['27 April','16 Junie','24 September','16 Desember'], answer:2, explanation:'Erfenisdag is op 24 September. Ons vier die diverse kulture, tale en tradisies van al die mense van Suid-Afrika.' },
-  { grade:2, subject:'lifeskills', question:'As jy papier herwin (recycle), in watter houer gooi jy dit?', options:['Groen bak (glas)','Blou bak (papier)','Geel bak (plastiek)','Rooi bak (metaal)'], answer:1, explanation:'Papier gaan in die BLOU herwinningshouer. Herwin beteken ons verander ou materiaal in nuwe produkte — goed vir die omgewing!' },
-  { grade:2, subject:'lifeskills', question:'Watter is \'n reg wat ELKE kind in Suid-Afrika het volgens die Grondwet?', options:['\'n Selfoon hê','Skoolgaan (onderwys)','Televisie kyk','Soetgoed eet'], answer:1, explanation:'Elke kind in Suid-Afrika het die reg op ONDERWYS (skoolgaan). Ander regte: gesondheidsorg, voedsel, veiligheid en speel.' },
-  { grade:2, subject:'lifeskills', question:'Wat beteken die Ubuntu-filosofie?', options:['Elke mens vir homself','Ek is omdat ons is — ons is verbind aan mekaar','Wen teen ander mense','Alleen is jy sterker'], answer:1, explanation:'Ubuntu is \'n Afrika-filosofie: "Umuntu ngumuntu ngabantu" — "Ek is wie ek is deur ander mense." Dit beklemtoon gemeenskap en medelye.' },
-  { grade:2, subject:'lifeskills', question:'Wat doen \'n "scholar patrol" by die skool?', options:['Kos verkoop','Help kinders veilig oor die pad','Sport afrig','Klasse monitor'], answer:1, explanation:'Scholar patrol is ouer leerders wat help om jonger kinders veilig oor die pad te lei by die skool — hulle dra orange jas en gebruik stopborde.' },
-
-  // ── Graad 3 ────────────────────────────────────────────────────────────────
-  // Wiskunde — CAPS: plekwaarde tot 999, tafels 2/3/4/5/10, deling, breuke, geld, 2D/3D vorms, tyd tot minuut, data
-  { grade:3, subject:'maths', question:'Wat is die plekwaarde van die syfer 3 in die getal 374?', options:['3','30','300','3 000'], answer:2, explanation:'In 374 staan die 3 in die HONDERDTALLE-plek. Sy waarde is 300. H|T|E: 3 honderdtalle + 7 tientalle + 4 ene.' },
-  { grade:3, subject:'maths', question:'Wat is 4 × 8?', options:['24','32','36','40'], answer:1, explanation:'4 × 8 = 32. Vier-tafel: 4, 8, 12, 16, 20, 24, 28, 32. Dink ook: 4×8 = (4×4)×2 = 16×2 = 32.' },
-  { grade:3, subject:'maths', question:'Wat is 30 ÷ 5?', options:['5','6','7','8'], answer:1, explanation:'30 ÷ 5 = 6 omdat 5 × 6 = 30. Deling en vermenigvuldiging is teengesteldes van mekaar.' },
-  { grade:3, subject:'maths', question:'Wat is 1/3 van 18?', options:['3','5','6','9'], answer:2, explanation:'1/3 van 18 = 18 ÷ 3 = 6. Deel die getal in 3 gelyke groepe: 6 + 6 + 6 = 18. ✅' },
-  { grade:3, subject:'maths', question:'Jy koop brood vir R12,50 en botter vir R17,50. Hoeveel is die totaal?', options:['R28,00','R29,00','R30,00','R31,00'], answer:2, explanation:'R12,50 + R17,50: Rande 12+17=29; Sente 50+50=100 sent=R1. Totaal: R29+R1=R30,00.' },
-  { grade:3, subject:'maths', question:'Hoeveel kante het \'n pentagon?', options:['4','5','6','8'], answer:1, explanation:'\'n Pentagon het 5 kante en 5 hoeke. "Penta" kom van Grieks en beteken VYF. \'n Heksagoon (hexagon) het 6 kante.' },
-  { grade:3, subject:'maths', question:'Die lang wyser wys op 4 en die kort wyser wys op 2. Watter tyd is dit?', options:['2:04','2:20','4:02','4:10'], answer:1, explanation:'Lang wyser op 4 = 20 minute (4×5=20). Kort wyser op 2 = 2-uur. Tyd = 2:20 (twintig minute oor twee).' },
-  { grade:3, subject:'maths', question:'In \'n staafgrafiek kies 7 kinders appels, 5 pere en 9 piesangs. Watter vrug is die GEWILDSTE?', options:['Appels','Pere','Piesangs','Almal dieselfde'], answer:2, explanation:'Piesangs het die hoogste telling (9). In \'n staafgrafiek kyk ons na die LANGSTE staaf om die gewildste item te vind.' },
-  // Engels — CAPS: stille letters (kn/wr/gh), voor-/agtervoegsels, vergelykende adj, onreëlmatige verlede tye, besitlike apostroof, direkte rede, woordeboek
-  { grade:3, subject:'english', question:'Which letter is SILENT in the word "knife"?', options:['n','i','f','k'], answer:3, explanation:'In "kn-" words the k is always silent! "Knife" sounds like "nyfe". Other kn- words: know, knock, kneel, knight, knit.' },
-  { grade:3, subject:'english', question:'What does the prefix "un-" mean in the word "unhappy"?', options:['very','again','not','before'], answer:2, explanation:'"Un-" means NOT. Unhappy = not happy. Unclear = not clear. Unsafe = not safe. Unkind = not kind.' },
-  { grade:3, subject:'english', question:'Which suffix makes "care" into a word meaning "full of care"?', options:['-less','-ful','-tion','-ness'], answer:1, explanation:'"-ful" means full of. Careful = full of care. Helpful = full of help. Colourful = full of colour. "-less" means without.' },
-  { grade:3, subject:'english', question:'Which is the correct COMPARATIVE form of "big"?', options:['more big','biger','bigger','biggest'], answer:2, explanation:'Short adjectives add -er for comparative (double the final consonant if needed): big → bigger, hot → hotter, thin → thinner.' },
-  { grade:3, subject:'english', question:'What is the past tense of "go"?', options:['goed','going','goes','went'], answer:3, explanation:'"Go" is irregular — its past tense is "went". Other irregular past tenses: see → saw, run → ran, write → wrote, swim → swam.' },
-  { grade:3, subject:'english', question:'Which sentence uses the apostrophe CORRECTLY for possession?', options:['The boy\'s book is red.','The boys book is red.','The boys\' book is red.','The book\'s boy is here.'], answer:0, explanation:'For ONE owner: boy\'s book (the book belongs to ONE boy). The apostrophe + s shows ownership.' },
-  { grade:3, subject:'english', question:'Which sentence uses speech marks CORRECTLY?', options:['She said "I am ready."','"She said I am ready."','She said, I am ready.','"She said", I am ready.'], answer:0, explanation:'Speech marks go AROUND the exact words spoken. She said "I am ready." — only the spoken words go inside the marks.' },
-  { grade:3, subject:'english', question:'Which of these words comes FIRST in a dictionary?', options:['planet','plant','plane','plan'], answer:3, explanation:'Alphabetical order: plan (p-l-a-n, 4 letters) → plane (5) → planet (6) → plant (5, but n<t). "Plan" is shortest and comes first.' },
-  // Lewende Wêreld (Life Skills BK) — CAPS: toestande materie, oplossings, eenvoudige masjiene, gewerweld/ongewerweld, voedselketting, lewenssiklusse, sonnestelsel, fotosintese
-  { grade:3, subject:'science', question:'Wat gebeur met water wanneer dit tot onder 0°C afgekoel word?', options:['Dit verdamp','Dit vries en word ys','Dit bly vloeistof','Dit verander kleur'], answer:1, explanation:'Water VRIES by 0°C en word \'n vastestof (ys). Verhit tot 100°C dan VERDAMP dit en word stoom (gas).' },
-  { grade:3, subject:'science', question:'Jy roer suiker in water en dit verdwyn. Wat het gevorm?', options:['Suikerwater-vastestof','\'n Oplossing','Suikerkristalle','Skoon water'], answer:1, explanation:'Wanneer \'n stof in vloeistof oplos, vorm dit \'n OPLOSSING. Suiker is OPLOSBAAR in water; sand is ONOPLOSBAAR.' },
-  { grade:3, subject:'science', question:'\'n Skep (shovel) is \'n voorbeeld van watter eenvoudige masjien?', options:['Katrol','Wiel-en-as','Hefboom','Skroewe'], answer:2, explanation:'\'n Skep is \'n HEFBOOM. Die handvatsel is die inspunpunt, die grond is die draaipunt. \'n Hefboom help ons dinge makliker beweeg.' },
-  { grade:3, subject:'science', question:'Watter dier is \'n ONGEWERWELDE (invertebrate)?', options:['Vis','Voël','Slang','Slak (snail)'], answer:3, explanation:'\'n Slak het GEEN ruggraat nie — dit is \'n ongewerwelde. Visse, voëls en slange het almal \'n ruggraat (hulle is gewerweldes).' },
-  { grade:3, subject:'science', question:'In die voedselketting Gras → Sprinkaan → Padda → Slang, wat is die PRIMÊRE verbruiker?', options:['Gras','Sprinkaan','Padda','Slang'], answer:1, explanation:'Die PRIMÊRE verbruiker eet die produsent (plant) direk. Die sprinkaan eet gras, dus is dit die primêre verbruiker.' },
-  { grade:3, subject:'science', question:'Wat is die korrekte lewenssiklus van \'n skoenlapper (butterfly)?', options:['Eier→Pop→Ruspe→Vlinder','Eier→Ruspe→Pop→Vlinder','Ruspe→Eier→Pop→Vlinder','Pop→Ruspe→Eier→Vlinder'], answer:1, explanation:'Skoenlapper: Eier → Ruspe (caterpillar) → Pop (chrysalis/pupa) → Vlinder. Dit is volledige metamorfose.' },
-  { grade:3, subject:'science', question:'Watter planeet is die VIERDE van die Son? (Wenk: My Very Energetic Mother Just Served Us Nachos)', options:['Aarde','Mars','Jupiter','Venus'], answer:1, explanation:'My=Merkurius(1), Very=Venus(2), Energetic=Aarde(3), Mother=MARS(4). Mars is die 4de planeet van die Son!' },
-  { grade:3, subject:'science', question:'Watter gas GEBRUIK plante tydens fotosintese?', options:['Suurstof (O₂)','Stikstof (N₂)','Koolstofdioksied (CO₂)','Waterstof (H₂)'], answer:2, explanation:'Fotosintese: Plante gebruik KOOLSTOFDIOKSIED (CO₂) + water + sonlig om glukose (kos) en suurstof te maak.' },
-  // Afrikaans — CAPS: trappe van vergelyking, verkleinwoorde, vraagwoorde, voegwoorde, idiome, woordfamilies, negatief
-  { grade:3, subject:'afrikaans', question:'Wat is die VERGELYKENDE trap van die byvoeglike naamwoord "groot"?', options:['grooste','grootste','groter','die groter'], answer:2, explanation:'Trappe van vergelyking: POSITIEF (groot) → VERGELYKEND (groter) → OORTREFFEND (die grootste). Vergelykend = groter.' },
-  { grade:3, subject:'afrikaans', question:'Voltooi: "Hierdie berg is ___ in ons land."', options:['groot','groter','die grootste','die groter'], answer:2, explanation:'"Die grootste" is die OORTREFFENDE trap. Gebruik altyd "die" voor die oortreffende trap: die grootste, die beste, die lekkerste.' },
-  { grade:3, subject:'afrikaans', question:'Watter vraagwoord gebruik jy om \'n PLEK te vra?', options:['Wie','Wat','Waar','Wanneer'], answer:2, explanation:'WAAR vra na \'n plek. Andere: Wie (persoon), Wat (ding/aksie), Wanneer (tyd), Hoekom (rede), Hoe (wyse), Hoeveel (hoeveelheid).' },
-  { grade:3, subject:'afrikaans', question:'Wat is die VERKLEINWOORD van "hond"?', options:['hondie','hondjie','hondtjie','hondkie'], answer:1, explanation:'Woorde wat eindig op -nd kry -jie: hond → hondjie, hand → handjie, kind → kindjie, perd → perdjie.' },
-  { grade:3, subject:'afrikaans', question:'Kies die regte voegwoord: "Ek wil speel, ___ ek moet eers huiswerk doen."', options:['en','of','maar','want'], answer:2, explanation:'"Maar" (but) wys \'n TEENSTELLING. Ander voegwoorde: en (and), of (or), want (because), sodat (so that).' },
-  { grade:3, subject:'afrikaans', question:'Wat beteken die idioom "Dit reën katte en honde"?', options:['Diere val uit die lug','Dit reën baie hard','Katte en honde speel saam','Dit is sonnig'], answer:1, explanation:'"Dit reën katte en honde" = It\'s raining cats and dogs = dit reën BAIE hard / stortreën. Idiome het \'n figuurlike betekenis.' },
-  { grade:3, subject:'afrikaans', question:'Watter woord behoort tot die WOORDFAMILIE van "speel"?', options:['speelman','speler','speelrig','speellap'], answer:1, explanation:'"Speler" (player) kom van "speel". Woordfamilie: speel (werkwoord), speler (persoon), speelgrond (plek), speeltyd (tydstip).' },
-  { grade:3, subject:'afrikaans', question:'Maak hierdie sin NEGATIEF: "Die meisie sing."', options:['Die meisie nie sing.','Die meisie sing nie nie.','Die meisie sing nie.','Nie die meisie sing nie.'], answer:2, explanation:'Eenvoudige Afrikaans-negatief: voeg "nie" aan die EINDE by. "Die meisie sing NIE." Langer sinne kry twee "nie".' },
-  // Lewensvaardighede — CAPS: voedselgroepe, 3 R\'s herwinning, natuurrampe, demokrasie, regte/verantwoordelikhede, stowwes, gedenkdae, ubuntu
-  { grade:3, subject:'lifeskills', question:'Watter voedselgroep is ons VERNAAMSTE bron van energie?', options:['Proteïne (vleis, eiers)','Koolhidrate (brood, rys, mielies)','Vitamiene (vrugte)','Vet en olie'], answer:1, explanation:'KOOLHIDRATE (brood, rys, mielies, aartappels, pasta) is ons hoofbron van energie — ons liggame gebruik dit as brandstof.' },
-  { grade:3, subject:'lifeskills', question:'Watter van die "3 R\'s" beteken om MINDER te gebruik?', options:['Herwin (Recycle)','Hergebruik (Reuse)','Verminder (Reduce)','Herstel (Repair)'], answer:2, explanation:'Die 3 R\'s: VERMINDER (gebruik minder), Hergebruik (gebruik weer), Herwin (verwerk in nuut). Verminder is die beste R!' },
-  { grade:3, subject:'lifeskills', question:'Watter veiligheidsreël geld tydens \'n VLOED?', options:['Stap deur vloed-water','Bly naby die rivier','Gaan na hoë grond','Swem oor die vloed'], answer:2, explanation:'Tydens \'n vloed: gaan ONMIDDELLIK NA HOË GROND. Moenie deur vloed-water stap of ry nie — dit kan jou meesleur!' },
-  { grade:3, subject:'lifeskills', question:'Hoeveel VLAKKE van regering is daar in Suid-Afrika?', options:['1','2','3','4'], answer:2, explanation:'SA het 3 vlakke: NASIONAAL (heel land), PROVINSIAAL (9 provinsies), PLAASLIK (stede/dorpe/munisipaliteite).' },
-  { grade:3, subject:'lifeskills', question:'Jy het die REG op onderwys. Wat is jou VERANTWOORDELIKHEID?', options:['Leer net wat jy wil','Gaan gereeld skool en doen jou bes','Vra ander kinders vir antwoorde','Bly tuis wanneer jy wil'], answer:1, explanation:'Regte en verantwoordelikhede hoor saam. Jou reg op onderwys beteken jy moet gereeld gaan, luister en hard werk.' },
-  { grade:3, subject:'lifeskills', question:'\'n Maat druk jou om sigarette te probeer. Wat is die BESTE reaksie?', options:['Probeer dit net een keer','Sê duidelik "Nee" en stap weg','Vra \'n ouer maat','Dink eers oor dit na'], answer:1, explanation:'Weiering-vaardighede: Sê NEEN duidelik en beslis, en loop weg. Jy hoef nie te verduidelik nie. Ware vriende druk jou nie.' },
-  { grade:3, subject:'lifeskills', question:'Watter nasionale gedenkdag word op 16 Junie gevier?', options:['Vryheiddag','Jeugdag','Erfenisdag','Vrouedag'], answer:1, explanation:'16 Junie = JEUGDAG. Ons gedenk die 1976 Soweto-opstand waar jongmense opgestaan het vir hul reg op onderwys.' },
-  { grade:3, subject:'lifeskills', question:'Watter voorbeeld wys die gees van UBUNTU die beste?', options:['Jy speel alleen tydens pouse','Jy deel jou lekkers met \'n maat wat niks het nie','Jy voltooi net jou eie werk','Jy hou jou speelgoed vir jouself'], answer:1, explanation:'"Ek is omdat ons is." Om te deel en medelye te toon wys Ubuntu — die hart van gemeenskaaplikheid in Afrika.' },
-
-  // ── Graad 4 ────────────────────────────────────────────────────────────────
-  // Wiskunde
+  // ── Wiskunde ────────────────────────────────────────────────────────────────
   { grade:4, subject:'maths', question:'Wat is 234 × 4?', options:['836','926','936','846'], answer:2, explanation:'234 × 4: 4×4=16, skryf 6 dra 1; 4×3+1=13, skryf 3 dra 1; 4×2+1=9. Antwoord: 936.' },
-  { grade:4, subject:'maths', question:'Wat is die waarde van 7 in 4 735?', options:['7','70','700','7000'], answer:2, explanation:'In 4 735 is die 7 in die honderdetal-posisie, dus is sy waarde 700.' },
+  { grade:4, subject:'maths', question:'Wat is die waarde van 7 in 4 735?', options:['7','70','700','7000'], answer:2, explanation:'In 4 735 is die 7 in die honderdtal-posisie, dus is sy waarde 700.' },
   { grade:4, subject:'maths', question:'Wat is 3/4 van 40?', options:['10','20','30','15'], answer:2, explanation:'1/4 van 40 = 10, dus 3/4 = 3 × 10 = 30.' },
   { grade:4, subject:'maths', question:'Wat is \'n priemgetal?', options:['9','15','7','21'], answer:2, explanation:'7 is \'n priemgetal omdat dit slegs deur 1 en 7 deelbaar is.' },
   { grade:4, subject:'maths', question:'Wat is die oppervlakte van \'n reghoek 6 cm × 4 cm?', options:['10 cm²','20 cm²','24 cm²','24 cm'], answer:2, explanation:'Oppervlakte = lengte × breedte = 6 × 4 = 24 cm².' },
-  { grade:4, subject:'maths', question:'Wat is 0.5 as \'n breuk?', options:['1/4','1/3','1/5','1/2'], answer:3, explanation:'0.5 = 5/10 = 1/2 (een helfte).' },
-  // Engels
+  { grade:4, subject:'maths', question:'Wat is 0,5 as \'n breuk?', options:['1/4','1/3','1/5','1/2'], answer:3, explanation:'0,5 = 5/10 = 1/2 (een helfte).' },
+  // ── Engels ──────────────────────────────────────────────────────────────────
   { grade:4, subject:'english', question:'Wat is \'n metafoor?', options:['\'n Vergelyking wat "like" of "as" gebruik','\'n Direkte vergelyking wat sê iets IS iets anders','\'n Soort leesteken','\'n Soort selfstandige naamwoord'], answer:1, explanation:'\'n Metafoor sê iets IS iets anders, bv. "Life is a journey."' },
-  { grade:4, subject:'english', question:'Watter woord is \'n werkwoord?', options:['beautiful','happiness','quickly','dance'], answer:3, explanation:'Werkwoorde is aksie- of synde woorde. "Dance" is \'n aksie.' },
+  { grade:4, subject:'english', question:'Watter woord is \'n werkwoord?', options:['beautiful','happiness','quickly','dance'], answer:3, explanation:'Werkwoorde is aksiewoorde of toestandswoorde. "Dance" is \'n aksiewoord.' },
   { grade:4, subject:'english', question:'Wat is die korrekte meervoud van "wolf"?', options:['wolfs','wolves','wolfes','wolve'], answer:1, explanation:'"Wolf" → "wolves" (verander f na v en voeg -es by).' },
   { grade:4, subject:'english', question:'Wat beteken "prefix"?', options:['Letters wat aan die einde van \'n woord bygevoeg word','Letters wat aan die begin van \'n woord bygevoeg word','\'n Soort sin','\'n Leesteken'], answer:1, explanation:'\'n Voorvoegsel word aan die begin van \'n woord gevoeg om sy betekenis te verander, bv. "un-" in "unhappy".' },
-  { grade:4, subject:'english', question:'Watter tekssoort sou jy gebruik om iemand te oorreed?', options:['Verhalend','Resep','Oorredingsopstel','Dagboek'], answer:2, explanation:'\'n Oorredingsopstel gebruik argumente en bewyse om die leser te oortuig.' },
+  { grade:4, subject:'english', question:'Watter tekssoort sou jy gebruik om iemand te oorreed?', options:['Verhaal','Resep','Oorredingsopstel','Dagboek'], answer:2, explanation:'\'n Oorredingsopstel gebruik argumente en bewyse om die leser te oortuig.' },
   { grade:4, subject:'english', question:'Wat is \'n vergelyking (simile)?', options:['\'n Vergelyking wat "like" of "as" gebruik','\'n Baie lang woord','\'n Soort werkwoord','\'n Leesteken'], answer:0, explanation:'\'n Simile vergelyk deur "like" of "as" te gebruik, bv. "As brave as a lion."' },
-  // Natuurwetenskappe
+  // ── Natuurwetenskappe ───────────────────────────────────────────────────────
   { grade:4, subject:'science', question:'Hoe word lewende dinge genoem wat hul eie kos maak?', options:['Verbruikers','Produsente','Ontbinders','Roofdiere'], answer:1, explanation:'Produsente (plante) maak hul eie kos deur fotosintese.' },
   { grade:4, subject:'science', question:'Wat is fotosintese?', options:['Hoe diere asemhaal','Hoe plante kos maak met sonlig','Hoe water verdamp','Hoe rotse vorm'], answer:1, explanation:'Fotosintese: plante gebruik sonlig, water en CO₂ om kos en suurstof te produseer.' },
   { grade:4, subject:'science', question:'Watter laag van die Aarde is die warmste?', options:['Kors','Mantel','Buitenste kern','Binneste kern'], answer:3, explanation:'Die binneste kern is die warmste deel van die Aarde — gemaak van soliede yster en nikkel.' },
   { grade:4, subject:'science', question:'Wat is die eenheid van elektriese stroom?', options:['Watt','Volt','Ampere','Ohm'], answer:2, explanation:'Elektriese stroom word in Ampere (Amps) gemeet.' },
-  { grade:4, subject:'science', question:'Wat is die voedselketting?', options:['\'n Spyskaart','Die volgorde waarin lewende dinge mekaar eet','\'n Soort resep','Hoe kos gaar gemaak word'], answer:1, explanation:'\'n Voedselketting wys wat wat eet in die natuur, bv. plant → insek → padda → arend.' },
+  { grade:4, subject:'science', question:'Wat is \'n voedselketting?', options:['\'n Spyskaart','Die volgorde waarin lewende dinge mekaar eet','\'n Soort resep','Hoe kos gaar gemaak word'], answer:1, explanation:'\'n Voedselketting wys wat eet wat in die natuur, bv. plant → insek → padda → arend.' },
   { grade:4, subject:'science', question:'Watter krag trek voorwerpe na die Aarde toe?', options:['Magnetisme','Wrywing','Swaartekrag','Elektrisiteit'], answer:2, explanation:'Swaartekrag is die krag wat alle voorwerpe na die middel van die Aarde toe trek.' },
-  // Afrikaans
+  // ── Afrikaans ───────────────────────────────────────────────────────────────
   { grade:4, subject:'afrikaans', question:'Wat is die verlede tyd van "eet"?', options:['geëet','geeet','geeit','gegeet'], answer:0, explanation:'"Eet" se verlede tyd is "geëet" (the past tense of "eat").' },
   { grade:4, subject:'afrikaans', question:'Watter woord is \'n byvoeglike naamwoord?', options:['spring','rooi','tafel','lag'], answer:1, explanation:'Byvoeglike naamwoorde beskryf selfstandige naamwoorde. "Rooi" beskryf \'n kleur.' },
   { grade:4, subject:'afrikaans', question:'Wat is die meervoud van "vrou"?', options:['vroue','vrous','vrouens','vrowe'], answer:0, explanation:'"Vrou" se meervoud is "vroue" (women).' },
   { grade:4, subject:'afrikaans', question:'Hoe sê jy "We are going to school" in Afrikaans?', options:['Ons gaan na skool.','Ons was by skool.','Ons bly by skool.','Ons speel op skool.'], answer:0, explanation:'"Ons gaan na skool" beteken "We are going to school".' },
   { grade:4, subject:'afrikaans', question:'Wat is \'n werkwoord?', options:['\'n Woord wat \'n ding beskryf','\'n Aksiewoord','\'n Naam van \'n plek','\'n Kleurwoord'], answer:1, explanation:'\'n Werkwoord is \'n aksiewoord, soos "loop", "eet", of "speel".' },
   { grade:4, subject:'afrikaans', question:'Wat beteken "nagmerrie"?', options:['A sweet dream','A nightmare','A bedtime story','A lullaby'], answer:1, explanation:'"Nagmerrie" beteken "nightmare" in Afrikaans.' },
-  // Lewensvaardighede
+  // ── Lewensvaardighede ───────────────────────────────────────────────────────
   { grade:4, subject:'lifeskills', question:'Waarvoor staan MIV?', options:['Menslike Ongelooflike Virus','Menslike Immuniteitsgebreksvirus','Gesonde Immuunvirus','Hoë Interne Virus'], answer:1, explanation:'MIV staan vir Menslike Immuniteitsgebreksvirus — dit verswak die immuunstelsel.' },
   { grade:4, subject:'lifeskills', question:'Wat is portuurgroepdruk?', options:['Druk van ouers','Invloed van vriende om iets te doen','Skoolwerk druk','Fisiese druk'], answer:1, explanation:'Portuurgroepdruk is wanneer vriende jou beïnvloed om dinge te doen wat jy dalk nie wil doen nie.' },
   { grade:4, subject:'lifeskills', question:'Wat beteken "demokrasie"?', options:['Heerskappy deur een persoon','Regering deur die volk','Heerskappy deur die weermag','Geen regering'], answer:1, explanation:'Demokrasie beteken die volk het die mag en kies hul leiers deur stemming.' },
   { grade:4, subject:'lifeskills', question:'Wat is die naam van Suid-Afrika se grondwet?', options:['Die Handves','Die Vryheidsakte','Die Grondwet van die Republiek van Suid-Afrika','Die Nasionale Wet'], answer:2, explanation:'Suid-Afrika se Grondwet het in 1996 in werking getree en beskerm almal se regte.' },
   { grade:4, subject:'lifeskills', question:'Watter vitamien kry ons van sonlig?', options:['Vitamien A','Vitamien B','Vitamien C','Vitamien D'], answer:3, explanation:'Ons vel maak Vitamien D wanneer dit aan sonlig blootgestel word — belangrik vir sterk bene.' },
   { grade:4, subject:'lifeskills', question:'Wat is stereotipering?', options:['Kuns maak','Aannames maak oor alle mense in \'n groep','\'n Soort musiek','\'n Taal leer'], answer:1, explanation:'Stereotipering is om onregverdige, vaste aannames te maak oor \'n hele groep mense.' },
-
-  // ── Graad 5 ────────────────────────────────────────────────────────────────
-  // Wiskunde
-  { grade:5, subject:'maths', question:'Wat is 25% van 200?', options:['25','50','75','100'], answer:1, explanation:'25% = 1/4. \'n Kwart van 200 is 50.' },
-  { grade:5, subject:'maths', question:'Vereenvoudig: 12/16', options:['2/3','3/4','4/5','1/2'], answer:1, explanation:'Deel albei deur 4: 12÷4=3, 16÷4=4. Dus 12/16 = 3/4.' },
-  { grade:5, subject:'maths', question:'Wat is 2.4 × 3?', options:['6.2','7.2','7.4','6.4'], answer:1, explanation:'2.4 × 3 = 7.2. Dink: 24 × 3 = 72, dan deel deur 10.' },
-  { grade:5, subject:'maths', question:'Wat is die volume van \'n kubus met sy 3 cm?', options:['9 cm³','18 cm³','27 cm³','12 cm³'], answer:2, explanation:'Volume van kubus = sy³ = 3×3×3 = 27 cm³.' },
-  { grade:5, subject:'maths', question:'Wat is die KGV van 4 en 6?', options:['2','8','12','24'], answer:2, explanation:'Veelvoude van 4: 4,8,12... Veelvoude van 6: 6,12... Eerste gemeenskaplike is 12.' },
-  { grade:5, subject:'maths', question:'As \'n sak rys R35 kos en jy koop 4 sakke, hoeveel kleingeld kry jy terug van R200?', options:['R50','R60','R65','R40'], answer:1, explanation:'4×35=R140. Kleingeld = R200 - R140 = R60.' },
-  // Engels
-  { grade:5, subject:'english', question:'Wat is \'n idioom?', options:['\'n Soort gedig','\'n Frase met \'n nie-letterlike betekenis','\'n Grammatikareël','\'n Soort werkwoord'], answer:1, explanation:'Idiome is uitdrukkings waarvan die betekenis verskil van die letterlike woorde, bv. "It\'s raining cats and dogs."' },
-  { grade:5, subject:'english', question:'Wat is die onderwerp van: "The fast car zoomed past"?', options:['fast','car','zoomed','past'], answer:1, explanation:'Die onderwerp is wie of wat die sin oor handel — "The fast car".' },
-  { grade:5, subject:'english', question:'Watter woord vul hierdie sin korrek in: "She __ to school every day"?', options:['walk','walks','walking','walked'], answer:1, explanation:'Met "she" (derde persoon enkelvoud) in teenwoordige tyd, voeg -s by: "walks".' },
-  { grade:5, subject:'english', question:'Wat is die doel van \'n opskrif?', options:['Om \'n paragraaf te beëindig','Om jou te vertel waaroor \'n teks handel','Om items te lys','Om \'n karakter te beskryf'], answer:1, explanation:'\'n Opskrif vertel jou die onderwerp of hoofgedagte van die teks wat volg.' },
-  { grade:5, subject:'english', question:'Wat is \'n antoniem?', options:['\'n Woord met \'n soortgelyke betekenis','\'n Woord met die teenoorgestelde betekenis','\'n Versinkte woord','\'n Baie lang woord'], answer:1, explanation:'Antonieme is woorde met teenoorgestelde betekenisse, bv. "hot" en "cold".' },
-  { grade:5, subject:'english', question:'Watter soort sin is "What time does the film start?"?', options:['Stelling','Vraag','Uitroep','Bevel'], answer:1, explanation:'Hierdie is \'n vraag omdat dit inligting vra en met \'n vraagteken eindig.' },
-  // Natuurwetenskappe
-  { grade:5, subject:'science', question:'Wat is die chemiese formule vir water?', options:['CO₂','H₂O','O₂','NaCl'], answer:1, explanation:'Water bestaan uit 2 waterstofatome en 1 suurstofatoom: H₂O.' },
-  { grade:5, subject:'science', question:'Wat is die funksie van chlorofil?', options:['Absorbeer water','Gee plante hul groen kleur en absorbeer sonlig','Produseer sade','Breek grond af'], answer:1, explanation:'Chlorofil is die groen pigment in plante wat sonlig opvang vir fotosintese.' },
-  { grade:5, subject:'science', question:'Wat is \'n ekosisteem?', options:['\'n Soort dier','\'n Gemeenskap van lewende dinge en hul omgewing','\'n Wetenskaplike instrument','\'n Soort grond'], answer:1, explanation:'\'n Ekosisteem sluit alle lewende organismes en hul fisiese omgewing in \'n area in.' },
-  { grade:5, subject:'science', question:'Wat veroorsaak dag en nag?', options:['Die Maan wat om die Aarde beweeg','Die Aarde wat op sy as roteer','Die Son wat om die Aarde beweeg','Wolke wat sonlig blokkeer'], answer:1, explanation:'Die Aarde roteer (draai) elke 24 uur op sy as en veroorsaak dag en nag.' },
-  { grade:5, subject:'science', question:'Watter orgaan pomp bloed deur die liggaam?', options:['Longe','Lewer','Hart','Nier'], answer:2, explanation:'Die hart is \'n spier wat bloed deur die liggaam se bloedvate pomp.' },
-  { grade:5, subject:'science', question:'Wat is \'n hernubare energiebron?', options:['Steenkool','Petrol','Sonkrag','Aardgas'], answer:2, explanation:'Sonkrag kom van die Son en is hernubaar — dit sal nie opraak nie.' },
-  // Afrikaans
-  { grade:5, subject:'afrikaans', question:'Wat is \'n idioom?', options:['\'n Versie','\'n Uitdrukking met \'n figuurlike betekenis','\'n Lang woord','\'n Grammatikareël'], answer:1, explanation:'\'n Idioom is \'n uitdrukking waarvan die betekenis verskil van die letterlike woorde.' },
-  { grade:5, subject:'afrikaans', question:'Wat is die lydende vorm van "Die seun gooi die bal"?', options:['Die bal is gegooi deur die seun','Die seun het die bal gegooi','Die bal gooi die seun','Die seun gooi na die bal'], answer:0, explanation:'Lydende vorm: "Die bal is gegooi deur die seun" (passive voice).' },
-  { grade:5, subject:'afrikaans', question:'Watter woord is \'n bywoord?', options:['skool','vinnig','tafel','rooi'], answer:1, explanation:'\'n Bywoord beskryf hoe iets gedoen word. "Vinnig" beskryf die manier van handeling.' },
-  { grade:5, subject:'afrikaans', question:'Wat beteken "omgewing"?', options:['A building','A person','The environment/surroundings','A type of food'], answer:2, explanation:'"Omgewing" beteken "environment" of "surroundings" in Afrikaans.' },
-  { grade:5, subject:'afrikaans', question:'Hoe skryf jy 456 in Afrikaans?', options:['vierhonderd ses-en-vyftig','vyfhonderd vier-en-ses','vierduisend vyftig-ses','vierhonderd vyftig-ses'], answer:0, explanation:'456 in Afrikaans: vierhonderd ses-en-vyftig.' },
-  { grade:5, subject:'afrikaans', question:'Wat is die verkleiningsvorm van "kat"?', options:['kattie','katjie','katje','katke'], answer:1, explanation:'Die verkleinwoord van "kat" is "katjie" (a small cat / kitten).' },
-  // Lewensvaardighede
-  { grade:5, subject:'lifeskills', question:'Wat is puberteit?', options:['\'n Soort sport','Die fisiese veranderinge wat die liggaam ondergaan tydens groei van kind na volwassene','\'n Skoolvak','\'n Kulturele viering'], answer:1, explanation:'Puberteit is die tyd wanneer die liggaam verander en ontwikkel van \'n kind se liggaam na \'n volwassene se liggaam.' },
-  { grade:5, subject:'lifeskills', question:'Wat beteken dit om goeie selfagting te hê?', options:['Dikwels kwaad wees','Om selfversekerd en positief oor jouself te voel','Ander vermy','Die beste in sport wees'], answer:1, explanation:'Goeie selfagting beteken dat jy jouself waardeer, selfversekerd voel en in jou eie waarde glo.' },
-  { grade:5, subject:'lifeskills', question:'Wat is die belang van die Handves van Regte in Suid-Afrika?', options:['Dit lys sportspanne','Dit beskerm die regte van alle mense in Suid-Afrika','Dit beskryf SA-kos','Dit lys skoolreëls'], answer:1, explanation:'Die Handves van Regte (Hoofstuk 2 van die Grondwet) waarborg regte soos gelykheid, waardigheid en vryheid vir almal.' },
-  { grade:5, subject:'lifeskills', question:'Wat is middelmisbruik?', options:['Medisyne korrek gebruik','Dwelms of alkohol op skadelike maniere gebruik','Te veel suiker eet','Nie oefen nie'], answer:1, explanation:'Middelmisbruik is die skadelike gebruik van dwelms, alkohol of ander stowwe wat gesondheid beskadig.' },
-  { grade:5, subject:'lifeskills', question:'Wat is die verskil tussen \'n behoefte en \'n wens?', options:['Daar is geen verskil nie','\'n Behoefte is noodsaaklik om te oorleef; \'n wens is iets ekstra','\'n Wens is belangriker','Behoeftes is dinge wat jy koop'], answer:1, explanation:'Behoeftes is noodsaaklik (kos, water, skuiling). Wense is ekstra\'s wat ons wil hê maar sonder kan leef.' },
-  { grade:5, subject:'lifeskills', question:'Wat is xenofobie?', options:['\'n Vrees vir diere','\'n Vrees of haat teenoor buitelanders of mense van ander lande','\'n Soort sport','\'n Skoolvak'], answer:1, explanation:'Xenofobie is vooroordeel of vyandigheid teenoor mense van ander lande — dit gaan teen menseregte in.' },
-
-  // ── Graad 6 ────────────────────────────────────────────────────────────────
-  // Wiskunde
-  { grade:6, subject:'maths', question:'Wat is 15% van 360?', options:['42','54','45','36'], answer:1, explanation:'15% van 360 = 0.15 × 360 = 54.' },
-  { grade:6, subject:'maths', question:'Los op vir x: 3x + 7 = 22', options:['x=4','x=5','x=6','x=3'], answer:1, explanation:'3x = 22-7 = 15, dus x = 15÷3 = 5.' },
-  { grade:6, subject:'maths', question:'Wat is die gemiddelde van: 4, 8, 6, 10, 12?', options:['6','8','10','9'], answer:1, explanation:'Gemiddelde = som ÷ aantal = (4+8+6+10+12)÷5 = 40÷5 = 8.' },
-  { grade:6, subject:'maths', question:'Wat is 2³?', options:['5','6','8','9'], answer:2, explanation:'2³ = 2×2×2 = 8.' },
-  { grade:6, subject:'maths', question:'Skakel 3/8 om na \'n desimale getal.', options:['0.25','0.375','0.38','0.3'], answer:1, explanation:'3 ÷ 8 = 0.375.' },
-  { grade:6, subject:'maths', question:'\'n Winkel gee 20% afslag op R250. Wat is die saleprys?', options:['R180','R200','R210','R220'], answer:1, explanation:'Afslag = 20% van 250 = 50. Saleprys = 250 - 50 = R200.' },
-  // Engels
-  { grade:6, subject:'english', question:'Wat is die lydende vorm?', options:['Wanneer die onderwerp die aksie uitvoer','Wanneer die aksie op die onderwerp uitgevoer word','\'n Soort byvoeglike naamwoord','\'n Tyd'], answer:1, explanation:'Lydende vorm: "The book was read by Maria" (die onderwerp ontvang die aksie).' },
-  { grade:6, subject:'english', question:'Wat is \'n bysin?', options:['\'n Soort leesteken','\'n Groep woorde met \'n onderwerp en werkwoord','\'n Paragraaf','\'n Soort byvoeglike naamwoord'], answer:1, explanation:'\'n Bysin het \'n onderwerp en \'n werkwoord. "When she sang" is \'n bysin.' },
-  { grade:6, subject:'english', question:'Identifiseer die literêre tegniek: "The wind whispered secrets"', options:['Vergelyking','Metafoor','Personifikasie','Alliterasie'], answer:2, explanation:'Personifikasie gee menslike eienskappe aan nie-menslike dinge. Wind kan nie werklik fluister nie.' },
-  { grade:6, subject:'english', question:'Wat is die verskil tussen denotasie en konnotasie?', options:['Geen verskil','Denotasie is letterlike betekenis; konnotasie is geassosieerde gevoelens','Konnotasie is altyd negatief','Denotasie is verouderd'], answer:1, explanation:'Denotasie = die woordeboekbetekenis. Konnotasie = die emosionele assosiasies van \'n woord.' },
-  { grade:6, subject:'english', question:'Watter sin bevat \'n afhanklike bysin?', options:['She ran fast.','Although it was raining, they played outside.','The dog barked.','I ate lunch.'], answer:1, explanation:'"Although it was raining" is \'n afhanklike bysin — dit kan nie alleen staan nie.' },
-  { grade:6, subject:'english', question:'Wat is ironie?', options:['Om direk te sê wat jy bedoel','Wanneer woorde gebruik word om die teenoorgestelde te beteken van wat gesê word','\'n Soort rym','\'n Vergelyking'], answer:1, explanation:'Ironie is wanneer woorde die teenoorgestelde beteken, of wanneer gebeure die teenoorgestelde uitval van wat verwag word.' },
-  // Natuurwetenskappe
-  { grade:6, subject:'science', question:'Wat is Newton se Eerste Wet van Beweging?', options:['Elke aksie het \'n gelyke en teenoorgestelde reaksie','\'n Voorwerp bly in rus of beweeg in \'n reguit lyn tensy \'n krag daarop inwerk','Krag is gelyk aan massa maal versnelling','Voorwerpe trek mekaar aan'], answer:1, explanation:'Newton se 1ste Wet (Traagheid): \'n voorwerp sal sy beweging nie verander nie tensy \'n krag daarop inwerk.' },
-  { grade:6, subject:'science', question:'Wat is die verskil tussen \'n mengsel en \'n verbinding?', options:['Geen verskil','\'n Mengsel kan maklik geskei word; \'n verbinding kan nie maklik geskei word nie','\'n Verbinding is altyd vloeistof','\'n Mengsel het net een stof'], answer:1, explanation:'In \'n mengsel behou stowwe hul eienskappe en kan geskei word. Verbindings is chemies gebind en moeiliker om te skei.' },
-  { grade:6, subject:'science', question:'Wat is die waterkringloop?', options:['Hoe visse swem','Die deurlopende beweging van water deur verdamping, kondensasie en neerslag','Hoe ons water drink','Hoe plante groei'], answer:1, explanation:'Die waterkringloop: verdamping → waterdamp styg → kondensasie vorm wolke → neerslag (reën/sneeu).' },
-  { grade:6, subject:'science', question:'Wat is die funksie van die senuweestelsel?', options:['Om bloed te pomp','Om kos te verteer','Om boodskappe tussen die brein en liggaam te dra','Om bene te maak'], answer:2, explanation:'Die senuweestelsel stuur elektriese seine tussen die brein en alle dele van die liggaam.' },
-  { grade:6, subject:'science', question:'Wat is \'n fossiel?', options:['Slegs \'n soort rots','Bewaarde oorblyfsels of spore van antieke lewende dinge','\'n Soort plant','\'n Soort metaal'], answer:1, explanation:'Fossiele is bewaarde oorblyfsels, afdrukke of spore van organismes uit die verre verlede.' },
-  { grade:6, subject:'science', question:'Wat is biodiversiteit?', options:['\'n Soort eksperiment','Die verskeidenheid van alle lewensvorme in \'n ekosisteem','\'n Enkele diersoort','\'n Weerpatroon'], answer:1, explanation:'Biodiversiteit verwys na die verskeidenheid van lewende organismes in \'n gegewe area — hoe meer verskeidenheid, hoe gesonder die ekosisteem.' },
-  // Afrikaans
-  { grade:6, subject:'afrikaans', question:'Wat is \'n beknopte bysin?', options:['\'n Selfstandige sin','\'n Afhanklike sin','\'n Lang sin','\'n Vraagsin'], answer:1, explanation:'\'n Beknopte bysin is \'n afhanklike sin wat op \'n hoofsin staatmaak.' },
-  { grade:6, subject:'afrikaans', question:'Wat is die lydende vorm van "Hy eet die brood"?', options:['Die brood is deur hom geëet.','Hy het die brood geëet.','Die brood eet hom.','Hy eet die brood gou.'], answer:0, explanation:'Lydende vorm: "Die brood is deur hom geëet." (Passive: the bread was eaten by him.)' },
-  { grade:6, subject:'afrikaans', question:'Watter taal het Afrikaans geword?', options:['Dutch (Nederlands)','French','German','Portuguese'], answer:0, explanation:'Afrikaans het hoofsaaklik ontwikkel uit Nederlands (Dutch) wat deur setlaars na Suid-Afrika gebring is.' },
-  { grade:6, subject:'afrikaans', question:'Wat beteken "beskawing"?', options:['A river','Civilisation','A mountain','A type of food'], answer:1, explanation:'"Beskawing" beteken "civilisation" in Afrikaans.' },
-  { grade:6, subject:'afrikaans', question:'Identifiseer die figuurlike taal: "Die wind sing in die bome."', options:['Vergelyking','Personifikasie','Alliterasie','Metafoor'], answer:1, explanation:'Personifikasie gee menslike eienskappe aan iets nie-menslik. Wind kan nie werklik sing nie.' },
-  { grade:6, subject:'afrikaans', question:'Wat is die meervoud van "mens" in formele Afrikaans?', options:['mensens','mense','menses','mensers'], answer:1, explanation:'Die meervoud van "mens" is "mense" (people/humans).' },
-  // Lewensvaardighede
-  { grade:6, subject:'lifeskills', question:'Wat is die verskil tussen aërobie en anaërobie oefening?', options:['Geen verskil','Aërobie gebruik suurstof vir volgehoue aktiwiteit; anaërobie is kort intense uitbarstings','Anaërobie is veiliger','Aërobie is net vir volwassenes'], answer:1, explanation:'Aërobiese oefening (hardloop, fietsry) gebruik suurstof. Anaërobies (sprintloop, gewigte) verbrand gestoorte energie.' },
-  { grade:6, subject:'lifeskills', question:'Wat is geslagsgebaseerde geweld (GGG)?', options:['Geweld in sport','Geweld gerig teen iemand as gevolg van hul geslag','Huiswerk probleme','\'n Skoolvak'], answer:1, explanation:'GGG is geweld of skade wat teen \'n persoon gerig word as gevolg van hul geslag — dit is \'n ernstige menseregteskenning.' },
-  { grade:6, subject:'lifeskills', question:'Wat is menseregte?', options:['Reëls net vir volwassenes','Regte waarmee elke persoon gebore word, ongeag ras of geslag','Regte net vir Suid-Afrikaners','Skoolreëls'], answer:1, explanation:'Menseregte is universeel — elke persoon op Aarde het hulle op grond van die feit dat hulle menslik is.' },
-  { grade:6, subject:'lifeskills', question:'Wat beteken "versoening" in Suid-Afrika se konteks?', options:['\'n Kompetisie wen','Verdeling heel en vrede bou na apartheid','\'n Soort wiskundeberekening','\'n Sportspan vorm'], answer:1, explanation:'Versoening beteken dat verskillende groepe saamkom, wonde uit die verlede heel en \'n vreedsame toekoms bou.' },
-  { grade:6, subject:'lifeskills', question:'Wat is \'n gebalanseerde dieet?', options:['Slegs vrugte eet','Die regte hoeveelhede van alle voedselgroepe eet','Baie min eet','Slegs proteïen eet'], answer:1, explanation:'\'n Gebalanseerde dieet sluit koolhidrate, proteïene, vette, vitamiene, minerale en water in die regte proporsies in.' },
-  { grade:6, subject:'lifeskills', question:'Wat is eerste hulp?', options:['\'n Skoolvak','Onmiddellike sorg wat aan \'n beseerde of siek persoon gegee word voordat professionele hulp aankom','\'n Soort medisyne','\'n Sportevent'], answer:1, explanation:'Eerste hulp is onmiddellike basiese behandeling wat aan iemand gegee word wat seer is of siek is totdat behoorlike mediese hulp beskikbaar is.' },
-
-  // ── Graad 7 ────────────────────────────────────────────────────────────────
-  // Wiskunde
-  { grade:7, subject:'maths', question:'Los op: 2x - 5 = 11', options:['x=6','x=7','x=8','x=9'], answer:2, explanation:'2x = 11+5 = 16, x = 16÷2 = 8.' },
-  { grade:7, subject:'maths', question:'Wat is die helling van \'n lyn wat deur (0,0) en (3,6) gaan?', options:['1','2','3','6'], answer:1, explanation:'Helling = styging/loop = (6-0)/(3-0) = 6/3 = 2.' },
-  { grade:7, subject:'maths', question:'Vereenvoudig: 5a + 3b - 2a + b', options:['3a+4b','7a+4b','3a+2b','7a+2b'], answer:0, explanation:'Kombineer gelyksoortige terme: 5a-2a=3a, 3b+b=4b. Antwoord: 3a+4b.' },
-  { grade:7, subject:'maths', question:'Wat is die waarskynlikheid om \'n 4 op \'n standaard dobbelklip te gooi?', options:['1/4','1/5','1/6','1/3'], answer:2, explanation:'\'n Dobbelklip het 6 gelyke kante. Waarskynlikheid om 4 te gooi = 1/6.' },
-  { grade:7, subject:'maths', question:'Wat is die stelling van Pythagoras?', options:['a+b=c','a²+b²=c²','a×b=c','a²-b²=c²'], answer:1, explanation:'In \'n regte driehoek: a²+b²=c² waar c die skuinssy (langste sy) is.' },
-  { grade:7, subject:'maths', question:'Wat is -8 + 3?', options:['-11','-5','5','11'], answer:1, explanation:'-8 + 3 = -5. Begin by -8, beweeg 3 stappe regs op die getallelyn.' },
-  // Engels
-  { grade:7, subject:'english', question:'Wat is die tema van \'n teks?', options:['Die omgewing','Die sentrale boodskap of idee van die teks','Die karakters','Die intrige'], answer:1, explanation:'Die tema is die onderliggende boodskap of les wat die skrywer deur die teks oordra.' },
-  { grade:7, subject:'english', question:'Wat is \'n retoriese vraag?', options:['\'n Vraag wat gevra word om inligting te kry','\'n Vraag wat vir effek gevra word, sonder om \'n antwoord te verwag','\'n Soort leesteken','\'n Onderhoudsvraag'], answer:1, explanation:'Retoriese vrae word vir effek of klem gevra, nie om \'n antwoord te kry nie: "Isn\'t it obvious?"' },
-  { grade:7, subject:'english', question:'Wat is die verskil tussen formele en informele taal?', options:['Formeel word saam met vriende gebruik; informeel by die werk','Formeel is professioneel/gestruktureerd; informeel is ongedwonge/ontspanne','Geen verskil','Formeel gebruik straattaal'], answer:1, explanation:'Formele taal volg standaardreëls en word in professionele omgewings gebruik. Informeel is ontspanne, gebruik saam met vriende.' },
-  { grade:7, subject:'english', question:'Wat is alliterasie?', options:['Woorde wat rym','Herhaling van dieselfde medeklinkerklank aan die begin van nabygelegen woorde','\'n Soort vergelyking','Die teenoorgestelde van \'n woord'], answer:1, explanation:'Alliterasie: "Peter Piper picked a peck of pickled peppers" — die P-klank herhaal.' },
-  { grade:7, subject:'english', question:'Wat is die intrige van \'n verhaal?', options:['Wie die karakters is','Waar die verhaal afspeel','Die volgorde van gebeure','Die les van die verhaal'], answer:2, explanation:'Die intrige is die volgorde van gebeure wat die verhaal saamstel.' },
-  { grade:7, subject:'english', question:'Wat beteken "aflei" in lees?', options:['\'n Woord opsoek','Hardop lees','Leidrade in die teks gebruik om uit te vind wat nie direk gesê word nie','\'n Sin kopieer'], answer:2, explanation:'Aflei beteken "tussen die reëls lees" — getuienis en redenasie gebruik om te verstaan wat die skrywer impliseer.' },
-  // Natuurwetenskappe
-  { grade:7, subject:'science', question:'Wat is die verskil tussen spoed en snelheid?', options:['Geen verskil','Spoed is hoe vinnig; snelheid is spoed MET rigting','Snelheid is vinniger as spoed','Spoed sluit rigting in'], answer:1, explanation:'Spoed = hoe vinnig (skalaar). Snelheid = spoed in \'n spesifieke rigting (vektor).' },
-  { grade:7, subject:'science', question:'Wat is \'n atoom?', options:['Die kleinste lewende ding','Die basiese eenheid van materie wat alle stowwe saamstel','\'n Soort sel','\'n Soort energie'], answer:1, explanation:'\'n Atoom is die kleinste eenheid van \'n element wat die chemiese eienskappe van daardie element behou.' },
-  { grade:7, subject:'science', question:'Waarvoor staan DNS?', options:['Deoksiribonukleïensuur','Digitale Nukleïese Rangskikking','Dinamiese Natuurlike Suur','Digte Nukleï Samestelling'], answer:0, explanation:'DNS staan vir Deoksiribonukleïensuur — dit dra die genetiese instruksies vir alle lewende organismes.' },
-  { grade:7, subject:'science', question:'Wat is die kweekhuiseffek?', options:['Plante in \'n glashuis kweek','Die vastevang van hitte in die Aarde se atmosfeer deur gasse soos CO₂','\'n Soort eksperiment','Glas maak'], answer:1, explanation:'Die kweekhuiseffek: kweekhuisgasse vang hitte van die Son vas in die Aarde se atmosfeer en warm die planeet op.' },
-  { grade:7, subject:'science', question:'Wat is \'n sel?', options:['\'n Tronkkamer','Die basiese eenheid van lewe in alle lewende organismes','\'n Soort battery','\'n Rekenaaronderdeel'], answer:1, explanation:'Die sel is die basiese strukturele en funksionele eenheid van alle lewende organismes.' },
-  { grade:7, subject:'science', question:'Wat is die verskil tussen oorerflike en aangeleerde eienskappe?', options:['Geen verskil','Oorerflike eienskappe kom van ouers via gene; aangeleerde eienskappe ontwikkel gedurende jou lewe','Aangeleerde eienskappe is geneties','Oorerflike eienskappe verander mettertyd'], answer:1, explanation:'Oorerflike eienskappe (oogkleur, bloedtipe) kom van jou gene. Aangeleerde eienskappe (\'n litteken, \'n vaardigheid) ontwikkel uit lewenservarings.' },
-  // Afrikaans
-  { grade:7, subject:'afrikaans', question:'Wat is \'n toutologisme?', options:['\'n Kort sin','Die onnodige herhaling van dieselfde betekenis','\'n Persoonlike verwysing','\'n Vraagsin'], answer:1, explanation:'\'n Toutologisme is wanneer dieselfde idee onnodig herhaal word, bv. "gratis geskenk".' },
-  { grade:7, subject:'afrikaans', question:'Wat beteken "polemiek"?', options:['A type of food','A serious debate or argument','A type of dance','A school subject'], answer:1, explanation:'"Polemiek" beteken \'n hewige debat of argument, veral oor \'n kontroversiële onderwerp.' },
-  { grade:7, subject:'afrikaans', question:'Wat is \'n statiese werkwoord?', options:['\'n Aksiewerkwoord','\'n Werkwoord wat \'n toestand beskryf (nie \'n aksie)','\'n Verlede tyd','\'n Vraagwoord'], answer:1, explanation:'Statiese werkwoorde beskryf toestande: "weet", "het", "is" — nie fisieke aksies nie.' },
-  { grade:7, subject:'afrikaans', question:'Identifiseer die retoriese vraag: ', options:['Wat is jou naam?','Hoe laat is dit?','Is dit nie pragtig nie?','Waar bly jy?'], answer:2, explanation:'"Is dit nie pragtig nie?" is \'n retoriese vraag — dit word vir effek gevra, nie vir \'n antwoord nie.' },
-  { grade:7, subject:'afrikaans', question:'Wat is die verskil tussen denotatiewe en konnotatiewe betekenis?', options:['Geen verskil','Denotatief = letterlike betekenis; konnotatief = gevoelswaarde','Konnotatief is altyd negatief','Denotatief is verouderd'], answer:1, explanation:'Denotatiewe betekenis is die woordeboekbetekenis. Konnotatiewe betekenis sluit gevoelens en assosiasies in.' },
-  { grade:7, subject:'afrikaans', question:'Wat is \'n eufemisme?', options:['\'n Sterk belediging','\'n Sagter woord of frase vir iets onaangenaam','\'n Tipe rym','\'n Metafoor'], answer:1, explanation:'\'n Eufemisme is \'n sagter of beleefder uitdrukking, bv. "hy het heengegaan" in plaas van "hy het gesterf".' },
-  // Lewensvaardighede
-  { grade:7, subject:'lifeskills', question:'Wat is die betekenis van "ubuntu"?', options:['\'n Rekenaarstesel','Ek is omdat ons is — \'n filosofie van menslike verbandenheid','\'n Soort kos','\'n Suid-Afrikaanse sport'], answer:1, explanation:'Ubuntu is \'n Afrika-filosofie wat beteken "Ek is omdat ons is" — dit beklemtoon gemeenskap, medelye en gedeelde menslikheid.' },
-  { grade:7, subject:'lifeskills', question:'Wat is emosionele intelligensie?', options:['Baie slim in Wiskunde wees','Die vermoë om jou eie en ander se emosies te verstaan en te bestuur','\'n Soort toets','Fisiese fiksheid'], answer:1, explanation:'Emosionele intelligensie (EI) is die vermoë om emosies effektief te identifiseer, te verstaan, te bestuur en te gebruik.' },
-  { grade:7, subject:'lifeskills', question:'Wat beteken "volhoubare ontwikkeling"?', options:['Meer fabrieke bou','Ontwikkeling wat huidige behoeftes bevredig sonder om toekomstige generasies te benadeel','Sagteware ontwikkel','Meer kos verbou'], answer:1, explanation:'Volhoubare ontwikkeling bevredig huidige behoeftes sonder om die vermoë van toekomstige generasies te benadeel om hul eie behoeftes te bevredig.' },
-  { grade:7, subject:'lifeskills', question:'Wat is die rol van die Nasionale Vervolgingsgesag (NVG) in Suid-Afrika?', options:['Om wette te maak','Om strafregtelike sake namens die staat te vervolg','Om belasting in te vorder','Om paaie te bou'], answer:1, explanation:'Die NVG vervolg mense wat van misdade beskuldig word in Suid-Afrika se howe in die naam van die staat.' },
-  { grade:7, subject:'lifeskills', question:'Wat is die betekenis van "integriteit"?', options:['Fisieke krag','Eerlik wees en sterk morele beginsels hê','Gewild wees','Slim wees'], answer:1, explanation:'Integriteit beteken om eerlik, betroubaar te wees en by jou morele beginsels te staan selfs wanneer dit moeilik is.' },
-  { grade:7, subject:'lifeskills', question:'Wat sê die Grondwet oor onderwys?', options:['Onderwys is net vir burgers','Elkeen het die reg op basiese onderwys','Onderwys eindig by Graad 7','Slegs seuns kan skool gaan'], answer:1, explanation:'Artikel 29 van die Grondwet bepaal dat elkeen die reg op basiese onderwys het, insluitend basiese volwassene-onderwys.' },
 ]
 
 // ─── LESSE ─────────────────────────────────────────────────────────────────────
 export const LESSONS = [
-  // Graad 1 Wiskunde
-  { grade:1, subject:'maths', title:'Getalbonde na 10', emoji:'🔢',
-    content:'\'n Getalbond is twee getalle wat saam 10 maak!\n\n1 + 9 = 10 🟡🟡🟡🟡🟡🟡🟡🟡🟡⚪\n2 + 8 = 10\n3 + 7 = 10\n4 + 6 = 10\n5 + 5 = 10 ⭐\n\nOok die omgekeerde: as 3 + 7 = 10, dan is 10 − 7 = 3!\n\nHier is hoe ons optel binne 20:\n8 + 6 → 8 + 2 = 10, dan 10 + 4 = 14 ✅',
-    keyPoints:['Getalbonde na 10: 1+9, 2+8, 3+7, 4+6, 5+5','As jy die bond ken, weet jy ook die aftrekking','Gebruik die "maak 10" truuk om groter somme op te tel'] },
-  { grade:1, subject:'maths', title:'Vorms om ons Heen', emoji:'🔷',
-    content:'2D-VORMS (plat vorms):\n🔴 Sirkel — geen hoeke, een ronde kant\n🟦 Vierkant — 4 gelyke kante, 4 hoeke\n🔷 Driehoek — 3 kante, 3 hoeke\n🟩 Reghoek — 4 kante (2 lank, 2 kort), 4 hoeke\n\n3D-VORMS (soliede vorms):\n⚽ Bol (sfeer) — soos \'n bal, kan rol\n📦 Blokkie (kubus) — soos \'n dobbelklip, 6 plat kante\n🥫 Silinder — soos \'n blikkie, 2 ronde punte\n🍦 Konus (keël) — soos \'n roomyshorinkie, een punt',
-    keyPoints:['2D-vorms is plat; 3D-vorms is soliede','\'n Sirkel het geen hoeke nie','\'n Driehoek het 3 kante; \'n vierkant het 4 gelyke kante','3D-vorms kan rol, stapel of skoef'] },
-  { grade:1, subject:'maths', title:'Tel in 2e, 5e en 10e', emoji:'⏩',
-    content:'Slaan-tel (skip counting) is vinniger as een-een tel!\n\nIn 2e: 2, 4, 6, 8, 10, 12, 14, 16, 18, 20\n(Tel vingers in pare — elke keer twee!)\n\nIn 5e: 5, 10, 15, 20, 25, 30...\n(Gebruik jou hande — elke hand is 5!)\n\nIn 10e: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100\n(Elke keer een nuwe tientalgetal)',
-    keyPoints:['Tel in 2e: 2, 4, 6, 8, 10...','Tel in 5e: 5, 10, 15, 20...','Tel in 10e: 10, 20, 30, 40...','Slaan-tel help ons om vinniger te tel!'] },
-  // Graad 1 Engels
-  { grade:1, subject:'english', title:'Phonics: Sounds and Letters', emoji:'🔤',
-    content:'Every letter has a SOUND. We use sounds to read and spell words!\n\nVOWELS (klinkers): A  E  I  O  U\nShort vowel sounds:\n• a = "cat", "bag", "hat"\n• e = "bed", "red", "leg"\n• i = "sit", "big", "lip"\n• o = "hot", "top", "dog"\n• u = "sun", "run", "cup"\n\nBlending (saamsmelt): c + a + t = CAT 🐱\nTry these: s+i+t, h+o+t, b+e+d',
-    keyPoints:['Vowels are A, E, I, O, U — every word needs one!','Sound out each letter, then blend them together','CVC words have Consonant-Vowel-Consonant (e.g. cat, big, sun)'] },
-  { grade:1, subject:'english', title:'Sight Words', emoji:'👁️',
-    content:'Sight words are common words you must learn to RECOGNISE at a glance — some don\'t follow normal phonics rules.\n\nPractise reading these every day:\nI  the  a  and  is  to  it  in\nyou  me  my  he  she  we  they\nsee  look  can  go  come  here\nlittle  big  said  have  like  do\nnot  up  at  on  for  this\n\nTip: Use flash cards — one word per card!',
-    keyPoints:['Sight words appear very often in books','Learn them by memory (look-and-say method)','Practise reading them quickly every day','Knowing sight words makes reading much faster'] },
-  // Graad 1 Lewende Wêreld (Science in Life Skills)
-  { grade:1, subject:'science', title:'Lewende en Nie-lewende Dinge', emoji:'🌱',
-    content:'Hoe weet ons iets is LEWENDIG?\nLewende dinge...\n✅ GROEI (hulle word groter)\n✅ ASEMHAAL (hulle gebruik lug)\n✅ EET of maak hul eie kos\n✅ BEWEEG (selfs plante beweeg stadig)\n✅ KAN VOORTPLANT (babas hê)\n\nVoorbeelde:\n🌳 Boom — lewendig\n🐕 Hond — lewendig\n🪨 Klip — NIE lewendig\n💺 Stoel — NIE lewendig\n🚗 Motor — NIE lewendig\n\nWater en lug is nie lewendig nie, maar lewende dinge het hulle nodig!',
-    keyPoints:['Lewende dinge groei, asemhaal, beweeg, eet en voortplant','Plante ÉN diere is lewend','Klippe, stoele en motors is nie lewendig nie','Lewende dinge het water, kos en lug nodig'] },
-  { grade:1, subject:'science', title:'My Vyf Sintuie', emoji:'👁️',
-    content:'Ons het 5 sintuie om die wêreld te ontdek!\n\n👁️ SIÊ — Ons OË sien kleure, vorms en beweging\n👂 HOOR — Ons ORE hoor klanke, musiek en stemme\n👃 RUIK — Ons NEUS ruik blomme, kos en rook\n👅 PROE — Ons TONG proe sout, soet, suur en bitter\n✋ VOEL — Ons VEL voel warm, koud, hard, sag, rof en glad\n\nSomige mense gebruik hul sintuie anders, bv. iemand wat nie kan sien nie, gebruik meer hoor en voel.',
-    keyPoints:['5 sintuie: sien, hoor, ruik, proe, voel','Elke sintuig het sy eie liggaamsdeel','Sintuie help ons veilig te bly en die wêreld te verstaan'] },
-  // Graad 1 Afrikaans
-  { grade:1, subject:'afrikaans', title:'My Gesin en Familie', emoji:'👨‍👩‍👧',
-    content:'Leer hierdie familiewoorde in Afrikaans:\n\n👩 Ma / Moeder (Mother)\n👨 Pa / Vader (Father)\n👧 Suster (Sister)\n👦 Broer (Brother)\n👵 Ouma (Grandmother)\n👴 Oupa (Grandfather)\n👶 Baba (Baby)\n\nEenvoudige sinne:\n• My ma se naam is...\n• Ek het \'n broer/suster.\n• My oupa woon in...\n\nFamilies lyk verskillend — sommige het baie lede, ander het minder. Alle gesinne is spesiaal! 💛',
-    keyPoints:['"Ma" = Mother, "Pa" = Father','Ouma = Grandmother, Oupa = Grandfather','Broer = Brother, Suster = Sister','Alle families is anders, maar almal is spesiaal'] },
-  { grade:1, subject:'afrikaans', title:'Dae, Kleure en Getalle', emoji:'🌈',
-    content:'DAE VAN DIE WEEK (7 dae):\nMaandag • Dinsdag • Woensdag • Donderdag • Vrydag • Saterdag • Sondag\n\nKLEURE:\nRooi 🔴 • Blou 🔵 • Geel 🟡 • Groen 🟢 • Oranje 🟠\nPers 🟣 • Pienk 🩷 • Wit ⚪ • Swart ⚫ • Bruin 🟤\n\nGETALLE:\neen (1) twee (2) drie (3) vier (4) vyf (5)\nses (6) sewe (7) ag (8) nege (9) tien (10)',
-    keyPoints:['Daar is 7 dae in \'n week','Leer die kleure en oefen om hulle te sê','Getalle in Afrikaans: een tot tien','Oefen elke dag!'] },
-  // Graad 1 Lewensvaardighede
-  { grade:1, subject:'lifeskills', title:'My Gevoelens', emoji:'😊',
-    content:'Ons het almal gevoelens — gevoelens vertel ons hoe ons BINNE voel.\n\n😊 BLY / GELUKKIG — As iets lekker gebeur\n😢 HARTSEER — As iets pynlik of teleurstellend is\n😡 KWAAD — As iets onregverdig voel\n😨 BANG — As ons iets vrees\n😲 VERRAS — As iets onverwags gebeur\n😌 RUSTIG / KALM — As alles goed is\n\nGevoelens is NORMAAL! Almal voel hulle.\n\nKalmeertruuks:\n🌬️ Asem diep in en stadig uit\n🔢 Tel stadig tot 10\n🤗 Praat met iemand wat jy vertrou',
-    keyPoints:['Gevoelens is normaal — almal het hulle','Bly, hartseer, kwaad, bang, verras','Jy kan gevoelens noem en bespreek','Asemhaling en tel help om te kalmeer'] },
-  { grade:1, subject:'lifeskills', title:'Gesondheid en Veiligheid', emoji:'🧼',
-    content:'HANEWAS — 5 stappe:\n1️⃣ Nat maak jou hande met water\n2️⃣ Sit seep op\n3️⃣ Vryf 20 sekondes lank (sing "Happy Birthday" x2)\n4️⃣ Spoel goed af\n5️⃣ Droog met \'n skoon handdoek\n\nWanneer om hande te was:\n🍽️ Voor eet • 🚽 Na die toilet • 🤧 Na nies\n\nROAD SAFETY:\n🔴 Rooi lig = STOP\n🟠 Oranje lig = STADIGER\n🟢 Groen lig = GAAN\n👀 Kyk LINKS, REGS, LINKS weer voor jy oorsteek!',
-    keyPoints:['Was hande vir 20 sekondes met seep','Was voor eet en na die toilet','Rooi = stop, groen = gaan by verkeerslichte','Kyk altyd links-regs-links voor jy oor die pad gaan'] },
-
-  // Graad 1 Wiskunde — meer lesse
-  { grade:1, subject:'maths', title:'Optelling en Aftrekking tot 20', emoji:'➕',
-    content:'OPTELSTRATEGIEË:\n\n🔢 Tel-op-strategie: Begin by die groter getal!\n8 + 5 → Begin by 8, tel op: 9, 10, 11, 12, 13 = 13 ✅\n\n🔟 Maak-10-truuk:\n7 + 6 → 7 + 3 = 10, dan 10 + 3 = 13\n9 + 4 → 9 + 1 = 10, dan 10 + 3 = 13\n\nAFTREKSTRATEGIEË:\n\n⬅️ Tel-terug-strategie:\n12 − 4 → Tel terug: 11, 10, 9, 8 = 8 ✅\n\n🔄 Getalsfamilies (number bonds):\nAs 6 + 7 = 13, dan ook:\n7 + 6 = 13 (draai om)\n13 − 7 = 6 (trek af)\n13 − 6 = 7 (trek af)\n\nOefen elke dag — dit word makliker! 💪',
-    keyPoints:['Gebruik die groter getal eers as jy optel','Maak-10-truuk: vul eers aan tot 10','Getalsfamilie: 6+7=13, 7+6=13, 13-7=6, 13-6=7','Tel terug om af te trek'] },
-  { grade:1, subject:'maths', title:'Meting: Langer, Swaarder, Meer', emoji:'📏',
-    content:'LENGTE — hoe lank of hoe kort?\n\n📏 Ons vergelyk dinge:\n• Hierdie potlood is LANGER as die ander\n• Die wortel is KORTER as die boontjie\n\nOns kan met nie-standaard eenhede meet:\n• Hoe baie handbreë breed is die tafel? (bv. 5 handbreë)\n• Hoe baie blokke lank is die boekie?\n\nMASS/GEWIG — hoe swaar?\n⚖️ \'n Balans (see-saw) help ons vergelyk:\n• Die klip WEEG MEER as die veer\n• Die apel is LIGTER as die klip\n\nKAPASITEIT — hoeveel pas in?\n💧 Vol, halfvol, leeg:\n• Die emmer is VOL water\n• Die koppie is HALFVOL tee\n• Die bottel is LEEG',
-    keyPoints:['Lengte: langer/korter — vergelyk twee dinge','Meet in nie-standaard eenhede (hand spans, blokke)','Massa: swaarder/ligter — gebruik \'n balans','Kapasiteit: vol, halfvol, leeg'] },
-  { grade:1, subject:'maths', title:'Tyd: Uur en Halfuur', emoji:'🕐',
-    content:'LEER OM DIE HORLOSIE TE LEES!\n\nDie horlosie het twee wyers:\n⏱️ LANG wyser = minutewyser\n⏱️ KORT wyser = uurwyser\n\nOOR DIE UUR (o\'clock):\n• Lang wyser op 12 = presies die uur\n• Kort wyser op 3 → DRIEuur = 3:00\n• Kort wyser op 7 → SEWEuur = 7:00\n\nHALFUUR (half past):\n• Lang wyser op 6 = halfuur verstreke\n• Kort wyser tussen 2 en 3 → HALFDRIEUUR = 2:30\n• Kort wyser tussen 8 en 9 → HALFNEGE = 8:30\n\nDIE DAG:\n🌅 OGGEND: wakker word, ontbyt, skool\n☀️ MIDDAG: middagete, speel\n🌙 AAND: aandete, bad, slaap',
-    keyPoints:['Lang wyser op 12 = presies die uur','Lang wyser op 6 = halfuur','Kort wyser wys watter uur dit is','Dag: oggend, middag, aand, nag'] },
-
-  // Graad 1 Engels — meer lesse
-  { grade:1, subject:'english', title:'My First Sentences', emoji:'✍️',
-    content:'A SENTENCE is a group of words that makes complete sense!\n\nEVERY SENTENCE:\n✅ Starts with a CAPITAL LETTER\n✅ Has a subject (who or what)\n✅ Has a verb (what they do)\n✅ Ends with a punctuation mark\n\n3 TYPES OF SENTENCES:\n📌 Statement (telling): The cat sits on the mat.\n❓ Question (asking): Where is my book?\n❗ Exclamation (feeling): I am so happy!\n\nEXAMPLES:\n• The dog runs fast. (statement)\n• Do you like cats? (question)\n• Watch out! (exclamation)\n\nPRACTISE:\n"the bird sits in the tree" → The bird sits in the tree. ✅',
-    keyPoints:['Every sentence starts with a capital letter','Statements end with a full stop (.)','Questions end with a question mark (?)','Exclamations end with an exclamation mark (!)'] },
-  { grade:1, subject:'english', title:'Describing Words (Adjectives)', emoji:'🌈',
-    content:'ADJECTIVES tell us MORE about nouns!\n\nThey answer the questions:\n❓ What COLOUR? — red apple, blue sky, yellow sun\n❓ What SIZE? — big elephant, tiny ant, tall tree\n❓ What SHAPE? — round ball, square box\n❓ What FEEL? — soft pillow, rough rock, smooth glass\n❓ What KIND? — happy child, loud noise, sweet cake\n\nADJECTIVES come BEFORE the noun:\n• A FLUFFY cat\n• The BIG brown dog\n• Three LITTLE ducks\n\nLET\'S PRACTISE:\n"The ___ dog barked."\n→ big / small / brown / friendly / noisy\n\nUsing describing words makes your writing come alive! 🌟',
-    keyPoints:['Adjectives describe nouns (telling words)','They can describe colour, size, shape or feel','Adjectives usually go BEFORE the noun','Good writing uses lots of interesting adjectives'] },
-
-  // Graad 1 Lewende Wêreld — meer lesse
-  { grade:1, subject:'science', title:'Dele van \'n Plant', emoji:'🌿',
-    content:'Plante het verskillende DELE — elke deel het \'n werk!\n\n🌱 WORTELS (roots):\n→ Anker die plant in die grond\n→ Drink water en voedsel op uit die grond\n\n🌱 STINGEL (stem):\n→ Hou die plant regop\n→ Dra water en voedsel van wortels na blare\n\n🍃 BLARE (leaves):\n→ Vang sonlig op\n→ Maak kos vir die plant (fotosintese)\n→ Asem deur gaatjies (stomatala)\n\n🌸 BLOM (flower):\n→ Trek insekte soos bye aan\n→ Help om sade te maak\n\n🍎 VRUG (fruit):\n→ Sit om die sade om hulle te beskerm\n→ Diere eet vrugte en versprei sade\n\n🌰 SAAD (seed):\n→ Groei in \'n nuwe plant!',
-    keyPoints:['Wortels = drink water; stingel = dra water op','Blare = maak kos met sonlig','Blom = maak sade; vrug = beskerm sade','Elke deel van die plant het \'n spesiale werk'] },
-  { grade:1, subject:'science', title:'Weer en Seisoene', emoji:'🌦️',
-    content:'WEER (weather) beskryf hoe die lug buite is.\n\nWEERTIPES:\n☀️ SONNIG — helder lug, die son skyn\n🌧️ REËNERIG — reën val uit die wolke\n💨 WINDERIG — wind waai bome heen en weer\n☁️ BEWOLK — dikke wolke bedek die son\n🌩️ DONDERBUIE — weerlig en donder\n🥶 KOUD — jy dra \'n jas en sjarp\n🥵 WARM — jy sweet en drink baie water\n\nVIER SEISOENE in Suid-Afrika:\n🌞 SOMER (Des–Feb) — warm, soms stormagtig\n🍂 HERFS (Mar–Mei) — koeler, blare verkleur\n❄️ WINTER (Jun–Aug) — koud, min reën (Veldland)\n🌸 LENTE (Sep–Nov) — warmer, blomme blom\n\nWEERMETING:\n🌡️ Termometer — meet temperatuur\n🌂 Reënmeter — meet hoeveel reën geval het',
-    keyPoints:['Weer: sonnig, reënerig, winderig, bewolk, koud','4 seisoene: somer, herfs, winter, lente','Suid-Afrika is warm in die somer (Des-Feb)','Termometer meet temperatuur; reënmeter meet reënval'] },
-
-  // Graad 1 Afrikaans — meer lesse
-  { grade:1, subject:'afrikaans', title:'My Liggaam', emoji:'🧍',
-    content:'Leer die dele van jou liggaam in Afrikaans!\n\nKOP (head):\n👁️ OËÊ (eyes) — ons sien\n👂 ORE (ears) — ons hoor\n👃 NEUS (nose) — ons ruik\n👄 MOND (mouth) — ons praat en eet\n💇 HARE (hair) — groei op ons kop\n\nLYF (body):\n🤲 ARMS (arms) — links en regs\n✋ HANDE (hands) — 5 vingers elkeen\n🦵 BENE (legs) — ons loop en spring\n🦶 VOETE (feet) — ons stap\n\nLIEDJIE — HOOFD, SKOUERS, KNIEË, TONE!\n(Wys elke liggaamsdeel as jy sing)\n\nEenvoudige sinne:\n• Ek het twee oë. Ek het een neus.\n• My hande het tien vingers.\n• Ek gebruik my voete om te loop.',
-    keyPoints:['Kop: oë, ore, neus, mond, hare','Lyf: arms, hande, bene, voete','Ek het TWEE oë, ore, arms, hande, bene, voete','Lied: Hoofd, Skouers, Knieë, Tone!'] },
-  { grade:1, subject:'afrikaans', title:'Diere en Hul Klanke', emoji:'🐾',
-    content:'Leer van diere in Afrikaans!\n\nPLAASSDIERE:\n🐄 KOI — "moe" (moo)\n🐑 SKAAP — "mêê" (baa)\n🐓 HAAN/HEN — "kukeleku" (cock-a-doodle-doo)\n🐖 VARK — "knor knor" (oink)\n🐴 PERD — "whinnying" (neigh)\n\nWILDE DIERE:\n🦁 LEEU — brul (roar)\n🐘 OLIFANT — trumpet\n🐊 KROKODIL — sis (hiss)\n🦒 KAMEELPERD — bly stil!\n\nTROETELDIERE:\n🐶 HOND — blaf (bark) / jank (whine)\n🐱 KAT — miaau (meow) / spin (purr)\n🐟 VIS — bly in water\n\nEenvoudige sinne:\n• Die hond blaf hard.\n• Die kat drink melk.\n• Die olifant is baie groot.',
-    keyPoints:['"Dier" = animal in Afrikaans','Plaasdiere: koei, skaap, haan, vark, perd','Wilde diere: leeu, olifant, krokodil, kameelperd','Troeteldiere: hond, kat, vis'] },
-
-  // Graad 1 Lewensvaardighede — meer lesse
-  { grade:1, subject:'lifeskills', title:'Gemeenskapshulpverleners', emoji:'🤝',
-    content:'GEMEENSKAPSHULPVERLENERS help almal in ons dorp!\n\n🏥 DOKTER / VERPLEEGSTER:\n→ Behandel siek mense\n→ Gee inspuitings en medisyne\n→ Werk in hospitale en klinieke\n\n👮 POLISIEBEAMPTE:\n→ Hou ons veilig\n→ Vang misdadigers\n→ Help by ongelukke\n\n🚒 BRANDWEERMAN:\n→ Blus brande\n→ Red mense uit gevaarlike plekke\n→ Ry die rooi brandweertrok\n\n🍎 ONDERWYSER:\n→ Leer kinders in die skool\n→ Help ons kennis opdoen\n\n🧺 WINKELIER:\n→ Verkoop kos en ander items\n→ Sorg dat ons alles het wat ons nodig het\n\nAlle hulpverleners is BELANGRIK! Ons kan ook help deur vriendelik te wees.',
-    keyPoints:['Dokter/verpleegster: help siek mense','Polisiebeampte: hou ons veilig','Brandweerman: blus brande','Onderwyser: leer ons kennis'] },
-
-  // Graad 2 Wiskunde
-  { grade:2, subject:'maths', title:'Plekwaarde: Tientalle en Ene', emoji:'🔢',
-    content:'Elke syfer in \'n getal het \'n PLEK en \'n WAARDE.\n\n📦 47 = 4 TIENTALLE + 7 ENE\n• Die 4 staan in die tientalle-plek → waarde = 40\n• Die 7 staan in die ene-plek → waarde = 7\n• 40 + 7 = 47 ✅\n\n📦 63 = 6 TIENTALLE + 3 ENE = 60 + 3\n📦 99 = 9 TIENTALLE + 9 ENE = 90 + 9\n\nVergelyk getalle:\n• 47 < 54 (47 is kleiner as 54)\n• 82 > 76 (82 is groter as 76)\n\nOrdegetal-woorde: 1ste (eerste), 2de (tweede), 3de (derde), 4de (vierde), 5de (vyfde)',
-    keyPoints:['Elke syfer het \'n plekwaarde: tientalle of ene','47 = 40 + 7 (uitgebreide notasie)','< beteken "kleiner as"; > beteken "groter as"','Dubbelyfers kan nou tot 99 gaan'] },
-  { grade:2, subject:'maths', title:'Herhaalde Optelling en Breuke', emoji:'🍕',
-    content:'HERHAALDE OPTELLING → VERMENIGVULDIGING:\n4 groepe van 3 = 3 + 3 + 3 + 3 = 12\nDit skryf ons ook as: 4 × 3 = 12\n\n5 groepe van 2: 2+2+2+2+2 = 10 → 5×2=10\n3 groepe van 5: 5+5+5 = 15 → 3×5=15\n\nBREUKE — gelyke dele:\n🍕 HELFTE (½): deel in 2 GELYKE stukke\n• ½ van 10 = 5\n• ½ van 18 = 9\n• 2 helftes = 1 geheel\n\n🍕 KWART (¼): deel in 4 GELYKE stukke\n• ¼ van 20 = 5\n• 4 kwarte = 1 geheel',
-    keyPoints:['Herhaalde optelling is die begin van vermenigvuldiging','4 × 3 beteken 4 groepe van 3','½ = helfte = deel in 2 gelyke dele','¼ = kwart = deel in 4 gelyke dele'] },
-  { grade:2, subject:'maths', title:'Tyd en Geld', emoji:'🕐',
-    content:'TYD OP \'N ANALOOGHORLOSIE:\n🕐 Die LANG wyser = minutewyser\n🕐 Die KORT wyser = uurwyser\n\n• DRIE-UUR: lang wyser op 12, kort op 3 → 3:00\n• HALFVIER: lang wyser op 6, kort tussen 3 en 4 → 3:30\n• KWART OOR DRIE: lang wyser op 3, kort ná 3 → 3:15\n• KWART VOOR VIER: lang wyser op 9, kort nader aan 4 → 3:45\n\nGELD (R en sent):\n5c, 10c, 20c, 50c, R1, R2, R5, R10, R20\n\nWoordprobleem:\nJy koop \'n appel vir R4 en \'n sap vir R5.\nTotaal = R4 + R5 = R9\nJy betaal R10 → Kleingeld = R10 − R9 = R1',
-    keyPoints:['Lang wyser = minute; kort wyser = ure','Half past = 30 minute na die uur (lang wyser op 6)','Kwart oor = 15 min na; kwart voor = 15 min voor','Kleingeld = bedrag betaal minus koste'] },
-  // Graad 2 Engels
-  { grade:2, subject:'english', title:'Blends and Digraphs', emoji:'🔤',
-    content:'CONSONANT BLENDS — two letters, two sounds side by side:\n• L-blends: bl (blue), cl (clap), fl (fly), gl (glow), pl (play), sl (slide)\n• R-blends: br (bread), cr (cry), dr (drop), fr (frog), gr (grow), tr (tree)\n• S-blends: sc (scare), sk (skip), sm (smile), sn (snow), sp (spin), st (stop), sw (swim)\n\nCONSONANT DIGRAPHS — two letters, ONE sound:\n• ch → chair, chip, lunch\n• sh → ship, fish, wash\n• th → thin, this, with\n• wh → when, where, white\n• ck → duck, rock, black\n\nVOWEL DIGRAPHS:\n• ee → feet, bee, tree\n• oa → boat, road, coat\n• ai → rain, tail, train',
-    keyPoints:['Blends: two consonants, BOTH sounds heard (bl, cr, st...)','Digraphs: two letters, ONE new sound (ch, sh, th...)','Vowel digraphs: two vowels together (ee, oa, ai)','Practice: read and write words with each pattern'] },
-  { grade:2, subject:'english', title:'Plural Rules', emoji:'📚',
-    content:'How to make PLURAL nouns (more than one):\n\n✅ Add -S (most words):\ndog → dogs, book → books, cat → cats\n\n✅ Add -ES (words ending in s, sh, ch, x):\nbox → boxes, bush → bushes, church → churches\n\n✅ Change Y → IES (consonant + y):\nbaby → babies, berry → berries, city → cities\n\n⚠️ IRREGULAR PLURALS (no rules — must memorise!):\n• child → children\n• tooth → teeth\n• foot → feet\n• mouse → mice\n• man → men\n• woman → women\n• sheep → sheep (stays the same!)\n• fish → fish (stays the same!)',
-    keyPoints:['Most words: add -s','Words ending in s/sh/ch/x: add -es','Words ending in consonant+y: change y to ies','Irregular plurals must be memorised: child→children, tooth→teeth'] },
-  // Graad 2 Lewende Wêreld
-  { grade:2, subject:'science', title:'Materiale en Hul Eienskappe', emoji:'🪨',
-    content:'Voorwerpe is gemaak van MATERIALE. Elke materiaal het eienskappe.\n\n🔍 EIENSKAPPE:\n• Hard/Sag: klip (hard), spons (sag)\n• Glad/Ru: glas (glad), skuurpapier (ru)\n• Deursigtig/Ondeursigtig: glas (deursigtig — lig gaan deur), hout (ondeursigtig)\n• Swaar/Lig: yster (swaar), veer (lig)\n• Waterdig: plastiek en rubber (water gaan nie deur)\n• Buigbaar/Styf: rubber (buigbaar), metaal (styf)\n\n📦 MATERIALE EN GEBRUIKE:\n• Hout → meubels, vloere (hard en sterk)\n• Glas → vensters (deursigtig)\n• Plastiek → bottels (waterdig, lig)\n• Metaal → potte, motors (sterk, hittebestandig)\n• Stof/Doek → klere (sag, buigbaar)',
-    keyPoints:['Materiale het eienskappe: hard/sag, deursigtig/ondeursigtig','Glas is deursigtig — lig gaan deur','Plastiek is waterdig — water gaan nie deur','Ons kies materiale vir voorwerpe op grond van hul eienskappe'] },
-  { grade:2, subject:'science', title:'Seisoene en Plantegroei', emoji:'🌸',
-    content:'VIER SEISOENE in Suid-Afrika:\n🌞 SOMER (Dec–Feb): warm, nat, baie reën in die meeste gebiede\n🍂 HERFS (Mar–May): kouer, blare verkleur en val\n❄️ WINTER (Jun–Aug): koud, droë in die binneland, nat in die Weskaap\n🌸 LENTE (Sep–Nov): warmer, blomme blom, nuwe blare\n\n🌱 PLANTLEWENSSIKLUS:\n1️⃣ Saad (seed)\n2️⃣ Ontkieming (germination) — saad bars oop\n3️⃣ Saailing (seedling) — klein plantjie\n4️⃣ Plant — groei groot, maak blare\n5️⃣ Blom (flower) — trek insekte aan\n6️⃣ Vrug en nuwe sade — siklus herhaal!\n\nPlante het nodig: ☀️ Sonlig + 💧 Water + 🌱 Grond',
-    keyPoints:['4 seisoene: somer, herfs, winter, lente','In herfs val blare; in lente blom plante','Plantlewenssiklus: saad → saailing → plant → blom → saad','Plante het sonlig, water en grond nodig'] },
-  // Graad 2 Afrikaans
-  { grade:2, subject:'afrikaans', title:'Lidwoorde en Meervoud', emoji:'📝',
-    content:'LIDWOORDE (articles):\n• DIE = the (gebruik vir ALLE naamwoorde in Afrikaans)\n• \'N = a/an (onbepaald — jy weet nie watter een)\n\nVoorbeelde:\ndie hond (the dog) — spesifieke hond\n\'n hond (a dog) — enige hond\ndie groot boom (the big tree)\n\'n mooi blom (a pretty flower)\n\nMEERVOUD-REËLS:\n• Voeg -E by: hond→honde, boom→bome, stoel→stoele\n• Voeg -S by: pa→pa\'s, ouma→oumas\n• Onreëlmatig: kind→kinders, man→manne, vrou→vrouens, mens→mense\n• Onveranderlik: skaap→skaap (sheep stays sheep!)\n\nOEFENING:\nEen kat → twee ___? (katte)\nEen boom → drie ___? (bome)',
-    keyPoints:['DIE = the; gebruik met ALLE Afrikaanse naamwoorde','\'N = a/an; gebruik vir onbepaalde naamwoorde','Meervoud: voeg -e by meeste woorde','Onreëlmatig: kind→kinders, vrou→vrouens'] },
-  { grade:2, subject:'afrikaans', title:'Tyd en Vervoer', emoji:'🕐',
-    content:'TYD IN AFRIKAANS:\n• Een-uur = 1:00 (one o\'clock)\n• Kwart oor twee = 2:15 (quarter past two)\n• Halfvier = 3:30 ⚠️ (LET OP: half VOOR vier!)\n• Halfnege = 8:30 (half past eight)\n• Kwart voor ses = 5:45 (quarter to six)\n\nHoe laat is dit? — What time is it?\nDit is halfelf. — It is half past ten (10:30).\n\nVERVOER (Transport):\n🚗 Motor (car)\n🚌 Bus (bus)\n🚆 Trein (train)\n✈️ Vliegtuig (aeroplane)\n🚲 Fiets (bicycle)\n🚢 Boot/Skip (boat/ship)\n🚛 Vragmotor (truck)\n\nVRAAG: Hoe gaan jy skool toe?\nANTWOORD: Ek ry met die bus/motor/fiets.',
-    keyPoints:['Halfvier = 3:30 (half VOOR vier, nie half NEGE NA)','Kwart oor = 15 min na die uur','Kwart voor = 15 min voor die volgende uur','Vervoer: motor, bus, trein, vliegtuig, fiets'] },
-  // Graad 2 Lewensvaardighede
-  { grade:2, subject:'lifeskills', title:'Waterveiligheid en Noodgetalle', emoji:'🌊',
-    content:'WATERVEILIGHEID — ALTYD-REËLS:\n🚫 Swem NOOIT alleen nie — altyd \'n volwassene naby\n🚫 Moenie by \'n dam/rivier speel sonder toesig\n🏊 Swem net tussen die VLAGGIES by die strand\n🚫 Moenie ander stoot of terugdruk in die water nie\n🏃 Loop NOOIT by \'n swembad nie — jy kan gly\n\nAs iemand in gevaar is by water:\n1️⃣ SKREEU vir hulp\n2️⃣ Roep \'n volwassene\n3️⃣ Spring SELF nie in nie — jy kan ook in gevaar kom\n\nNOODGETALLE:\n📞 112 — Noodgeval op selfoon (alles)\n📞 10111 — Polisie\n📞 10177 — Ambulans\n📞 107 — Brandweer (in baie areas)',
-    keyPoints:['NOOIT alleen swem nie — altyd toesig','Swem tussen die vlaggies by die strand','Noodgetal op selfoon: 112','As iemand in water is: skreeu vir hulp, roep volwassene, spring NIE self in'] },
-  { grade:2, subject:'lifeskills', title:'Reënboognasie en Ons Regte', emoji:'🌈',
-    content:'SUID-AFRIKA SE REËNBOOGNASIE:\n🌈 Suid-Afrika het 11 AMPTELIKE TALE:\nZulu, Xhosa, Afrikaans, Engels, Sepedi, Setswana, Sesotho, Tsivenda, Xitsonga, isiNdebele, isiSwati\n\nNASIONALE SIMBOLE:\n🏳️ Vlag: 6 kleure (rooi, blou, groen, geel, swart, wit)\n🎵 Volkslied: Nkosi Sikelel\' iAfrika / Die Stem\n📅 Erfenisdag: 24 September\n📅 Vryheiddag: 27 April (eerste demokratiese verkiesing in 1994)\n\nKINDERREGTE (Grondwet):\nElke kind het die reg op:\n📚 Onderwys (skool)\n🏥 Gesondheidsorg (dokter)\n🍎 Kos en water\n🏠 Skuiling (veilige plek)\n🎮 Speel en rus\n🛡️ Beskerming teen mishandeling',
-    keyPoints:['Suid-Afrika het 11 amptelike tale','Erfenisdag: 24 September','Vryheiddag: 27 April 1994 — eerste demokratiese verkiesing','Elke kind het regte: onderwys, gesondheid, kos, skuiling, speel'] },
-
-  // Graad 3 Wiskunde
-  { grade:3, subject:'maths', title:'Plekwaarde tot 999', emoji:'🔢',
-    content:'Elke syfer in \'n getal het \'n PLEK en \'n WAARDE.\n\n📦 374 = 3 HONDERDTALLE + 7 TIENTALLE + 4 ENE\n• Die 3 = 300 (honderdtalle-plek)\n• Die 7 = 70 (tientalle-plek)\n• Die 4 = 4 (ene-plek)\n• 300 + 70 + 4 = 374 ✅\n\nMeer voorbeelde:\n📦 809 = 8 honderdtalle + 0 tientalle + 9 ene = 800 + 0 + 9\n📦 560 = 5 honderdtalle + 6 tientalle + 0 ene = 500 + 60\n\nVERGELYK:\n374 < 437 (374 is kleiner)\n809 > 790 (809 is groter)\n\nOrdening: van KLEINSTE na GROOTSTE:\n256, 265, 526, 562, 625, 652',
-    keyPoints:['Getalle tot 999 het honderdtalle, tientalle en ene','374 = 300 + 70 + 4 (uitgebreide notasie)','< beteken "kleiner as"; > beteken "groter as"','Rangskik getalle van kleinste na grootste'] },
-  { grade:3, subject:'maths', title:'Tafels en Deling', emoji:'✖️',
-    content:'VERMENIGVULDIGING — leer jou tafels!\n\n2-tafel: 2,4,6,8,10,12,14,16,18,20\n3-tafel: 3,6,9,12,15,18,21,24,27,30\n4-tafel: 4,8,12,16,20,24,28,32,36,40\n5-tafel: 5,10,15,20,25,30,35,40,45,50\n10-tafel: 10,20,30,40,50,60,70,80,90,100\n\nTRUUKS:\n• 5-tafel eindig altyd op 0 of 5\n• 10-tafel: voeg \'n nul by die getal\n• As 4×7=28, dan ook 7×4=28 (kommutief)\n\nDELING is die TEENOORGESTELDE:\n• 4 × 7 = 28, dus 28 ÷ 4 = 7 en 28 ÷ 7 = 4\n• 5 × 9 = 45, dus 45 ÷ 5 = 9 en 45 ÷ 9 = 5\n\nDELING MET RESTE:\n17 ÷ 5 = 3 res 2 (want 5×3=15, en 17−15=2)',
-    keyPoints:['Leer tafels 2,3,4,5,10 uit jou kop','Vermenigvuldiging is herhaalde optelling','Deling is die omgekeerde van vermenigvuldiging','As a×b=c, dan c÷a=b en c÷b=a'] },
-  // Graad 3 Engels
-  { grade:3, subject:'english', title:'Word Building: Prefixes, Suffixes and Silent Letters', emoji:'🔤',
-    content:'PREFIXES — added to the START of a word:\n• un- (not): happy → UNhappy, safe → UNsafe, tidy → UNtidy\n• dis- (not/opposite): like → DISlike, agree → DISagree\n• re- (again): do → REdo, write → REwrite, read → REread\n\nSUFFIXES — added to the END of a word:\n• -ful (full of): care → careFUL, help → helpFUL, colour → colourFUL\n• -less (without): care → careLESS, hope → hopeLESS, harm → harmLESS\n• -tion (turns verb to noun): act → acTION, educate → educaTION\n\nSILENT LETTERS:\n• kn- = k is silent: know, knife, knock, knight, knee, knit\n• wr- = w is silent: write, wrong, wrap, wrist, wren\n• -gh = silent at end: night, right, light, eight, thought\n\nTip: Say the word aloud — you can\'t hear the silent letter!',
-    keyPoints:['Prefixes (un-, dis-, re-) change a word\'s meaning','Suffixes (-ful, -less, -tion) change the word type or meaning','Silent k in kn-: know, knife, knock','Silent w in wr-: write, wrong, wrap'] },
-  { grade:3, subject:'english', title:'Comparative Adjectives and Irregular Past Tenses', emoji:'📚',
-    content:'COMPARATIVE ADJECTIVES (comparing two things):\n\nShort adjectives — add -ER:\nbig → bigger (double g!)\nhot → hotter (double t!)\nsmart → smarter\ntall → taller\n\nLong adjectives — use MORE:\nbeautiful → more beautiful\nexciting → more exciting\n\nSUPERLATIVE (comparing three or more) — add -EST or MOST:\nbig → biggest • smart → smartest\nbeautiful → most beautiful\n\nIRREGULAR PAST TENSES (must memorise!):\ngo → went\nsee → saw\nrun → ran\nwrite → wrote\nswim → swam\ngive → gave\ntake → took\nbuy → bought\n\nRemember: apostrophes show possession (\'s) or contractions (it\'s = it is)',
-    keyPoints:['Short adj.: add -er (comparative), -est (superlative)','Long adj.: use more/most','Irregular past tenses must be memorised: go→went, see→saw, run→ran','Apostrophe\'s = belongs to; it\'s = it is'] },
-  // Graad 3 Lewende Wêreld
-  { grade:3, subject:'science', title:'Toestande van Materie en Eenvoudige Masjiene', emoji:'🔬',
-    content:'DRIE TOESTANDE VAN MATERIE:\n🧊 VASTESTOF (solid): vaste vorm, vaste volume\n💧 VLOEISTOF (liquid): geen vaste vorm, neem vorm van houer aan\n💨 GAS: geen vaste vorm of volume, versprei om alles te vul\n\nVERANDERINGE VAN TOESTAND:\n• Smelt: vastestof → vloeistof (verhit) — ys smelt\n• Stol/Vries: vloeistof → vastestof (afgekoel) — water vries\n• Verdamp: vloeistof → gas (verhit) — water verdamp\n• Kondenseer: gas → vloeistof (afgekoel) — damp word druppels\n\nOPLOSSING: stof + vloeistof → oplossing\n• Suiker in water = OPLOSBAAR (dissolves)\n• Sand in water = ONOPLOSBAAR (does not dissolve)\n\nSES EENVOUDIGE MASJIENE:\n⚖️ Hefboom (lever) — skep, sêkel\n🔩 Wiel-en-as (wheel-and-axle) — deurknop, fiets\n📐 Hellende vlak (inclined plane) — helling, skyfplank\n⚙️ Katrol (pulley) — vlagpaal, kraan\n🔪 Wig (wedge) — byl, mes\n🌀 Skroewe (screw) — botteldop, voeëlskroewe',
-    keyPoints:['3 toestande: vastestof, vloeistof, gas','Smelt (vas→vloeistof), vries (vloeistof→vas), verdamp (vloeistof→gas)','Oplosbaar = los op in water; onoplosbaar = los nie op','6 eenvoudige masjiene: hefboom, wiel-en-as, hellende vlak, katrol, wig, skroewe'] },
-  { grade:3, subject:'science', title:'Lewensiklusse en Voedselkettings', emoji:'🦋',
-    content:'LEWENSSIKLUS VAN \'N SKOENLAPPER (Butterfly):\n🥚 Eier → 🐛 Ruspe (caterpillar) → 🫘 Pop (chrysalis/pupa) → 🦋 Vlinder\nDit is VOLLEDIGE METAMORFOSE — die dier verander volledig!\n\nLEWENSSIKLUS VAN \'N PADDA (Frog):\n🥚 Eier → 🐟 Polliwog/Visbaba (tadpole) → 🐸 Paddawissie (froglet) → 🐸 Volwasse Padda\n\nVOEDSELKETTINGS:\nGras → Sprinkaan → Padda → Slang → Arend\n\n🌿 PRODUSENT (plant — maak eie kos via fotosintese)\n🐛 PRIMÊRE VERBRUIKER (herbivoor — eet plante)\n🐸 SEKONDÊRE VERBRUIKER (omnivoor/karnivoor — eet herbivore)\n🐍 TERSIÊRE VERBRUIKER (toppredator)\n\nGEWERWELD vs ONGEWERWELD:\n✅ Gewerweld (het ruggraat): vis, amfibie, reptiel, voël, soogdier\n❌ Ongewerweld (geen ruggraat): insek, slak, krap, worm',
-    keyPoints:['Skoenlapper: eier→ruspe→pop→vlinder (volledige metamorfose)','Padda: eier→polliwog→paddawissie→volwasse padda','Voedselketting: produsent→primêr→sekondêr→tersiêr verbruiker','Gewerweld = ruggraat; ongewerweld = geen ruggraat'] },
-  { grade:3, subject:'science', title:'Ons Sonnestelsel', emoji:'🪐',
-    content:'ONS SONNESTELSEL het 8 planete — leer die volgorde!\n\nWENK: My Very Energetic Mother Just Served Us Nachos\n☿ Merkurius (1e) — kleinste, naaste aan Son, uiterstes van temp\n♀ Venus (2e) — warmste (digte atmosfeer), helderste objek snags\n🌍 Aarde (3e) — ons tuiste, een maan, water en lewe\n♂ Mars (4e) — die Rooi Planeet, 2 mane, moontlike toekomstige besoek\n♃ Jupiter (5e) — grootste, Groot Rooi Kol (storm), 90+ mane\n♄ Saturnus (6e) — ringplanet, minder dig as water!\n♅ Uranus (7e) — roteer op sy sy, ys-reus\n♆ Neptunes (8e) — verste, windsterkste planeet\n\nDie Son is \'n STER in die middel.\n☾ MAANFASES: nuwe maan → groeiende sekel → kwartemaan → volle maan → afnemende sekel',
-    keyPoints:['8 planete: Merkurius, Venus, Aarde, Mars, Jupiter, Saturnus, Uranus, Neptunus','Wenk: My Very Energetic Mother Just Served Us Nachos','Mars is die 4de planeet — die Rooi Planeet','Maanfases: nuwe maan → kwartemaan → volle maan → nuwe maan'] },
-  // Graad 3 Afrikaans
-  { grade:3, subject:'afrikaans', title:'Trappe van Vergelyking en Verkleinwoorde', emoji:'📝',
-    content:'TRAPPE VAN VERGELYKING:\n\n1️⃣ POSITIEF — beskryf sonder vergelyking:\n   groot, goed, mooi, vinnig\n\n2️⃣ VERGELYKEND (comparative) — vergelyk twee dinge:\n   groter, beter, mooier, vinniger (voeg -er by)\n   Gebruik: "Die olifant is GROTER as die perd."\n\n3️⃣ OORTREFFEND (superlative) — vergelyk drie of meer:\n   die grootste, die beste, die mooiste, die vinnigste\n   Gebruik altyd "die" voor die oortreffende trap!\n\nONREËLMATIG:\n• goed → beter → die beste\n• baie → meer → die meeste\n• min → minder → die minste\n\nVERKLEINWOORDE (diminutives — -tjie, -jie, -ie, -pie):\n• kat → katjie\n• hond → hondjie (eindig op -nd → -jie)\n• boom → boompie (eindig op -m → -pie)\n• perd → perdjie\n• stoel → stoeltjie\n• skool → skooltjie',
-    keyPoints:['3 trappe: positief (groot), vergelykend (groter), oortreffend (die grootste)','Gebruik "die" voor die oortreffende trap','Onreëlmatig: goed→beter→die beste; baie→meer→die meeste','Verkleinwoorde: -tjie, -jie, -pie agter die woord (bv. kat→katjie)'] },
-  { grade:3, subject:'afrikaans', title:'Vraagwoorde en Voegwoorde', emoji:'❓',
-    content:'VRAAGWOORDE (Question words):\n❓ WIE — persoon: "Wie is jou beste vriend?"\n❓ WAT — ding/aksie: "Wat eet jy vir middagete?"\n❓ WAAR — plek: "Waar woon jy?"\n❓ WANNEER — tyd: "Wanneer begin skool?"\n❓ HOEKOM / WAAROM — rede: "Hoekom ween jy?"\n❓ HOE — wyse: "Hoe gaan jy skool toe?"\n❓ HOEVEEL — hoeveelheid: "Hoeveel kinders is in die klas?"\n❓ WATTER — keuse: "Watter kleur verkies jy?"\n\nVOEGWOORDE (Conjunctions — verbind sinne):\n🔗 en — and: "Ek en jy speel."\n🔗 maar — but: "Ek wil speel, MAAR dit reën."\n🔗 want — because: "Ek is bly WANT ek het geslaag."\n🔗 of — or: "Wil jy tee OF koffie hê?"\n🔗 sodat — so that: "Ek werk hard SODAT ek kan slaag."\n🔗 alhoewel — although: "Alhoewel dit reën, speel ek."\n🔗 toe — when (past): "Ek het gehuil TOE hy weggegaan het."',
-    keyPoints:['Wie/Wat/Waar/Wanneer/Hoekom/Hoe/Hoeveel/Watter = vraagwoorde','Voegwoorde verbind twee sinne of gedagtes','en (and), maar (but), want (because), of (or), sodat (so that)','Voegwoorde wys verwantskappe: teenstelling, rede, keuse'] },
-  // Graad 3 Lewensvaardighede
-  { grade:3, subject:'lifeskills', title:'Voedselgroepe en Gesonde Keuses', emoji:'🥗',
-    content:'SES VOEDSELGROEPE VIR \'N GEBALANSEERDE DIEET:\n\n🌾 1. KOOLHIDRATE (graan, brood, rys, mielies, aartappels)\n   → Gee energie; eet die meeste hiervan\n\n🥩 2. PROTEÏNE (vleis, vis, eiers, bone, neute, lensies)\n   → Bou spiere en herstel liggaamsselle\n\n🧈 3. VET EN OLIE (botter, avokado, olyfolie)\n   → Gee energie, beskerm organe; eet min\n\n🍊 4. VITAMIENE EN MINERALE (vrugte en groente)\n   → Verhoog weerstand teen siektes\n\n🥛 5. SUIWEL (melk, jogurt, kaas)\n   → Sterk bene en tande (kalsium)\n\n💧 6. WATER\n   → Minstens 6-8 glase per dag!\n\nGESONDE vs ONGESONDE KEUSES:\n✅ Vrugte, groente, volgraan, water\n❌ Chips, koeldranke, lekkers, vetterige kos\n\nOEFENING + SLAAP + KOS = \'n Gesonde liggaam!',
-    keyPoints:['6 voedselgroepe: koolhidrate, proteïne, vet, vitamiene/minerale, suiwel, water','Koolhidrate gee energie — eet die meeste','Proteïne bou spiere; suiwel versterk bene','Drink 6-8 glase water per dag'] },
-  { grade:3, subject:'lifeskills', title:'Demokrasie, Regte en Verantwoordelikhede', emoji:'🗳️',
-    content:'DEMOKRASIE:\nDemokrasie beteken die VOLK kies sy eie leiers deur vrye en regverdige VERKIESINGS.\n\n🗳️ Hoe dit werk:\n1. Die IEC (Onafhanklike Kieskommissie) reël verkiesings\n2. Burgers stem op \'n STEMBRIEF (ballot paper)\n3. Jou stem is GEHEIM — niemand sien wie jy kies nie\n4. Die party met die meeste stemme wen\n\n3 VLAKKE VAN REGERING:\n🏛️ Nasionaal → Parlement (heel Suid-Afrika)\n🏢 Provinsiaal → Wetgewing (9 provinsies)\n🏘️ Plaaslik → Munisipaliteit/Dorpsraad (jou dorp)\n\nREGTE én VERANTWOORDELIKHEDE hoor SAAM:\n📚 Reg op onderwys → Verantwoordelikheid: gaan skool\n🏥 Reg op gesondheid → Verantwoordelikheid: bly gesond\n🌳 Reg op \'n gesonde omgewing → Verantwoordelikheid: beskerm die natuur\n\nDIE 3 R\'s VAN HERWINNING:\nVerminder (Reduce) → Hergebruik (Reuse) → Herwin (Recycle)',
-    keyPoints:['Demokrasie: die volk kies leiers deur vrye verkiesings','IEC reël verkiesings; jou stem is geheim','SA het 3 vlakke: nasionaal, provinsiaal, plaaslik','Regte gaan saam met verantwoordelikhede'] },
-
-  // Graad 4 Wiskunde
+  // Wiskunde
   { grade:4, subject:'maths', title:'Breuke Verstaan', emoji:'🍕',
     content:'\'n Breuk wys \'n deel van \'n geheel. As jy \'n pizza in 4 gelyke snye sny en 1 eet, het jy 1/4 (een kwart) geëet. Die onderste getal (noemer) wys hoeveel gelyke dele. Die boonste getal (teller) wys hoeveel dele jy het.',
     keyPoints:['Die noemer (onder) = totale gelyke dele','Die teller (bo) = dele wat jy het','1/2 = helfte, 1/4 = kwart, 3/4 = drie kwarte'] },
+  // Engels
+  { grade:4, subject:'english', title:'Figuurlike Taal: Simile en Metafoor', emoji:'🎭',
+    content:'In English, we use figurative language to make writing more interesting.\n\nA SIMILE compares two things using "like" or "as":\n• "As brave as a lion."\n• "She swims like a fish."\n\nA METAPHOR says one thing IS another (no "like" or "as"):\n• "Life is a journey."\n• "He is a night owl."\n\nBoth similes and metaphors help the reader picture what you mean.',
+    keyPoints:['A simile uses "like" or "as" to compare two things','A metaphor says something IS something else','Figurative language makes writing vivid and interesting'] },
+  // Natuurwetenskappe
   { grade:4, subject:'science', title:'Voedselkettings', emoji:'🦁',
-    content:'\'n Voedselketting wys wat wat eet in die natuur. Dit begin altyd met \'n plant (produsent). Dan kom \'n plantvreter (herbivoor), dan \'n vleisvreter (karnivoor). Voorbeeld: Gras → Sprinkaan → Padda → Arend. Energie gaan langs die ketting oor.',
+    content:'\'n Voedselketting wys wat eet wat in die natuur. Dit begin altyd met \'n plant (produsent). Dan kom \'n plantvreter (herbivoor), dan \'n vleisvreter (karnivoor). Voorbeeld: Gras → Sprinkaan → Padda → Arend. Energie gaan langs die ketting oor.',
     keyPoints:['Voedselkettings begin met produsente (plante)','Herbivore eet plante; karnivore eet diere','Energie vloei van een organisme na die volgende'] },
-
-  // Graad 4 Afrikaans (CAPS-ooreenstemmend)
+  // Afrikaans (CAPS-ooreenstemmend)
   { grade:4, subject:'afrikaans', title:'Selfstandige Naamwoorde (Nouns)', emoji:'📝',
     content:'\'n Selfstandige naamwoord is die naam van \'n persoon, plek, dier of ding.\n\n👤 Persone: onderwyser, kind, meisie\n📍 Plekke: skool, dorp, Suid-Afrika\n🐘 Diere: olifant, kat, voël\n🪑 Dinge: tafel, boek, bal\n\nEienaamwoorde begin altyd met \'n hoofletter: Pieter, Kaapstad, Suid-Afrika.\nGewone naamwoorde begin met \'n kleinletter: seun, stad, land.',
     keyPoints:['\'n Selfstandige naamwoord noem \'n persoon, plek, dier of ding','Eienaamwoorde (name) begin met \'n hoofletter','Gewone selfstandige naamwoorde begin met \'n kleinletter','Meervoud: voeg -e, -s, of -ers by (bv. boek → boeke, seun → seuns)'] },
-
   { grade:4, subject:'afrikaans', title:'Werkwoorde (Verbs)', emoji:'🏃',
     content:'\'n Werkwoord is \'n aksiewoord — dit wys wat iemand of iets DOEN of IS.\n\n✅ Teenwoordige tyd (nou): Ek LOOP skool toe. Sy LEES \'n boek.\n⏪ Verlede tyd (toe): Ek HET gister gespeel. Hy HET die kos geëet.\n⏩ Toekomende tyd (later): Ons SAL môre oefen.\n\nDie hulpwerkwoord "het" help ons die verlede tyd vorm:\nEk het geloop. Jy het geëet. Hulle het gespeel.',
     keyPoints:['Werkwoorde wys aksie of toestand','Teenwoordige tyd: ek loop, hy eet','Verlede tyd gebruik "het" + ge-: ek het geloop','Toekomende tyd gebruik "sal": ek sal loop'] },
-
   { grade:4, subject:'afrikaans', title:'Byvoeglike Naamwoorde (Adjectives)', emoji:'🌈',
-    content:'\'n Byvoeglike naamwoord BESKRYF \'n selfstandige naamwoord. Dit vertel ons hoe iets lyk, voel, klink of ruik.\n\nVoorbeelde:\n• Die GROOT boom. (groot beskryf die boom)\n• \'n ROOI appel. (rooi beskryf die appel)\n• Die KLEIN hond. (klein beskryf die hond)\n\nWanneer \'n byvoeglike naamwoord voor \'n naamwoord staan, kry dit soms \'n -e uitgang:\n• groot → die groot seun / \'n groot-e seun\n• mooi → die mooi kind\n• lekker → lekker kos',
+    content:'\'n Byvoeglike naamwoord BESKRYF \'n selfstandige naamwoord. Dit vertel ons hoe iets lyk, voel, klink of ruik.\n\nVoorbeelde:\n• Die GROOT boom. (groot beskryf die boom)\n• \'n ROOI appel. (rooi beskryf die appel)\n• Die KLEIN hond. (klein beskryf die hond)\n\nSommige byvoeglike naamwoorde verander effens wanneer hulle vóór \'n naamwoord staan:\n• sag → die SAGTE kussing\n• goed → die GOEIE boek\n• mooi → die mooi kind (bly dieselfde)',
     keyPoints:['Byvoeglike naamwoorde beskryf selfstandige naamwoorde','Hulle vertel hoe iets lyk, voel of ruik','Voorbeelde: groot, klein, rooi, mooi, lekker, vinnig','Byvoeglike naamwoorde antwoord die vraag: "Watter soort?"'] },
-
   { grade:4, subject:'afrikaans', title:'Sinsbou en Leestekens', emoji:'✏️',
-    content:'\'n SIN is \'n groep woorde wat \'n volledige gedagte uitdruk.\n\nElke sin het:\n1. \'n ONDERWERP (wie of wat doen iets?): Die seun...\n2. \'n GESEGDE (wat doen hy/sy?): ...hardloop.\n\nLeestekens:\n• . Punt — gebruik aan die einde van \'n sin\n• ? Vraagteken — gebruik aan die einde van \'n vraag\n• ! Uitroepteken — gebruik as iets opwindend of dringend is\n• , Komma — gebruik om items te skei\n\nRëels:\n✅ Elke sin begin met \'n HOOFLETTER.\n✅ Elke sin eindig met \'n leesteken.',
+    content:'\'n SIN is \'n groep woorde wat \'n volledige gedagte uitdruk.\n\nElke sin het:\n1. \'n ONDERWERP (wie of wat doen iets?): Die seun...\n2. \'n GESEGDE (wat doen hy/sy?): ...hardloop.\n\nLeestekens:\n• . Punt — gebruik aan die einde van \'n sin\n• ? Vraagteken — gebruik aan die einde van \'n vraag\n• ! Uitroepteken — gebruik as iets opwindend of dringend is\n• , Komma — gebruik om items te skei\n\nReëls:\n✅ Elke sin begin met \'n HOOFLETTER.\n✅ Elke sin eindig met \'n leesteken.',
     keyPoints:['Elke sin het \'n onderwerp en \'n gesegde','Sinne begin met \'n hoofletter','\'n Punt (.) eindig \'n stelling','\'n Vraagteken (?) eindig \'n vraag','\'n Uitroepteken (!) wys sterk gevoel'] },
-
   { grade:4, subject:'afrikaans', title:'Meervoud en Verkleinwoorde', emoji:'🔡',
     content:'MEERVOUD — meer as een:\n• -e: boek → boeke, seun → seuns, tafel → tafels\n• -ers: kind → kinders, broer → broers\n• Onreëlmatig: mens → mense, vrou → vroue\n\nVERKLEINWOORDE — kleiner of liefliker weergawe:\nVoeg -tjie, -jie, of -ie by:\n• kat → katjie 🐱\n• boom → boompie 🌱\n• hond → hondjie 🐶\n• huis → huisie 🏠\n• bal → balletjie ⚽\n\nVerkleinwoorde kan ook liefde of kleinheid aandui:\n"Kom hier, my kindjie!"',
     keyPoints:['Meervoud wys meer as een (bv. boek → boeke)','Voeg -e, -s, -ers by vir meervoud','Verkleinwoorde voeg -tjie of -jie by (bv. kat → katjie)','Verkleinwoorde wys dat iets klein of oulik is'] },
-
-  // Graad 7 Wiskunde
-  { grade:7, subject:'maths', title:'Inleiding tot Algebra', emoji:'🔣',
-    content:'Algebra gebruik letters (soos x en y) om onbekende getalle voor te stel. Voorbeeld: As x + 5 = 12, wat is x? Ons los op deur die teenoorgestelde bewerking te doen: x = 12 - 5 = 7. Doen altyd dieselfde ding aan ALBEI kante van die vergelyking.',
-    keyPoints:['Letters (veranderlikes) stel onbekende getalle voor','Los vergelykings op deur teenoorgestelde bewerkings te doen','Balanseer altyd albei kante van die vergelyking'] },
-  { grade:7, subject:'science', title:'Struktuur van die Atoom', emoji:'⚛️',
-    content:'\'n Atoom het drie soorte deeltjies: PROTONE (positiewe lading, in die kern), NEUTRONE (geen lading, in die kern) en ELEKTRONE (negatiewe lading, baan om die kern). Die atoomgetal = aantal protone. Verskillende elemente het verskillende aantal protone.',
-    keyPoints:['Atome het protone, neutrone en elektrone','Protone en neutrone is in die kern','Elektrone baan om die kern en het negatiewe lading'] },
+  // Lewensvaardighede
+  { grade:4, subject:'lifeskills', title:'Gesondheid, Regte en Verantwoordelikheid', emoji:'🩺',
+    content:'MIV (Menslike Immuniteitsgebreksvirus) is \'n virus wat die liggaam se immuunstelsel verswak. Dit word nie deur gewone kontak soos handskud of die deel van kos oorgedra nie — wees ingelig en vriendelik teenoor almal.\n\nOns liggame het ook VITAMIEN D nodig, wat ons vel maak wanneer dit aan sonlig blootgestel word — dit hou ons bene sterk.\n\nSuid-Afrika is \'n DEMOKRASIE: die volk kies sy leiers deur stemming, en almal se regte word beskerm deur die GRONDWET van die Republiek van Suid-Afrika.\n\nWees bewus van STEREOTIPERING — moenie onregverdige aannames oor \'n hele groep mense maak nie. Behandel almal met respek.',
+    keyPoints:['MIV verswak die immuunstelsel — wees ingelig, nie bang nie','Vitamien D van sonlig hou ons bene sterk','Suid-Afrika se Grondwet beskerm elkeen se regte','Vermy stereotipering — behandel almal regverdig'] },
 ]
 
 // ─── FLITSKAARTE ───────────────────────────────────────────────────────────────
 export const FLASHCARDS = [
-  // Graad 1 — CAPS-ooreenstemmend
   // Wiskunde
-  { grade:1, subject:'maths', front:'3 + 7 = ?', back:'10 🎯 (getalbond na 10)', emoji:'🔢' },
-  { grade:1, subject:'maths', front:'8 + 6 = ? (gebruik "maak 10")', back:'8 + 2 = 10, dan 10 + 4 = 14 ✅', emoji:'🔢' },
-  { grade:1, subject:'maths', front:'Tel in 5e: 5, 10, 15, ___', back:'20 ⏩', emoji:'⏩' },
-  { grade:1, subject:'maths', front:'Watter vorm het geen hoeke nie?', back:'\'n Sirkel 🔴', emoji:'🔴' },
-  { grade:1, subject:'maths', front:'Hoeveel kante het \'n driehoek?', back:'3 kante 🔷', emoji:'🔷' },
-  { grade:1, subject:'maths', front:'17 − 8 = ?', back:'9 (17 − 7 = 10, dan 10 − 1 = 9)', emoji:'🔢' },
-  { grade:1, subject:'maths', front:'Wat is \'n bol (sfeer)?', back:'\'n Soliede 3D-vorm soos \'n bal — kan rol ⚽', emoji:'⚽' },
-  { grade:1, subject:'maths', front:'Hoeveel dae is in \'n week?', back:'7 dae: Ma, Di, Wo, Do, Vr, Sa, So 📅', emoji:'📅' },
-  // Engels
-  { grade:1, subject:'english', front:'What sound does "sh" make?', back:'"shh" — like in ship, shop, fish 🐟', emoji:'🔤' },
-  { grade:1, subject:'english', front:'Blend it: /d/ /o/ /g/', back:'DOG 🐶', emoji:'🐶' },
-  { grade:1, subject:'english', front:'Name the 5 vowels', back:'A  E  I  O  U 🅰️', emoji:'🔤' },
-  { grade:1, subject:'english', front:'What is a noun?', back:'A person, place, or thing (e.g. dog, school, apple) 📚', emoji:'📚' },
-  { grade:1, subject:'english', front:'Sight word: spell "the"', back:'T - H - E 👁️', emoji:'👁️' },
-  { grade:1, subject:'english', front:'True or false: sentences start with a capital letter', back:'TRUE ✅ — Always!', emoji:'🆙' },
-  { grade:1, subject:'english', front:'What punctuation ends a question?', back:'A question mark  ?  ❓', emoji:'❓' },
-  { grade:1, subject:'english', front:'How many syllables in "butterfly"?', back:'3: but-ter-fly 🦋', emoji:'🦋' },
-  // Lewende Wêreld
-  { grade:1, subject:'science', front:'Noem die 5 sintuie', back:'Sien 👁️ Hoor 👂 Ruik 👃 Proe 👅 Voel ✋', emoji:'👁️' },
-  { grade:1, subject:'science', front:'Is \'n klip lewendig?', back:'NEE ❌ — dit groei nie, eet nie en asemhaal nie', emoji:'🪨' },
-  { grade:1, subject:'science', front:'Wat doen wortels?', back:'Suig water en voedsel uit die grond op 🌱', emoji:'🌱' },
-  { grade:1, subject:'science', front:'Hoeveel bene het \'n insek?', back:'6 bene 🐛', emoji:'🐛' },
-  { grade:1, subject:'science', front:'Noem \'n herbivoor (plantvreter)', back:'Koei 🐄, skaap 🐑, perd 🐴, olifant 🐘', emoji:'🐘' },
-  { grade:1, subject:'science', front:'Waarvan word dag en nag veroorsaak?', back:'Die Aarde draai op sy eie as 🌍', emoji:'🌍' },
-  { grade:1, subject:'science', front:'Noem 3 dinge plante nodig het', back:'Sonlig ☀️, water 💧, grond 🌱', emoji:'🌿' },
-  { grade:1, subject:'science', front:'Watter materiaal is sag?', back:'Wol, spons, wattes — jy kan dit indruk 🧶', emoji:'🧶' },
-  // Afrikaans
-  { grade:1, subject:'afrikaans', front:'Ma / Pa', back:'Mother / Father 👩👨', emoji:'👨‍👩‍👧' },
-  { grade:1, subject:'afrikaans', front:'Ouma / Oupa', back:'Grandmother / Grandfather 👵👴', emoji:'👵' },
-  { grade:1, subject:'afrikaans', front:'Goeie môre!', back:'Good morning! ☀️', emoji:'☀️' },
-  { grade:1, subject:'afrikaans', front:'Asseblief / Dankie', back:'Please / Thank you 🙏', emoji:'🙏' },
-  { grade:1, subject:'afrikaans', front:'Geel / Blou / Rooi', back:'Yellow 🟡 / Blue 🔵 / Red 🔴', emoji:'🌈' },
-  { grade:1, subject:'afrikaans', front:'Woensdag', back:'Wednesday — die middelste weekdag 📅', emoji:'📅' },
-  { grade:1, subject:'afrikaans', front:'Koud / Warm', back:'Cold 🧊 / Hot 🔥', emoji:'🌡️' },
-  { grade:1, subject:'afrikaans', front:'Vyf in Afrikaans', back:'Vyf (5) ✋', emoji:'✋' },
-  // Lewensvaardighede
-  { grade:1, subject:'lifeskills', front:'Noem \'n blye gevoel', back:'Bly / Gelukkig / Opgewonde 😊', emoji:'😊' },
-  { grade:1, subject:'lifeskills', front:'Hoe lank was jy jou hande?', back:'20 sekondes met seep 🧼', emoji:'🧼' },
-  { grade:1, subject:'lifeskills', front:'Wat beteken \'n rooi verkeerslig?', back:'STOP 🛑', emoji:'🛑' },
-  { grade:1, subject:'lifeskills', front:'Wie is \'n vertroude volwassene?', back:'Ouer, onderwyser, familielid wat jou ken 💛', emoji:'👨‍👩‍👧' },
-  { grade:1, subject:'lifeskills', front:'Noem \'n gemeenskapshulpverlener', back:'Dokter 🏥, polisieman 👮, brandweerman 🚒', emoji:'🌟' },
-  { grade:1, subject:'lifeskills', front:'Noem 2 gesonde kosse', back:'Vrugte 🍎 en groente 🥦', emoji:'🥗' },
-  { grade:1, subject:'lifeskills', front:'Wat doen jy as jy kwaad is?', back:'Asem diep in, tel tot 10, praat met iemand 😮‍💨', emoji:'😮‍💨' },
-  { grade:1, subject:'lifeskills', front:'Wanneer sê jy "asseblief"?', back:'Wanneer jy iets vra — dit wys goeie maniere! 😊', emoji:'🌟' },
-
-  // Graad 2 — CAPS-ooreenstemmend
-  // Wiskunde
-  { grade:2, subject:'maths', front:'63 = ___ tientalle + ___ ene', back:'6 tientalle + 3 ene (60 + 3) 🔢', emoji:'🔢' },
-  { grade:2, subject:'maths', front:'Tel in 3e: 3, 6, 9, 12, ___', back:'15 ⏩ (voeg elke keer 3 by)', emoji:'⏩' },
-  { grade:2, subject:'maths', front:'5 groepe van 4 = ?', back:'5 × 4 = 20 (4+4+4+4+4) ✅', emoji:'✖️' },
-  { grade:2, subject:'maths', front:'½ van 14 = ?', back:'7 (deel in 2 gelyke dele) 🍕', emoji:'🍕' },
-  { grade:2, subject:'maths', front:'Wat is halfsewe op \'n horlosie?', back:'6:30 🕕 (lang wyser op 6)', emoji:'🕕' },
-  { grade:2, subject:'maths', front:'Jy betaal R10 vir \'n item van R7. Kleingeld?', back:'R3 💰 (R10 − R7 = R3)', emoji:'💰' },
-  { grade:2, subject:'maths', front:'Wat beteken simetrie?', back:'\'n Vorm se twee helftes is presies dieselfde 🪞', emoji:'🪞' },
-  { grade:2, subject:'maths', front:'Wat wys \'n piktogram?', back:'Data deur prente voor te stel (elke prent = 1 item) 📊', emoji:'📊' },
-  // Engels
-  { grade:2, subject:'english', front:'What blend starts "tree"?', back:'"tr" blend 🌳 (t + r = tr)', emoji:'🌳' },
-  { grade:2, subject:'english', front:'What sound does "sh" make?', back:'"shh" — ship, fish, wash 🐟', emoji:'🐟' },
-  { grade:2, subject:'english', front:'Plural of "baby"?', back:'babies (y → ies) 👶', emoji:'👶' },
-  { grade:2, subject:'english', front:'Irregular plural of "foot"?', back:'feet 🦶 (not foots!)', emoji:'🦶' },
-  { grade:2, subject:'english', front:'Which word is the adjective: "The tiny red bird sang."?', back:'"tiny" and "red" — they describe the bird 🐦', emoji:'🐦' },
-  { grade:2, subject:'english', front:'Past tense of "walk"?', back:'walked (-ed ending) 🚶', emoji:'🚶' },
-  { grade:2, subject:'english', front:'What vowel sound does "cake" have?', back:'Long "a" sound (a-e pattern: c-a-k-e) 🎂', emoji:'🎂' },
-  { grade:2, subject:'english', front:'A ___ of sheep (collective noun)', back:'A flock of sheep 🐑', emoji:'🐑' },
-  // Lewende Wêreld
-  { grade:2, subject:'science', front:'Noem \'n deursigtige (transparent) materiaal', back:'Glas 🪟 — lig gaan deur, jy kan deurkyk', emoji:'🪟' },
-  { grade:2, subject:'science', front:'In watter seisoen val blare in SA?', back:'Herfs 🍂 (Maart–Mei)', emoji:'🍂' },
-  { grade:2, subject:'science', front:'Volgorde: plantlewenssiklus', back:'Saad → Saailing → Plant → Blom → Vrug/Saad 🌱', emoji:'🌱' },
-  { grade:2, subject:'science', front:'Reptiele is ___bloedig', back:'Koudbloedig 🦎 — hul temp verander met die omgewing', emoji:'🦎' },
-  { grade:2, subject:'science', front:'Hoe word klanke gemaak?', back:'Vibrasie (dinge tril vinnig) 🔊', emoji:'🔊' },
-  { grade:2, subject:'science', front:'\'n Omnivoor eet...?', back:'Beide plante EN vleis 🍖🥦 (bv. mense, bere)', emoji:'🍖' },
-  { grade:2, subject:'science', front:'Wat is \'n habitat?', back:'Die natuurlike tuiste van \'n dier 🏡', emoji:'🏡' },
-  { grade:2, subject:'science', front:'Wat maak \'n skaduwee?', back:'Wanneer \'n ondeurskynende voorwerp lig blokkeer 🌑', emoji:'🌑' },
-  // Afrikaans
-  { grade:2, subject:'afrikaans', front:'die / \'n — wat is die verskil?', back:'"die" = the (bepaald); "\'n" = a/an (onbepaald) 📖', emoji:'📖' },
-  { grade:2, subject:'afrikaans', front:'Meervoud van "boom"', back:'bome 🌳 (boom + e)', emoji:'🌳' },
-  { grade:2, subject:'afrikaans', front:'Halfnege op \'n horlosie = ?', back:'8:30 ⚠️ (half VOOR nege — nie 9:30!)', emoji:'🕗' },
-  { grade:2, subject:'afrikaans', front:'Negatief: "Die hond slaap ___."', back:'"Die hond slaap NIE." 🚫', emoji:'🚫' },
-  { grade:2, subject:'afrikaans', front:'Vrugte: appel, piesang, ___', back:'lemoen 🍊 (orange), druiwe 🍇 (grapes), peer 🍐 (pear)', emoji:'🍊' },
-  { grade:2, subject:'afrikaans', front:'Seisoene in volgorde', back:'Somer → Herfs → Winter → Lente 🌞🍂❄️🌸', emoji:'🌸' },
-  { grade:2, subject:'afrikaans', front:'Voornaamwoord vir "Maria en Jan"', back:'"Hulle" (they) 👫', emoji:'👫' },
-  { grade:2, subject:'afrikaans', front:'Vervoer: vliegtuig, trein, ___', back:'Motor 🚗, bus 🚌, fiets 🚲, boot 🚢', emoji:'✈️' },
-  // Lewensvaardighede
-  { grade:2, subject:'lifeskills', front:'Noodgetal op selfoon in SA?', back:'112 📞 (ook: 10111 polisie, 10177 ambulans)', emoji:'📞' },
-  { grade:2, subject:'lifeskills', front:'Hoeveel amptelike tale het SA?', back:'11 tale 🌈 (Zulu, Xhosa, Afrikaans, Engels, en meer)', emoji:'🌈' },
-  { grade:2, subject:'lifeskills', front:'Erfenisdag in SA?', back:'24 September 🎊', emoji:'🎊' },
-  { grade:2, subject:'lifeskills', front:'Vryheiddag in SA?', back:'27 April 1994 🗳️ (eerste demokratiese verkiesing)', emoji:'🗳️' },
-  { grade:2, subject:'lifeskills', front:'Waterveiligheid — reël nommer 1?', back:'NOOIT alleen swem nie — altyd \'n volwassene naby 🌊', emoji:'🌊' },
-  { grade:2, subject:'lifeskills', front:'Ubuntu beteken?', back:'"Ek is omdat ons is" — gemeenskap en medelye 🤝', emoji:'🤝' },
-  { grade:2, subject:'lifeskills', front:'Noem 3 kindergregte', back:'Onderwys 📚, Gesondheidsorg 🏥, Kos en Water 🍎', emoji:'⚖️' },
-  { grade:2, subject:'lifeskills', front:'Papier gaan in watter herwinningshouer?', back:'Blou houer ♻️', emoji:'♻️' },
-
-  // Graad 3 — CAPS-ooreenstemmend
-  // Wiskunde
-  { grade:3, subject:'maths', front:'374 = ___ honderdtalle + ___ tientalle + ___ ene', back:'3 honderdtalle + 7 tientalle + 4 ene (300 + 70 + 4) 🔢', emoji:'🔢' },
-  { grade:3, subject:'maths', front:'3 × 9 = ?', back:'27 ✅ (Drie-tafel: 3,6,9,12,15,18,21,24,27)', emoji:'✖️' },
-  { grade:3, subject:'maths', front:'27 ÷ 3 = ?', back:'9 (want 3 × 9 = 27) 🔄', emoji:'➗' },
-  { grade:3, subject:'maths', front:'1/4 van 20 = ?', back:'5 (20 ÷ 4 = 5 — deel in 4 gelyke dele) 🍕', emoji:'🍕' },
-  { grade:3, subject:'maths', front:'R25,75 + R14,25 = ?', back:'R40,00 💰 (25+14=39; 75+25=100 sent=R1; R39+R1=R40)', emoji:'💰' },
-  { grade:3, subject:'maths', front:'Hoeveel kante het \'n pentagon?', back:'5 kante ⬠ ("penta" = vyf)', emoji:'⬠' },
-  { grade:3, subject:'maths', front:'Lang wyser op 7, kort wyser op 4 — watter tyd?', back:'4:35 🕓 (7 × 5 = 35 minute; uur = 4)', emoji:'🕓' },
-  { grade:3, subject:'maths', front:'Wat is die omtrek van \'n reghoek 8 cm × 3 cm?', back:'22 cm 📐 (8+3+8+3 = 22; of 2×(8+3)=22)', emoji:'📐' },
-  // Engels
-  { grade:3, subject:'english', front:'Which letter is silent in "know"?', back:'k is silent 🔇 (kn- words: the k is always silent)', emoji:'🔤' },
-  { grade:3, subject:'english', front:'Prefix "un-": unhappy means?', back:'NOT happy 😔 (un- = not)', emoji:'❌' },
-  { grade:3, subject:'english', front:'Suffix "-ful": careful means?', back:'Full of care 💛 ("-ful" = full of)', emoji:'💛' },
-  { grade:3, subject:'english', front:'Comparative of "hot"?', back:'hotter 🌡️ (short adj: add -er, double final consonant)', emoji:'🌡️' },
-  { grade:3, subject:'english', front:'Past tense of "see"?', back:'saw 👁️ (irregular past tense)', emoji:'👁️' },
-  { grade:3, subject:'english', front:'Tom\'s book — what does the apostrophe show?', back:'Possession (the book belongs to Tom) 📖', emoji:'📖' },
-  { grade:3, subject:'english', front:'Add speech marks: She said I am ready.', back:'She said "I am ready." 💬 (marks around spoken words)', emoji:'💬' },
-  { grade:3, subject:'english', front:'What part of speech is "quickly"?', back:'An adverb — it describes HOW something is done 💨', emoji:'💨' },
-  // Lewende Wêreld
-  { grade:3, subject:'science', front:'Noem die 3 toestande van materie', back:'Vastestof 🧊 • Vloeistof 💧 • Gas 💨', emoji:'🔬' },
-  { grade:3, subject:'science', front:'Wat gebeur as vloeistof verhit word tot 100°C?', back:'Dit verdamp / kook — word gas (stoom) ♨️', emoji:'♨️' },
-  { grade:3, subject:'science', front:'Noem 2 eenvoudige masjiene', back:'Hefboom ⚖️, Katrol 🏗️, Wiel-en-as 🚲, Hellende vlak 📐, Wig 🔪, Skroewe 🔩', emoji:'⚙️' },
-  { grade:3, subject:'science', front:'Hoeveel planete in ons sonnestelsel?', back:'8 planete 🪐 (Merkurius, Venus, Aarde, Mars, Jupiter, Saturnus, Uranus, Neptunus)', emoji:'🪐' },
-  { grade:3, subject:'science', front:'Skoenlapper-lewenssiklus — noem die 4 stadiums', back:'Eier → Ruspe → Pop → Vlinder 🦋', emoji:'🦋' },
-  { grade:3, subject:'science', front:'Wat is die primêre verbruiker in: Gras→Sprinkaan→Padda?', back:'Sprinkaan 🦗 (eet die gras/produsent direk)', emoji:'🦗' },
-  { grade:3, subject:'science', front:'Gewerwelde dier — het dit \'n ruggraat?', back:'JA ✅ — vis, amfibie, reptiel, voël en soogdier is almal gewerweld', emoji:'🐠' },
-  { grade:3, subject:'science', front:'Wat produseer plante tydens fotosintese?', back:'Glukose (kos) 🌿 + Suurstof (O₂) 💚 — hulle gebruik CO₂ + water + sonlig', emoji:'🌿' },
-  // Afrikaans
-  { grade:3, subject:'afrikaans', front:'Trappe: groot → groter → ?', back:'die grootste 🏆 (gebruik "die" voor die oortreffende trap)', emoji:'🏆' },
-  { grade:3, subject:'afrikaans', front:'Trappe: goed → beter → ?', back:'die beste ⭐ (onreëlmatig — nie "die goeiste"!)', emoji:'⭐' },
-  { grade:3, subject:'afrikaans', front:'Verkleinwoord van "perd"?', back:'perdjie 🐴 (-nd/-rd/-ld + -jie)', emoji:'🐴' },
-  { grade:3, subject:'afrikaans', front:'Vraagwoord vir \'n persoon?', back:'WIE 👤 (Wie is jou juffrou?)', emoji:'👤' },
-  { grade:3, subject:'afrikaans', front:'Voegwoord: "Ek wil ys hê, ___ dit is winter."', back:'"maar" 🔗 (maar = but — wys teenstelling)', emoji:'🔗' },
-  { grade:3, subject:'afrikaans', front:'"Dit reën katte en honde" beteken?', back:'Dit reën BAIE hard / stortreën 🌧️ (idioom = figuurlike betekenis)', emoji:'🌧️' },
-  { grade:3, subject:'afrikaans', front:'Woordfamilie van "werk" — noem die persoon', back:'werker 👷 (iemand wat werk = \'n werker)', emoji:'👷' },
-  { grade:3, subject:'afrikaans', front:'Negatief van "Die seun hardloop."', back:'"Die seun hardloop NIE." 🚫', emoji:'🚫' },
-  // Lewensvaardighede
-  { grade:3, subject:'lifeskills', front:'Noem die 3 R\'s', back:'Verminder (Reduce) ↓ • Hergebruik (Reuse) 🔁 • Herwin (Recycle) ♻️', emoji:'♻️' },
-  { grade:3, subject:'lifeskills', front:'Watter voedselgroep gee die meeste energie?', back:'Koolhidrate 🌾 (brood, rys, mielies, aartappels)', emoji:'🌾' },
-  { grade:3, subject:'lifeskills', front:'Wat doen jy tydens \'n vloed?', back:'Gaan onmiddellik na HOË GROND 🏔️ — moenie deur water stap nie', emoji:'🌊' },
-  { grade:3, subject:'lifeskills', front:'Hoeveel vlakke van regering het SA?', back:'3 vlakke: Nasionaal 🏛️ • Provinsiaal 🏢 • Plaaslik 🏘️', emoji:'🏛️' },
-  { grade:3, subject:'lifeskills', front:'Reg op onderwys → my verantwoordelikheid?', back:'Gaan gereeld skool en doen jou bes 📚✅', emoji:'📚' },
-  { grade:3, subject:'lifeskills', front:'Hoe sê jy nee vir portuurdruk?', back:'Sê "NEE" duidelik en stap weg 🚶 — jy hoef nie te verduidelik nie', emoji:'💪' },
-  { grade:3, subject:'lifeskills', front:'Watter dag is Jeugdag?', back:'16 Junie 🎓 (gedenk 1976 Soweto-opstand)', emoji:'🎓' },
-  { grade:3, subject:'lifeskills', front:'Noem \'n voorbeeld van Ubuntu', back:'Deel jou kos met \'n maat wat niks het nie 🤝 ("Ek is omdat ons is")', emoji:'🤝' },
-
-  // Graad 4
   { grade:4, subject:'maths', front:'Wat is 7 × 8?', back:'56', emoji:'🔢' },
   { grade:4, subject:'maths', front:'Wat is 1/2 + 1/4?', back:'3/4', emoji:'🍕' },
   { grade:4, subject:'maths', front:'Oppervlakteformule vir \'n reghoek?', back:'O = lengte × breedte', emoji:'📐' },
   { grade:4, subject:'maths', front:'Wat is 144 ÷ 12?', back:'12', emoji:'🔢' },
   { grade:4, subject:'maths', front:'Wat is \'n faktor van 12?', back:'1, 2, 3, 4, 6 of 12', emoji:'🔢' },
+  // Engels
+  { grade:4, subject:'english', front:'What is a simile?', back:'A comparison using "like" or "as" 🦁 (e.g. "as brave as a lion")', emoji:'🦁' },
+  { grade:4, subject:'english', front:'What is a metaphor?', back:'Saying something IS something else 🌊 (e.g. "Life is a journey")', emoji:'🌊' },
+  { grade:4, subject:'english', front:'Plural of "wolf"?', back:'wolves 🐺 (f → v + es)', emoji:'🐺' },
+  { grade:4, subject:'english', front:'What does the prefix "un-" do?', back:'It is added to the START of a word to change its meaning (e.g. unhappy) 🔤', emoji:'🔤' },
+  { grade:4, subject:'english', front:'Which word type is "dance"?', back:'A verb — it shows an action 🏃', emoji:'🏃' },
+  // Natuurwetenskappe
   { grade:4, subject:'science', front:'Wat is fotosintese?', back:'Plante maak kos met sonlig, CO₂ en water', emoji:'🌿' },
   { grade:4, subject:'science', front:'Wat is \'n produsent in \'n voedselketting?', back:'\'n Plant (maak sy eie kos)', emoji:'🌱' },
   { grade:4, subject:'science', front:'Wat is die chemiese simbool vir water?', back:'H₂O', emoji:'💧' },
   { grade:4, subject:'science', front:'Hoeveel planete is in ons sonnestelsel?', back:'8 planete', emoji:'🪐' },
   { grade:4, subject:'science', front:'Watter krag hou ons op die grond?', back:'Swaartekrag', emoji:'🌍' },
-
-  // Graad 4 Afrikaans (CAPS-ooreenstemmend)
+  // Afrikaans
   { grade:4, subject:'afrikaans', front:'Wat is \'n selfstandige naamwoord?', back:'Die naam van \'n persoon, plek, dier of ding 📝', emoji:'📝' },
   { grade:4, subject:'afrikaans', front:'Gee \'n voorbeeld van \'n eienaam', back:'Pieter, Kaapstad, Suid-Afrika (begin met hoofletter) 🔠', emoji:'🔠' },
   { grade:4, subject:'afrikaans', front:'Wat is \'n werkwoord?', back:'\'n Aksiewoord — dit wys wat iemand DOEN (bv. loop, eet, speel) 🏃', emoji:'🏃' },
@@ -679,18 +122,13 @@ export const FLASHCARDS = [
   { grade:4, subject:'afrikaans', front:'Watter leesteken gebruik jy aan die einde van \'n vraag?', back:'\'n Vraagteken (?) ❓', emoji:'❓' },
   { grade:4, subject:'afrikaans', front:'Waarmee begin elke sin?', back:'\'n Hoofletter 🔠', emoji:'🔠' },
   { grade:4, subject:'afrikaans', front:'Verlede tyd van "speel"', back:'het gespeel ⏪', emoji:'⏪' },
-  { grade:4, subject:'afrikaans', front:'Toekomende tyd — watter hulpwoord gebruik jy?', back:'"sal" — bv. Ek sal môre oefen. ⏩', emoji:'⏩' },
+  { grade:4, subject:'afrikaans', front:'Toekomende tyd — watter hulpwerkwoord gebruik jy?', back:'"sal" — bv. Ek sal môre oefen. ⏩', emoji:'⏩' },
   { grade:4, subject:'afrikaans', front:'Wat beskryf \'n bywoord?', back:'Dit beskryf \'n werkwoord — HOE iets gedoen word (bv. vinnig, stadig, stil) 💨', emoji:'💨' },
-
-  // Graad 7
-  { grade:7, subject:'maths', front:'Wat is die stelling van Pythagoras?', back:'a² + b² = c²', emoji:'📐' },
-  { grade:7, subject:'maths', front:'Los op: 3x = 24', back:'x = 8', emoji:'🔣' },
-  { grade:7, subject:'maths', front:'Wat is die hellingformule?', back:'m = (y₂-y₁)/(x₂-x₁)', emoji:'📈' },
-  { grade:7, subject:'maths', front:'Wat is \'n rasionele getal?', back:'Enige getal wat as \'n breuk geskryf kan word (p/q)', emoji:'🔢' },
-  { grade:7, subject:'maths', front:'Wat is die mediaan?', back:'Die middelste waarde wanneer data gerangskik is', emoji:'📊' },
-  { grade:7, subject:'science', front:'Waarvoor staan DNS?', back:'Deoksiribonukleïensuur', emoji:'🧬' },
-  { grade:7, subject:'science', front:'Wat is \'n selmembraan?', back:'Die dun laag wat \'n sel omring en beheer wat inkom en uitkom', emoji:'🔬' },
-  { grade:7, subject:'science', front:'Wat is Newton se 2de Wet?', back:'F = ma (Krag = massa × versnelling)', emoji:'⚡' },
-  { grade:7, subject:'science', front:'Wat is die atoomgetal?', back:'Die aantal protone in die kern van \'n atoom', emoji:'⚛️' },
-  { grade:7, subject:'science', front:'Wat is die kweekhuiseffek?', back:'Kweekhuisgasse vang hitte vas in die Aarde se atmosfeer', emoji:'🌡️' },
+  // Lewensvaardighede
+  { grade:4, subject:'lifeskills', front:'Waarvoor staan MIV?', back:'Menslike Immuniteitsgebreksvirus 🩺', emoji:'🩺' },
+  { grade:4, subject:'lifeskills', front:'Wat is portuurgroepdruk?', back:'Wanneer vriende jou beïnvloed om iets te doen 🤝', emoji:'🤝' },
+  { grade:4, subject:'lifeskills', front:'Wat beteken "demokrasie"?', back:'Regering deur die volk — hulle kies hul leiers 🗳️', emoji:'🗳️' },
+  { grade:4, subject:'lifeskills', front:'Watter vitamien kry ons van sonlig?', back:'Vitamien D ☀️ — belangrik vir sterk bene', emoji:'☀️' },
+  { grade:4, subject:'lifeskills', front:'Wat is stereotipering?', back:'Onregverdige, vaste aannames oor \'n hele groep mense maak 🚫', emoji:'🚫' },
+  { grade:4, subject:'lifeskills', front:'Wat is die naam van SA se grondwet?', back:'Die Grondwet van die Republiek van Suid-Afrika 📜', emoji:'📜' },
 ]

@@ -2,7 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { useState } from 'react'
 import { db } from '../db/db'
-import { SUBJECTS, GRADE_COLORS } from '../data/seedData'
+import { SUBJECTS, GRADE_COLOR } from '../data/seedData'
 import NavBar from '../components/NavBar'
 import { useProgress } from '../hooks/useProgress'
 
@@ -14,16 +14,16 @@ const KP_COLORS = [
 ]
 
 export default function LessonScreen() {
-  const { grade, subject } = useParams()
+  const { subject } = useParams()
   const navigate = useNavigate()
   const [idx, setIdx] = useState(0)
   const subjectInfo = SUBJECTS.find(s => s.id === subject)
-  const gc = GRADE_COLORS[Number(grade)] || GRADE_COLORS[1]
-  const { save } = useProgress(Number(grade), subject)
+  const gc = GRADE_COLOR
+  const { save } = useProgress(4, subject)
 
   const lessons = useLiveQuery(
-    () => db.lessons.where({ grade: Number(grade), subject }).toArray(),
-    [grade, subject], []
+    () => db.lessons.where({ grade: 4, subject }).toArray(),
+    [subject], []
   )
 
   const goTo = (i) => {

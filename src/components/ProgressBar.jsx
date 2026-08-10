@@ -3,7 +3,7 @@ export default function ProgressBar({ current, total, color = 'bg-indigo-500' })
   return (
     <div className="w-full">
       <div className="flex justify-between text-sm font-semibold text-gray-600 mb-1">
-        <span>{current} of {total}</span>
+        <span>{current} van {total}</span>
         <span>{pct}%</span>
       </div>
       <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
