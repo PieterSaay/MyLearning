@@ -4,6 +4,12 @@
   * {
     -webkit-tap-highlight-color: transparent;
   }
+  html {
+    /* Bump the root font size so every Tailwind text/spacing utility
+       (all rem-based) scales up together — easier reading for young kids
+       without breaking any component's proportions. */
+    font-size: 120%;
+  }
   body {
     font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: #f0f4ff;
