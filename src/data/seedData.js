@@ -82,9 +82,9 @@ export const LESSONS = [
   { grade:4, subject:'maths', title:"Romeinse Syfers I tot XII", emoji:"🏛️",
     content:"Romeinse syfers word soms op horlosies gebruik. I=1, V=5, X=10. Ons bou getalle op: II=2, III=3, IV=4 (een minder as 5), VI=6 (een meer as 5), IX=9 (een minder as 10), XII=12. As 'n kleiner syfer VOOR 'n groter een staan, trek ons af; as dit NA staan, tel ons op.",
     keyPoints:["I=1, V=5, X=10","Kleiner syfer voor groter = aftrek (IV=4)","Kleiner syfer na groter = optel (VI=6)"] },
-  { grade:4, subject:'maths', title:"Negatiewe Getalle: 'n Inleiding", emoji:"❄️",
-    content:"Nie alle getalle is positief nie! Op 'n termometer kan die temperatuur onder 0 wees, bv. -5°C (5 grade onder nul). Op 'n getallelyn is negatiewe getalle LINKS van 0. Hoe verder links, hoe kleiner die getal: -10 is kleiner as -2.",
-    keyPoints:["Negatiewe getalle is kleiner as 0","Hulle word met 'n minus-teken geskryf, bv. -5","Op 'n getallelyn: hoe verder links, hoe kleiner"] },
+  { grade:4, subject:'maths', title:"Negatiewe Getalle: 'n Inleiding", emoji:"❄️", bonus:true,
+    content:"BONUS: hierdie les is 'n bietjie moeiliker as die res — dit is eintlik Graad 5-werk, maar dit is lekker om nou al te sien! Nie alle getalle is positief nie. Op 'n termometer kan die temperatuur onder 0 wees, bv. -5°C (5 grade onder nul). Op 'n getallelyn is negatiewe getalle LINKS van 0. Hoe verder links, hoe kleiner die getal: -10 is kleiner as -2.",
+    keyPoints:["Dit is BONUS-inhoud — 'n voorsmakie van Graad 5","Negatiewe getalle is kleiner as 0","Hulle word met 'n minus-teken geskryf, bv. -5","Op 'n getallelyn: hoe verder links, hoe kleiner"] },
   // Wiskunde — Optelling en Aftrekking
   { grade:4, subject:'maths', title:"Optelling sonder Hergroepering", emoji:"➕",
     content:"Wanneer ons twee getalle optel, begin ons altyd by die ENE-kolom regs. As geen kolom se som groter as 9 is nie, hoef ons nie te hergroepeer (dra) nie. Bv. 234 + 152: Ene 4+2=6, Tientalle 3+5=8, Honderde 2+1=3. Antwoord: 386.",
@@ -283,7 +283,7 @@ export const FLASHCARDS = [
   { grade:4, subject:'maths', front:"Noem die eerste 5 veelvoude van 4", back:"4, 8, 12, 16, 20 ➰", emoji:"➰" },
   { grade:4, subject:'maths', front:"Watter simbool beteken 'kleiner as'?", back:"< 🔍", emoji:"🔍" },
   { grade:4, subject:'maths', front:"Wat is V in Romeinse syfers?", back:"5 🏛️", emoji:"🏛️" },
-  { grade:4, subject:'maths', front:"Is -10 groter of kleiner as -2?", back:"Kleiner ❄️", emoji:"❄️" },
+  { grade:4, subject:'maths', front:"Is -10 groter of kleiner as -2?", back:"Kleiner — 'n voorsmakie van Graad 5! ❄️", emoji:"❄️", bonus:true },
   // Wiskunde — Optelling en Aftrekking
   { grade:4, subject:'maths', front:"Wat is 234 + 152?", back:"386 ➕", emoji:"➕" },
   { grade:4, subject:'maths', front:"Wat is 268 + 157?", back:"425 🎒", emoji:"🎒" },

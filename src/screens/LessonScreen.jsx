@@ -85,6 +85,11 @@ export default function LessonScreen() {
         <div className="bg-white rounded-3xl shadow-xl border border-indigo-100 overflow-hidden animate-slide-up">
           {/* Coloured emoji banner */}
           <div className={`${gc.light} border-b ${gc.border} py-6 flex flex-col items-center gap-2`}>
+            {lesson.bonus && (
+              <span className="text-xs font-extrabold uppercase tracking-widest bg-amber-400 text-white px-3 py-1 rounded-full shadow-sm">
+                🌟 Bonus
+              </span>
+            )}
             <span className="text-7xl drop-shadow-sm">{lesson.emoji}</span>
             <h2 className={`text-2xl font-extrabold ${gc.text} text-center px-4 leading-tight`}>{lesson.title}</h2>
           </div>

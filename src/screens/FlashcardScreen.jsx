@@ -113,12 +113,22 @@ export default function FlashcardScreen() {
             >
               {/* Front */}
               <div className="flip-face rounded-3xl shadow-xl border-4 border-amber-300 bg-white flex flex-col items-center justify-center gap-3 p-6 text-center">
+                {card.bonus && (
+                  <span className="absolute top-3 left-1/2 -translate-x-1/2 text-xs font-extrabold uppercase tracking-widest bg-amber-400 text-white px-3 py-1 rounded-full shadow-sm">
+                    🌟 Bonus
+                  </span>
+                )}
                 <span className="text-5xl">{card.emoji}</span>
                 <span className="text-lg font-extrabold text-gray-800 leading-snug">{card.front}</span>
                 <span className="text-xs text-amber-400 font-semibold mt-1">👆 Tik om antwoord te wys</span>
               </div>
               {/* Back */}
               <div className="flip-face flip-back rounded-3xl shadow-xl border-4 border-green-300 bg-green-50 flex flex-col items-center justify-center gap-3 p-6 text-center">
+                {card.bonus && (
+                  <span className="absolute top-3 left-1/2 -translate-x-1/2 text-xs font-extrabold uppercase tracking-widest bg-amber-400 text-white px-3 py-1 rounded-full shadow-sm">
+                    🌟 Bonus
+                  </span>
+                )}
                 <span className="text-5xl">{card.emoji}</span>
                 <span className="text-base font-bold text-gray-700 leading-snug">{card.back}</span>
                 <span className="text-xs text-green-400 font-semibold mt-1">👆 Tik om vraag te wys</span>
